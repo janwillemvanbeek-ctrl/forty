@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases — Forty</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --white: #FFFFFF;
+            --stone-50: #FAFAF9;
+            --stone-100: #F5F5F4;
+            --stone-200: #E7E5E4;
+            --stone-300: #D6D3D1;
+            --stone-400: #A8A29E;
+            --stone-500: #78716C;
+            --stone-600: #57534E;
+            --stone-700: #44403C;
+            --stone-800: #292524;
+            --stone-900: #1C1917;
+            --amber-500: #F59E0B;
+            --amber-600: #D97706;
+            --green-600: #059669;
+            --slate-900: #0F172A;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--stone-900);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- HEADER (from homepage) --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px) saturate(180%);
+            border-bottom: 1px solid transparent;
+            transition: border-color 200ms ease;
+        }
+        
+        .header.scrolled {
+            border-bottom-color: var(--stone-200);
+        }
+        
+        .header__inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header__logo {
+            text-decoration: none;
+        }
+        
+        .header__logo img {
+            height: 84px !important;
+            display: block;
+        }
+        
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        
+        .header__nav a {
+            color: var(--stone-600);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 200ms ease;
+        }
+        
+        .header__nav a:hover {
+            color: var(--stone-900);
+        }
+        
+        .header__mobile-toggle {
+            display: none;
+        }
+        
+        .header__mobile-menu {
+            display: none;
+            position: fixed;
+            top: 116px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--stone-200);
+            padding: 24px;
+            z-index: 999;
+        }
+        
+        .header__mobile-menu.active {
+            display: block;
+        }
+        
+        .header__mobile-menu a {
+            display: block;
+            color: var(--stone-700);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--stone-100);
+            transition: color 200ms ease;
+        }
+        
+        .header__mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .header__mobile-menu a:hover {
+            color: var(--stone-900);
+        }
+        
+        .header__mobile-cta {
+            margin-top: 16px;
+            padding: 12px 24px !important;
+            background: var(--amber-500);
+            color: white !important;
+            border-radius: 4px;
+            text-align: center;
+            border-bottom: none !important;
+        }
+        
+        .header__mobile-cta:hover {
+            background: var(--amber-600);
+        }
+        
+        @media (max-width: 768px) {
+            .header__nav {
+                display: none;
+            }
+            
+            .header__mobile-toggle {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: none;
+                border: none;
+                color: var(--stone-700);
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                padding: 8px;
+                transition: color 200ms ease;
+            }
+            
+            .header__mobile-toggle:hover {
+                color: var(--stone-900);
+            }
+            
+            .header__mobile-toggle svg {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .header__logo img {
+                height: 72px !important;
+            }
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 160px 24px 80px; /* Extra top padding voor fixed header */
+            background: var(--white);
+        }
+
+        .hero__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--stone-900);
+            margin-bottom: 24px;
+        }
+
+        .hero__title em {
+            font-style: italic;
+        }
+
+        .hero__body {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--stone-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- REFLECTIVE LINE --- */
+        .reflective {
+            padding: 80px 24px;
+            background: var(--white);
+            border-bottom: 1px solid var(--stone-200);
+        }
+
+        .reflective__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .reflective__text {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 20px;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--stone-600);
+        }
+
+        /* --- CASES GRID --- */
+        .cases {
+            padding: 140px 24px 160px;
+            background: var(--white);
+        }
+
+        .cases__inner {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .cases__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px 32px;
+        }
+
+        @media (max-width: 900px) {
+            .cases__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- CASE CARD --- */
+        .case-card {
+            background: var(--white);
+            border: 1px solid var(--stone-200);
+            border-radius: 8px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 300ms ease, box-shadow 300ms ease;
+        }
+
+        .case-card:hover {
+            box-shadow: 0 12px 32px rgba(28, 25, 23, 0.08);
+            opacity: 0.98;
+        }
+
+        .case-card__image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: linear-gradient(135deg, var(--stone-100) 0%, var(--stone-50) 100%);
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--stone-200);
+            filter: saturate(0.92) contrast(1.05);
+        }
+        
+        .case-card__image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--stone-400);
+            font-style: italic;
+        }
+
+        .case-card__content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .case-card__content {
+                padding: 28px;
+            }
+            
+            .case-card__title {
+                font-size: 18px;
+            }
+        }
+
+        .case-card__header {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--stone-100);
+        }
+
+        .case-card__title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--stone-900);
+            line-height: 1.3;
+        }
+
+        .case-card__section {
+            margin-bottom: 28px;
+        }
+
+        .case-card__section:last-of-type {
+            margin-bottom: 32px;
+        }
+
+        .case-card__label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--stone-500);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .case-card__decision-value {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+            padding: 3px 10px;
+            background: rgba(250, 250, 249, 0.6);
+            border: 1px solid var(--stone-200);
+            border-radius: 12px;
+        }
+
+        .decision-marker {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-right: 6px;
+            opacity: 0.7;
+        }
+
+        .decision--go {
+            color: var(--green-600);
+        }
+
+        .decision--stop {
+            color: var(--stone-600);
+        }
+
+        .decision--pivot {
+            color: var(--amber-600);
+        }
+
+        .case-card__text {
+            font-size: 15px;
+            color: var(--stone-700);
+            line-height: 1.6;
+        }
+
+        .case-card__link {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--stone-900);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: text-underline-offset 200ms ease;
+            margin-top: auto;
+        }
+
+        .case-card__link:hover {
+            text-underline-offset: 6px;
+        }
+
+        /* --- FOOTER (from homepage) --- */
+        .footer {
+            background: var(--stone-900);
+            color: var(--stone-400);
+            padding: 64px 24px 32px;
+        }
+
+        .footer__inner {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        
+        .footer__top {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1fr;
+            gap: 96px;
+            padding-bottom: 72px;
+            border-bottom: 1px solid var(--stone-800);
+            margin-bottom: 48px;
+            align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .footer__top {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+        
+        .footer__brand {
+            padding-top: 4px;
+        }
+        
+        .footer__brand img {
+            height: 72px !important;
+            margin-bottom: 0;
+        }
+        
+        .footer__brand-tagline {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--stone-500);
+            margin-top: 32px;
+            margin-bottom: 24px;
+            max-width: 280px;
+        }
+        
+        .footer__social {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .footer__social a {
+            color: var(--stone-500);
+            transition: color 200ms ease;
+        }
+        
+        .footer__social a:hover {
+            color: var(--stone-300);
+        }
+        
+        .footer__col-title {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--stone-500);
+            margin-bottom: 24px;
+        }
+        
+        .footer__col a {
+            display: block;
+            color: var(--stone-400);
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            transition: color 200ms ease;
+        }
+        
+        .footer__col a:hover {
+            color: var(--stone-200);
+        }
+        
+        .footer__contact-item {
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        .footer__contact-item a {
+            color: var(--stone-400);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+        
+        .footer__contact-item a:hover {
+            color: var(--stone-200);
+        }
+        
+        .footer__bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--stone-600);
+            padding-top: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer__bottom {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+        }
+        
+        .footer__legal {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer__legal a {
+            color: var(--stone-600);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+        
+        .footer__legal a:hover {
+            color: var(--stone-400);
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .header__nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 80px 24px 60px;
+            }
+
+            .case-card__content {
+                padding: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="/forty/" class="header__logo">
+                <img src="/forty/Forty_Zwart_Liggend_rgb.svg" alt="Forty">
+            </a>
+            <nav class="header__nav">
+                <a href="/forty/werkwijze">Werkwijze</a>
+                <a href="/forty/cases">Cases</a>
+                <a href="/forty/verhalen">Verhalen</a>
+                <a href="/forty/over">Over Forty</a>
+            </nav>
+            <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+                <span>Menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <div class="header__mobile-menu" id="mobileMenu">
+            <a href="/forty/werkwijze">Werkwijze</a>
+            <a href="/forty/cases">Cases</a>
+            <a href="/forty/verhalen">Verhalen</a>
+            <a href="/forty/over">Over Forty</a>
+            <a href="/cdn-cgi/l/email-protection#8ce5e2eae3cceae3fef8f5a2e2e0" class="header__mobile-cta">Plan een gesprek</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero__inner">
+            <h1 class="hero__title">Beslissingen <em>vóór schaal</em></h1>
+            <p class="hero__body">
+                In deze trajecten bepaalden we expliciet of verder investeren verstandig was. Geen vage projecten, maar onderbouwde keuzes.
+            </p>
+        </div>
+    </section>
+
+    <!-- REFLECTIVE LINE (in plaats van filter) -->
+    <section class="reflective">
+        <div class="reflective__inner">
+            <p class="reflective__text">
+                Niet elk traject eindigt in een lancering. Wel elk traject in een helder besluit.
+            </p>
+        </div>
+    </section>
+
+    <!-- CASES GRID -->
+    <!-- Note: Wanneer echte images worden toegevoegd, gebruik: <img src="..." alt="..." loading="lazy"> voor performance -->
+    <section class="cases">
+        <div class="cases__inner">
+            <div class="cases__grid">
+
+<!-- CASE 1: VPRO Spot -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/vpro-spot.jpg" 
+                         alt="VPRO Spot kijklijst interface" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[VPRO Spot interface]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">VPRO Spot — koopintentie vóór lancering</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--stop">
+                                <span class="decision-marker">STOP</span> Is er markt voor podcast-abonnementen?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Onderzochten kijkgedrag en fricties en toetsten expliciet koopintentie en prijsacceptatie voordat verder werd geïnvesteerd in ontwikkeling en positionering.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Heldere inzichten in waarde en drempels. Besluitvorming gebaseerd op echte betaalbereidheid in plaats van aannames of enthousiasme.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/vpro-spot" class="case-card__link">→ Waarom we hier stopten</a>
+                    </div>
+                </article>
+
+<!-- CASE 2: AVEQ -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/aveq.jpg" 
+                         alt="AVEQ AudioSight app interface" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[Pitchdeck slide]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">AVEQ — pitchdeck als beslisinstrument</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--go">
+                                <span class="decision-marker">GO</span> Overtuigt dit verhaal klanten én investeerders?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Ontwikkelden een pitchdeck dat geen marketingverhaal was, maar een toetsinstrument. Koppelden het deck aan echte gesprekken en expliciete koopcriteria.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Scherp inzicht in positionering en koopintentie. Heldere basis voor vervolgstappen richting investering — of aanscherping.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/aveq" class="case-card__link">→ Lees case</a>
+                    </div>
+                </article>
+
+<!-- CASE 3: Sportinnovator -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/sportinnovator.jpg" 
+                         alt="Sportinnovator accelerator workshop" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[Sportinnovator visual]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">Sportinnovator — besluitvorming in een accelerator</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--stop">
+                                <span class="decision-marker">GO/STOP</span> Wat verdient vervolgfinanciering — wat niet?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Begeleidden teams binnen het acceleratorprogramma op probleem-oplossing fit, businessmodel en eerste tractie. Introduceerden expliciete go/stop/pivot-momenten in plaats van open eindes.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Focus en middelen geconcentreerd op kansrijke innovaties. Teams kregen duidelijkheid, ook wanneer dat betekende: stoppen.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/sportinnovator" class="case-card__link">→ Hoe we go/no-go momenten inbouwden</a>
+                    </div>
+                </article>
+
+<!-- CASE 4: Ouderfonds -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/ouderfonds.jpg" 
+                         alt="Ouderfonds Sustainable Lean Canvas" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[Business model canvas]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">Ouderfonds — business-model-first innovatie</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--stop">
+                                <span class="decision-marker">STOP</span> Werkt dit zonder de oprichter?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Helpen de innovatieafdeling structureel business-model-first werken. Voeren doorlopend business model stress tests uit op meerdere initiatieven en begeleiden besluitvorming rond schaalbaarheid, financieringslogica en koopintentie.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Besluitvorming naar voren gehaald in het innovatieproces. Minder uitwerking van kansarme ideeën en scherpere keuzes vóór verdere investering.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/ouderfonds" class="case-card__link">→ Hoe deze beslissing tot stand kwam</a>
+                    </div>
+                </article>
+
+<!-- CASE 5: Connected River -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/connected-river.jpg" 
+                         alt="Connected River waterkwaliteit testing" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[Rivierinnovatie visual]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">Connected River — beslissen vóór opschaling</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--go">
+                                <span class="decision-marker">GO</span> Wat kan veilig worden opgeschaald?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Werkten als innovatiecoach en beslispartner binnen een Europees programma. Ontwikkelden een afwegingskader voor experimenten in de Spiegelwaal en begeleidden teams bij hypothese-gedreven pilots met expliciete opschalingscriteria.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Heldere keuzes over doorgaan, herontwerpen of stoppen. Geen symbolische pilots, maar bestuurlijk gedragen besluitvorming over wat schaal verdient.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/connected-river" class="case-card__link">→ Lees case</a>
+                    </div>
+                </article>
+
+<!-- CASE 6: NOC*NSF -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/nocnsf-shuffle-sports.jpg" 
+                         alt="NOC*NSF Shuffle Sports - jongeren boogschieten" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[NOC*NSF visual]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">NOC*NSF — Shuffle Sports</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--go">
+                                <span class="decision-marker">GO</span> Werkt dit concept breed genoeg voor uitrol?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Onderzochten motivatie en drempels bij jongeren, ontwierpen en testten Shuffle Sports als laagdrempelig sportconcept en definieerden meetbare succescriteria vóór opschaling.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Inzicht in wat werkt en wat niet. Gerichte keuzes over doorontwikkeling en uitrol, zonder grootschalige implementatie op aannames.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/nocnsf-shuffle-sports" class="case-card__link">→ Lees case</a>
+                    </div>
+                </article>
+
+<!-- CASE 7: HEMA -->
+                <article class="case-card">
+                    <img src="/forty/assets/images/hema.jpg" 
+                         alt="HEMA Click & Collect app interface" 
+                         class="case-card__image"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;case-card__image-placeholder&quot;>[HEMA visual]</div>'">
+                    <div class="case-card__content">
+                        <div class="case-card__header">
+                            <div class="case-card__title">HEMA — innovatiepartnerschap van experiment naar schaal</div>
+                        </div>
+                        
+                        <div class="case-card__section">
+                            <span class="case-card__label">Beslissing</span>
+                            <div class="case-card__decision-value decision--go">
+                                <span class="decision-marker">GO</span> Wat is robuust genoeg voor landelijke uitrol?
+                            </div>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Wat we deden</span>
+                            <p class="case-card__text">
+                                Werkten als innovatiepartner aan meerdere trajecten, waaronder Click & Collect in de HEMA-app. Testten oplossingen in winkels met echte klanten en toetsten aannames op operatie, wachttijd en foutgevoeligheid.
+                            </p>
+                        </div>
+
+                        <div class="case-card__section">
+                            <span class="case-card__label">Uitkomst</span>
+                            <p class="case-card__text">
+                                Click & Collect grootschalig geïmplementeerd. Lagere risico's en snellere besluitvorming bij landelijke uitrol.
+                            </p>
+                        </div>
+
+                        <a href="/forty/cases/hema" class="case-card__link">→ Lees case</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__top">
+                <div class="footer__brand-col">
+                    <a href="/forty/" class="footer__brand">
+                        <img src="/forty/Forty_Wit_Liggend_rgb.svg" alt="Forty">
+                    </a>
+                    <p class="footer__brand-tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
+                    <div class="footer__social">
+                        <a href="https://www.linkedin.com/company/fortyutrecht/" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/forty.nl/" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <div class="footer__col-title">Navigatie</div>
+                    <a href="/forty/werkwijze">Werkwijze</a>
+                    <a href="/forty/cases">Cases</a>
+                    <a href="/forty/verhalen">Verhalen</a>
+                    <a href="/forty/over">Over Forty</a>
+                    <a href="/forty/diensten#startups" style="margin-top: 24px;">Startups</a>
+                    <a href="/forty/diensten#bedrijven">Bedrijven</a>
+                    <a href="/forty/diensten#investeerders">Investeerders</a>
+                </div>
+                
+                <div class="footer__col">
+                    <div class="footer__col-title">Contact</div>
+                    <span class="footer__contact-item"><a href="tel:+31302737422">+31 (0)30 2737 422</a></span>
+                    <span class="footer__contact-item"><a href="/cdn-cgi/l/email-protection#cda4a3aba28daba2bfb9b4e3a3a1"><span class="__cf_email__" data-cfemail="167f78707956707964626f38787a">[email&#160;protected]</span></a></span>
+                    <span class="footer__contact-item" style="margin-top: 8px; font-size: 12px; color: var(--stone-600);">Utrecht, Nederland</span>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <span>© Forty 2025</span>
+                <div class="footer__legal">
+                    <a href="/forty/privacy">Privacy</a>
+                    <a href="/forty/algemene-voorwaarden">Voorwaarden</a>
+                    <a href="/forty/iso-27001">ISO 27001</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        // Header scroll state
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+    </script>
