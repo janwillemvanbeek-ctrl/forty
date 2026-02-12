@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy — Forty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-stone-950: #1c1917;
+      --color-stone-900: #292524;
+      --color-stone-800: #44403c;
+      --color-stone-600: #57534e;
+      --color-stone-500: #78716c;
+      --color-stone-400: #a8a29e;
+      --color-stone-300: #d6d3d1;
+      --color-stone-200: #e7e5e4;
+      --color-stone-100: #f5f5f4;
+      --color-stone-50: #fafaf9;
+      --color-white: #ffffff;
+      --color-amber: #E8A838;
+      --color-amber-light: #fdf0d5;
+      --color-navy: #0b1c2d;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+      --max-width: 720px;
+      --max-width-wide: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-stone-950);
+      background: var(--color-white);
+      line-height: 1.7;
+      font-size: 16.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-stone-200);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--color-stone-950);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      color: var(--color-stone-600);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--color-stone-950); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      padding: 80px 40px 60px;
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-stone-500);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--color-stone-950);
+      max-width: 600px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(to top, var(--color-amber-light) 40%, transparent 40%);
+      padding: 0 2px;
+    }
+
+    .hero-sub {
+      margin-top: 24px;
+      font-size: 17px;
+      color: var(--color-stone-600);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--color-stone-400);
+    }
+
+    /* ===================== TOC ===================== */
+    .toc-section {
+      padding: 0 40px 60px;
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: var(--color-stone-50);
+      text-decoration: none;
+      color: var(--color-stone-950);
+      transition: background 0.2s, transform 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .toc-item:hover {
+      background: var(--color-stone-100);
+      border-color: var(--color-stone-200);
+      transform: translateY(-1px);
+    }
+
+    .toc-num {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--color-amber);
+      min-width: 28px;
+    }
+
+    .toc-label {
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--color-stone-800);
+    }
+
+    /* ===================== CONTENT ===================== */
+    .content-wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px 100px;
+    }
+
+    .content-wrap section {
+      margin-bottom: 56px;
+      scroll-margin-top: 100px;
+    }
+
+    .content-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--color-stone-950);
+      margin-bottom: 20px;
+      padding-top: 8px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .content-wrap h2 .section-num {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-amber);
+      min-width: 24px;
+    }
+
+    .content-wrap h3 {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-stone-950);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    .content-wrap p {
+      margin-bottom: 14px;
+      color: var(--color-stone-800);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .content-wrap ul {
+      list-style: none;
+      margin-bottom: 16px;
+      padding-left: 0;
+    }
+
+    .content-wrap ul li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 8px;
+      color: var(--color-stone-800);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .content-wrap ul li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-amber);
+    }
+
+    .content-wrap a {
+      color: var(--color-stone-950);
+      text-decoration: underline;
+      text-decoration-color: var(--color-amber);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .content-wrap a:hover {
+      text-decoration-color: var(--color-stone-950);
+    }
+
+    .contact-card {
+      background: var(--color-stone-50);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin: 20px 0;
+      border: 1px solid var(--color-stone-200);
+    }
+
+    .contact-card p {
+      margin-bottom: 4px;
+      color: var(--color-stone-800);
+    }
+
+    .contact-card .org-name {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--color-stone-950);
+      margin-bottom: 12px;
+    }
+
+    .legal-basis {
+      background: var(--color-stone-50);
+      border-left: 3px solid var(--color-amber);
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+      margin: 16px 0 20px;
+    }
+
+    .legal-basis strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: var(--color-stone-950);
+    }
+
+    .legal-basis p {
+      margin-bottom: 6px;
+      font-size: 15px;
+      color: var(--color-stone-600);
+    }
+
+    /* ===================== DIVIDER ===================== */
+    .section-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--color-stone-200);
+      margin-bottom: 56px;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--color-stone-950);
+      color: var(--color-stone-400);
+      padding: 80px 40px 40px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width-wide);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 60px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-brand .logo-text {
+      font-family: var(--font-sans);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand .logo-text svg { width: 28px; height: 28px; }
+
+    .footer-brand .tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--color-stone-400);
+      line-height: 1.5;
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-stone-500);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a {
+      color: var(--color-stone-400);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--color-white); }
+
+    .footer-bottom {
+      max-width: var(--max-width-wide);
+      margin: 60px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-stone-800);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+    }
+
+    .footer-bottom a {
+      color: var(--color-stone-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-bottom a:hover { color: var(--color-stone-400); }
+
+    .footer-legal { display: flex; gap: 28px; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 768px) {
+      .nav-inner { padding: 16px 20px; }
+      .nav-links { gap: 20px; }
+      .nav-links a { font-size: 14px; }
+      .hero { padding: 48px 20px 40px; }
+      .toc-section { padding: 0 20px 40px; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .content-wrap { padding: 0 20px 60px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 60px 20px 30px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    /* ===================== ANIMATIONS ===================== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, .toc-section, .content-wrap section {
+      animation: fadeUp 0.6s ease-out both;
+    }
+
+    .toc-section { animation-delay: 0.15s; }
+    .content-wrap section:nth-child(1) { animation-delay: 0.2s; }
+    .content-wrap section:nth-child(n+2) {
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out forwards;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = '0.05s';
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.content-wrap section').forEach(section => {
+        section.style.animationPlayState = 'paused';
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4C14.5 4 10 8.5 10 14c0 4.5 3 8.5 7.5 9.5v8c0 2.5 1 4.5 2.5 4.5s2.5-2 2.5-4.5v-8C27 22.5 30 18.5 30 14c0-5.5-4.5-10-10-10zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill="currentColor"/>
+        </svg>
+        forty
+      </a>
+      <ul class="nav-links">
+        <li><a href="/forty/">Werkwijze</a></li>
+        <li><a href="/forty/cases">Cases</a></li>
+        <li><a href="/forty/verhalen">Verhalen</a></li>
+        <li><a href="/forty/over">Over Forty</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">Juridisch</p>
+    <h1>Hoe wij omgaan met <em>jouw gegevens</em></h1>
+    <p class="hero-sub">Wij respecteren je privacy en verwerken persoonsgegevens in overeenstemming met de AVG, de Uitvoeringswet AVG en de Telecommunicatiewet.</p>
+    <p class="hero-meta">Laatst bijgewerkt: februari 2026</p>
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-section">
+    <div class="toc-grid">
+      <a href="#s1" class="toc-item"><span class="toc-num">1</span><span class="toc-label">Verwerkingsverantwoordelijke</span></a>
+      <a href="#s2" class="toc-item"><span class="toc-num">2</span><span class="toc-label">Op wie is dit van toepassing?</span></a>
+      <a href="#s3" class="toc-item"><span class="toc-num">3</span><span class="toc-label">Welke gegevens verzamelen wij?</span></a>
+      <a href="#s4" class="toc-item"><span class="toc-num">4</span><span class="toc-label">Doeleinden en rechtsgronden</span></a>
+      <a href="#s5" class="toc-item"><span class="toc-num">5</span><span class="toc-label">Nieuwsbrieven</span></a>
+      <a href="#s6" class="toc-item"><span class="toc-num">6</span><span class="toc-label">Delen met derden</span></a>
+      <a href="#s7" class="toc-item"><span class="toc-num">7</span><span class="toc-label">Bewaartermijnen</span></a>
+      <a href="#s8" class="toc-item"><span class="toc-num">8</span><span class="toc-label">Opslag en beveiliging</span></a>
+      <a href="#s9" class="toc-item"><span class="toc-num">9</span><span class="toc-label">Cookies</span></a>
+      <a href="#s10" class="toc-item"><span class="toc-num">10</span><span class="toc-label">Jouw rechten</span></a>
+      <a href="#s11" class="toc-item"><span class="toc-num">11</span><span class="toc-label">Klachten en contact</span></a>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- 1 -->
+    <section id="s1">
+      <h2><span class="section-num">1.</span> Verwerkingsverantwoordelijke</h2>
+      <p>De verwerkingsverantwoordelijke in de zin van artikel 4 lid 7 AVG is:</p>
+      <div class="contact-card">
+        <p class="org-name">Forty B.V.</p>
+        <p>Gevestigd en kantoorhoudende te Utrecht</p>
+        <p>KvK-nummer: 77600509</p>
+        <p>Telefoon: <a href="tel:+31302737422">+31 (0)30 273 7422</a></p>
+        <p>E-mail: <a href="mailto:hello@forty.nl">hello@forty.nl</a></p>
+        <p>Privacyvragen: <a href="mailto:privacy@forty.nl">privacy@forty.nl</a></p>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section id="s2">
+      <h2><span class="section-num">2.</span> Op wie is dit van toepassing?</h2>
+      <p>Deze privacyverklaring is van toepassing op:</p>
+      <ul>
+        <li>(Potentiële) klanten en relaties van Forty</li>
+        <li>Bezoekers van de website van Forty</li>
+        <li>Ontvangers van nieuwsberichten en e-mails van Forty</li>
+        <li>Alle overige personen die contact opnemen met Forty of van wie Forty persoonsgegevens verwerkt, met uitzondering van werknemers (waarvoor een apart privacybeleid geldt)</li>
+      </ul>
+    </section>
+
+    <!-- 3 -->
+    <section id="s3">
+      <h2><span class="section-num">3.</span> Welke gegevens verzamelen wij?</h2>
+
+      <h3>Door jou verstrekte gegevens</h3>
+      <p>Wanneer je een dienst afneemt, contact opneemt of een overeenkomst aangaat, kunnen wij het volgende verwerken:</p>
+
+      <h3>Persoonlijke gegevens</h3>
+      <ul>
+        <li>Voor- en achternaam</li>
+        <li>Geslacht</li>
+        <li>Adresgegevens</li>
+        <li>Telefoonnummer</li>
+        <li>E-mailadres</li>
+      </ul>
+
+      <h3>Bedrijfsgegevens</h3>
+      <ul>
+        <li>Bedrijfsnaam en rechtsvorm</li>
+        <li>KvK-nummer</li>
+        <li>Factuuradres</li>
+        <li>Zakelijk e-mailadres</li>
+        <li>Indien van toepassing: UBO-verklaring</li>
+      </ul>
+
+      <h3>Betaalgegevens</h3>
+      <ul>
+        <li>IBAN en tenaamstelling</li>
+      </ul>
+
+      <h3>Automatisch verzamelde gegevens</h3>
+      <p>Bij je bezoek aan onze website worden automatisch de volgende gegevens verzameld:</p>
+      <ul>
+        <li>IP-adres (geanonimiseerd waar mogelijk)</li>
+        <li>Type apparaat, browser en besturingssysteem</li>
+        <li>Surfgedrag op de website (bezochte pagina's, sessieduur, navigatiepatronen)</li>
+        <li>Datum en tijdstip van bezoeken</li>
+      </ul>
+
+      <h3>Gegevens uit andere bronnen</h3>
+      <p>Wij kunnen persoonsgegevens verkrijgen uit openbare bronnen, waaronder:</p>
+      <ul>
+        <li>Zakelijke social media (LinkedIn)</li>
+        <li>Handelsregister van de Kamer van Koophandel</li>
+        <li>Openbare zakelijke websites</li>
+      </ul>
+    </section>
+
+    <!-- 4 -->
+    <section id="s4">
+      <h2><span class="section-num">4.</span> Doeleinden en rechtsgronden</h2>
+      <p>Wij verwerken je persoonsgegevens uitsluitend voor de volgende doeleinden en op basis van de bijbehorende rechtsgronden uit artikel 6 AVG:</p>
+
+      <div class="legal-basis">
+        <strong>Uitvoering van een overeenkomst (art. 6 lid 1 sub b)</strong>
+        <p>Het leveren van onze diensten, facturering en klantcommunicatie.</p>
+      </div>
+
+      <div class="legal-basis">
+        <strong>Wettelijke verplichting (art. 6 lid 1 sub c)</strong>
+        <p>Het voldoen aan fiscale en administratieve bewaarplichten.</p>
+      </div>
+
+      <div class="legal-basis">
+        <strong>Gerechtvaardigd belang (art. 6 lid 1 sub f)</strong>
+        <p>Het verzenden van informatie over onze eigen diensten, het verbeteren en beveiligen van de website, het beantwoorden van vragen en klachten. Je kunt te allen tijde bezwaar maken tegen verwerking op deze grond.</p>
+      </div>
+
+      <div class="legal-basis">
+        <strong>Toestemming (art. 6 lid 1 sub a)</strong>
+        <p>Waar wij je uitdrukkelijke toestemming hebben gevraagd, bijvoorbeeld voor nieuwsbrieven. Je kunt je toestemming te allen tijde intrekken, zonder dat dit afbreuk doet aan de rechtmatigheid van de verwerking vóór intrekking.</p>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section id="s5">
+      <h2><span class="section-num">5.</span> Nieuwsbrieven en commerciële berichten</h2>
+      <p>Wij kunnen je per e-mail informeren over ontwikkelingen in onze diensten en producten. Iedere e-mail bevat een afmeldlink waarmee je je direct kunt uitschrijven. Je kunt je ook afmelden via <a href="mailto:privacy@forty.nl">privacy@forty.nl</a>. Na afmelding ontvang je binnen 10 werkdagen geen commerciële berichten meer.</p>
+    </section>
+
+    <!-- 6 -->
+    <section id="s6">
+      <h2><span class="section-num">6.</span> Delen met derden</h2>
+      <p>Wij delen je persoonsgegevens niet met derden, tenzij:</p>
+      <ul>
+        <li>je daarvoor uitdrukkelijke toestemming hebt gegeven;</li>
+        <li>dit noodzakelijk is voor de uitvoering van onze diensten;</li>
+        <li>wij daartoe wettelijk verplicht zijn;</li>
+        <li>de gegevens niet tot jou persoonlijk herleidbaar zijn.</li>
+      </ul>
+      <p>Wij schakelen verwerkers in die uitsluitend in onze opdracht persoonsgegevens verwerken. Met al deze verwerkers hebben wij een verwerkersovereenkomst gesloten conform artikel 28 AVG.</p>
+
+      <h3>Verwerkers</h3>
+      <ul>
+        <li>Google Workspace (Gmail, Calendar, Analytics)</li>
+        <li>Mailchimp (e-mailmarketing)</li>
+        <li>Homerun (werving)</li>
+        <li>Harvest (tijdregistratie)</li>
+        <li>1Password (wachtwoordbeheer)</li>
+      </ul>
+
+      <h3>Doorgifte buiten de EER</h3>
+      <p>Sommige verwerkers zijn gevestigd buiten de Europese Economische Ruimte (EER). Wij waarborgen een passend beschermingsniveau door middel van een adequaatheidsbesluit (zoals het EU-US Data Privacy Framework) of Standard Contractual Clauses (SCC's).</p>
+
+      <h3>Hyperlinks naar derden</h3>
+      <p>Onze website kan hyperlinks bevatten naar websites van derden. Forty is niet verantwoordelijk voor het privacybeleid van deze websites. Wij raden je aan het privacybeleid van derden te raadplegen voordat je persoonsgegevens verstrekt.</p>
+    </section>
+
+    <!-- 7 -->
+    <section id="s7">
+      <h2><span class="section-num">7.</span> Bewaartermijnen</h2>
+      <p>Wij bewaren je persoonsgegevens niet langer dan noodzakelijk. De volgende termijnen gelden:</p>
+      <ul>
+        <li><strong>Klantgegevens:</strong> tot 2 jaar na beëindiging van de overeenkomst, tenzij wettelijke bewaarplichten anders voorschrijven</li>
+        <li><strong>Fiscale gegevens:</strong> 7 jaar (Algemene wet inzake rijksbelastingen)</li>
+        <li><strong>Website-analysegegevens:</strong> maximaal 26 maanden</li>
+        <li><strong>Nieuwsbriefgegevens:</strong> tot afmelding, waarna binnen 30 dagen verwijderd</li>
+        <li><strong>Sollicitatiegegevens:</strong> maximaal 4 weken na afronding procedure, tenzij je toestemming geeft voor langere bewaring (max. 1 jaar)</li>
+      </ul>
+    </section>
+
+    <!-- 8 -->
+    <section id="s8">
+      <h2><span class="section-num">8.</span> Opslag en beveiliging</h2>
+      <p>Je gegevens worden opgeslagen op beveiligde servers. Wij hebben passende technische en organisatorische maatregelen getroffen, waaronder:</p>
+      <ul>
+        <li>Versleutelde verbindingen (HTTPS/TLS)</li>
+        <li>Wachtwoordbeheer via 1Password met regelmatig gewijzigde wachtwoorden</li>
+        <li>Twee-factor-authenticatie waar mogelijk</li>
+        <li>Toegangsbeperking op basis van need-to-know</li>
+        <li>Versleutelde opslag van fysieke dossiers</li>
+      </ul>
+      <p>Vragen over onze beveiligingsmaatregelen? Neem contact op via <a href="mailto:privacy@forty.nl">privacy@forty.nl</a>.</p>
+    </section>
+
+    <!-- 9 -->
+    <section id="s9">
+      <h2><span class="section-num">9.</span> Cookies</h2>
+      <p>Onze website maakt gebruik van cookies — kleine tekstbestanden die op je apparaat worden geplaatst.</p>
+      <ul>
+        <li><strong>Strikt noodzakelijke cookies:</strong> vereist voor basisfunctionaliteit. Geen toestemming nodig (art. 11.7a lid 3 Telecommunicatiewet).</li>
+        <li><strong>Analytische cookies:</strong> wij gebruiken Google Analytics met IP-anonimisering, uitgeschakeld 'gegevens delen' en een verwerkersovereenkomst met Google.</li>
+        <li><strong>Marketing- en personalisatiecookies:</strong> worden alleen geplaatst na je uitdrukkelijke toestemming via de cookiebanner.</li>
+      </ul>
+      <p>Je kunt je cookievoorkeuren te allen tijde wijzigen via de cookie-instellingen op onze website of via je browserinstellingen.</p>
+    </section>
+
+    <!-- 10 -->
+    <section id="s10">
+      <h2><span class="section-num">10.</span> Jouw rechten</h2>
+      <p>Op grond van de AVG heb je de volgende rechten:</p>
+      <ul>
+        <li><strong>Inzage</strong> (art. 15) — opvragen welke gegevens wij van je verwerken</li>
+        <li><strong>Rectificatie</strong> (art. 16) — onjuiste gegevens laten corrigeren</li>
+        <li><strong>Verwijdering</strong> (art. 17) — in bepaalde gevallen verzoeken om verwijdering</li>
+        <li><strong>Beperking</strong> (art. 18) — tijdelijke beperking van verwerking</li>
+        <li><strong>Dataportabiliteit</strong> (art. 20) — gegevens in gestructureerd formaat ontvangen</li>
+        <li><strong>Bezwaar</strong> (art. 21) — bezwaar maken tegen verwerking op grond van gerechtvaardigd belang</li>
+        <li><strong>Toestemming intrekken</strong> (art. 7 lid 3) — waar verwerking op toestemming is gebaseerd</li>
+      </ul>
+      <p>Dien je verzoek in via <a href="mailto:privacy@forty.nl">privacy@forty.nl</a>. Wij reageren binnen één maand (art. 12 lid 3 AVG). Bij complexe verzoeken kan deze termijn met twee maanden worden verlengd.</p>
+      <p>Wij kunnen je vragen om identificatie voordat wij je verzoek in behandeling nemen.</p>
+    </section>
+
+    <!-- 11 -->
+    <section id="s11">
+      <h2><span class="section-num">11.</span> Klachten en contact</h2>
+      <p>Heb je een klacht over het gebruik van je persoonsgegevens? Neem contact op via <a href="mailto:privacy@forty.nl">privacy@forty.nl</a>. Wij streven naar een passende oplossing.</p>
+      <p>Komen wij er samen niet uit, dan heb je het recht een klacht in te dienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+      <p>Wij kunnen deze privacyverklaring van tijd tot tijd wijzigen. De meest actuele versie is altijd beschikbaar op deze pagina. Bij substantiële wijzigingen informeren wij je actief.</p>
+
+      <div class="contact-card" style="margin-top: 32px;">
+        <p class="org-name">Forty B.V.</p>
+        <p>Telefoon: <a href="tel:+31302737422">+31 (0)30 273 7422</a></p>
+        <p>E-mail: <a href="mailto:privacy@forty.nl">privacy@forty.nl</a></p>
+        <p>Website: <a href="https://www.forty.nl">www.forty.nl</a></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4C14.5 4 10 8.5 10 14c0 4.5 3 8.5 7.5 9.5v8c0 2.5 1 4.5 2.5 4.5s2.5-2 2.5-4.5v-8C27 22.5 30 18.5 30 14c0-5.5-4.5-10-10-10zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill="currentColor"/>
+          </svg>
+          forty
+        </div>
+        <p class="tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a href="/forty/">Werkwijze</a></li>
+          <li><a href="/forty/cases">Cases</a></li>
+          <li><a href="/forty/verhalen">Verhalen</a></li>
+          <li><a href="/forty/over">Over Forty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+31302737422">+31 (0)30 2737 422</a></li>
+          <li><a href="mailto:hello@forty.nl">hello@forty.nl</a></li>
+          <li><span style="color: var(--color-stone-500);">Utrecht, Nederland</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Forty 2026</span>
+      <div class="footer-legal">
+        <a href="/forty/privacy" aria-current="page" style="color: var(--color-stone-400);">Privacy</a>
+        <a href="/forty/voorwaarden">Voorwaarden</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
