@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algemene Voorwaarden — Forty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --color-stone-950: #1c1917;
+      --color-stone-900: #292524;
+      --color-stone-800: #44403c;
+      --color-stone-600: #57534e;
+      --color-stone-500: #78716c;
+      --color-stone-400: #a8a29e;
+      --color-stone-300: #d6d3d1;
+      --color-stone-200: #e7e5e4;
+      --color-stone-100: #f5f5f4;
+      --color-stone-50: #fafaf9;
+      --color-white: #ffffff;
+      --color-amber: #E8A838;
+      --color-amber-light: #fdf0d5;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+      --max-width: 720px;
+      --max-width-wide: 1200px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-stone-950);
+      background: var(--color-white);
+      line-height: 1.7;
+      font-size: 16.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-stone-200);
+    }
+    .nav-inner {
+      max-width: var(--max-width-wide); margin: 0 auto; padding: 18px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo {
+      font-family: var(--font-sans); font-size: 20px; font-weight: 500;
+      color: var(--color-stone-950); text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 15px; color: var(--color-stone-600); text-decoration: none;
+      letter-spacing: 0.01em; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--color-stone-950); }
+
+    /* HERO */
+    .hero {
+      padding: 80px 40px 60px; max-width: var(--max-width-wide); margin: 0 auto;
+    }
+    .hero-label {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--color-stone-500); margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-serif); font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400; line-height: 1.15; color: var(--color-stone-950); max-width: 660px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(to top, var(--color-amber-light) 40%, transparent 40%);
+      padding: 0 2px;
+    }
+    .hero-sub {
+      margin-top: 24px; font-size: 17px; color: var(--color-stone-600);
+      max-width: 540px; line-height: 1.7;
+    }
+    .hero-meta { margin-top: 32px; font-size: 14px; color: var(--color-stone-400); }
+
+    /* TOC */
+    .toc-section { padding: 0 40px 60px; max-width: var(--max-width-wide); margin: 0 auto; }
+    .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+    .toc-item {
+      display: flex; align-items: baseline; gap: 12px; padding: 13px 16px;
+      border-radius: 8px; background: var(--color-stone-50); text-decoration: none;
+      color: var(--color-stone-950); transition: background 0.2s, transform 0.15s;
+      border: 1px solid transparent;
+    }
+    .toc-item:hover { background: var(--color-stone-100); border-color: var(--color-stone-200); transform: translateY(-1px); }
+    .toc-num { font-family: var(--font-serif); font-size: 20px; color: var(--color-amber); min-width: 24px; }
+    .toc-label { font-size: 14px; font-weight: 400; color: var(--color-stone-800); }
+
+    /* CONTENT */
+    .content-wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 40px 100px; }
+    .content-wrap section { margin-bottom: 56px; scroll-margin-top: 100px; }
+
+    .content-wrap h2 {
+      font-family: var(--font-serif); font-size: 28px; font-weight: 400;
+      line-height: 1.25; color: var(--color-stone-950); margin-bottom: 20px;
+      padding-top: 8px; display: flex; align-items: baseline; gap: 12px;
+    }
+    .content-wrap h2 .sn {
+      font-family: var(--font-serif); font-size: 17px; color: var(--color-amber); min-width: 20px;
+    }
+    .content-wrap p { margin-bottom: 14px; color: var(--color-stone-800); font-size: 16px; line-height: 1.75; }
+    .content-wrap ul { list-style: none; margin-bottom: 16px; padding-left: 0; }
+    .content-wrap ul li {
+      position: relative; padding-left: 22px; margin-bottom: 8px;
+      color: var(--color-stone-800); font-size: 16px; line-height: 1.65;
+    }
+    .content-wrap ul li::before {
+      content: ''; position: absolute; left: 2px; top: 10px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--color-amber);
+    }
+    .content-wrap a {
+      color: var(--color-stone-950); text-decoration: underline;
+      text-decoration-color: var(--color-amber); text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+    .content-wrap a:hover { text-decoration-color: var(--color-stone-950); }
+
+    .sub-article {
+      margin-bottom: 14px; color: var(--color-stone-800); font-size: 16px; line-height: 1.75;
+    }
+    .sub-article .sub-num {
+      font-weight: 500; color: var(--color-stone-950); margin-right: 4px;
+    }
+
+    .def-term { font-weight: 500; color: var(--color-stone-950); }
+
+    .contact-card {
+      background: var(--color-stone-50); border-radius: 12px; padding: 28px 32px;
+      margin: 20px 0; border: 1px solid var(--color-stone-200);
+    }
+    .contact-card p { margin-bottom: 4px; color: var(--color-stone-800); }
+    .contact-card .org-name {
+      font-family: var(--font-serif); font-size: 20px;
+      color: var(--color-stone-950); margin-bottom: 12px;
+    }
+
+    /* FOOTER */
+    footer { background: var(--color-stone-950); color: var(--color-stone-400); padding: 80px 40px 40px; }
+    .footer-inner {
+      max-width: var(--max-width-wide); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 20px; }
+    .footer-brand .logo-text {
+      font-family: var(--font-sans); font-size: 20px; font-weight: 500;
+      color: var(--color-white); display: flex; align-items: center; gap: 10px;
+    }
+    .footer-brand .logo-text svg { width: 28px; height: 28px; }
+    .footer-brand .tagline {
+      font-family: var(--font-serif); font-style: italic; font-size: 16px;
+      color: var(--color-stone-400); line-height: 1.5;
+    }
+    .footer-col h4 {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--color-stone-500); margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { color: var(--color-stone-400); text-decoration: none; font-size: 15px; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--color-white); }
+    .footer-bottom {
+      max-width: var(--max-width-wide); margin: 60px auto 0; padding-top: 24px;
+      border-top: 1px solid var(--color-stone-800);
+      display: flex; justify-content: space-between; align-items: center; font-size: 13.5px;
+    }
+    .footer-bottom a { color: var(--color-stone-500); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--color-stone-400); }
+    .footer-legal { display: flex; gap: 28px; }
+
+    @media (max-width: 768px) {
+      .nav-inner { padding: 16px 20px; }
+      .nav-links { gap: 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .toc-section { padding: 0 20px 40px; }
+      .toc-grid { grid-template-columns: 1fr; }
+      .content-wrap { padding: 0 20px 60px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 60px 20px 30px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero, .toc-section { animation: fadeUp 0.6s ease-out both; }
+    .toc-section { animation-delay: 0.15s; }
+    .content-wrap section { opacity: 0; animation: fadeUp 0.5s ease-out forwards; animation-play-state: paused; }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; obs.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.content-wrap section').forEach(s => obs.observe(s));
+    });
+  </script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/forty/" class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C14.5 4 10 8.5 10 14c0 4.5 3 8.5 7.5 9.5v8c0 2.5 1 4.5 2.5 4.5s2.5-2 2.5-4.5v-8C27 22.5 30 18.5 30 14c0-5.5-4.5-10-10-10zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill="currentColor"/></svg>
+        forty
+      </a>
+      <ul class="nav-links">
+        <li><a href="/forty/">Werkwijze</a></li>
+        <li><a href="/forty/cases">Cases</a></li>
+        <li><a href="/forty/verhalen">Verhalen</a></li>
+        <li><a href="/forty/over">Over Forty</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <p class="hero-label">Juridisch</p>
+    <h1>Algemene <em>voorwaarden</em></h1>
+    <p class="hero-sub">De spelregels voor onze samenwerking. Helder, eerlijk en zonder klein gedrukt dat er niet toe doet.</p>
+    <p class="hero-meta">Versie februari 2026 · Forty B.V. · KvK 77600509</p>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-grid">
+      <a href="#a1" class="toc-item"><span class="toc-num">1</span><span class="toc-label">Definities</span></a>
+      <a href="#a2" class="toc-item"><span class="toc-num">2</span><span class="toc-label">Aanbiedingen en overeenkomsten</span></a>
+      <a href="#a3" class="toc-item"><span class="toc-num">3</span><span class="toc-label">Prijzen en betaling</span></a>
+      <a href="#a4" class="toc-item"><span class="toc-num">4</span><span class="toc-label">Vertrouwelijkheid</span></a>
+      <a href="#a5" class="toc-item"><span class="toc-num">5</span><span class="toc-label">Intellectuele eigendomsrechten</span></a>
+      <a href="#a6" class="toc-item"><span class="toc-num">6</span><span class="toc-label">Eigendomsvoorbehoud</span></a>
+      <a href="#a7" class="toc-item"><span class="toc-num">7</span><span class="toc-label">Overdracht van rechten</span></a>
+      <a href="#a8" class="toc-item"><span class="toc-num">8</span><span class="toc-label">Onderhoudswerkzaamheden</span></a>
+      <a href="#a9" class="toc-item"><span class="toc-num">9</span><span class="toc-label">Aansprakelijkheid</span></a>
+      <a href="#a10" class="toc-item"><span class="toc-num">10</span><span class="toc-label">Overmacht</span></a>
+      <a href="#a11" class="toc-item"><span class="toc-num">11</span><span class="toc-label">Wijziging voorwaarden</span></a>
+      <a href="#a12" class="toc-item"><span class="toc-num">12</span><span class="toc-label">Beëindiging</span></a>
+      <a href="#a13" class="toc-item"><span class="toc-num">13</span><span class="toc-label">Toepasselijk recht</span></a>
+      <a href="#a14" class="toc-item"><span class="toc-num">14</span><span class="toc-label">Dienstverlening en gegevensbescherming</span></a>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+
+    <!-- 1. DEFINITIES -->
+    <section id="a1">
+      <h2><span class="sn">1.</span> Definities</h2>
+      <p class="sub-article"><span class="sub-num">1.1</span> In deze algemene voorwaarden wordt onder de volgende begrippen verstaan:</p>
+      <p><span class="def-term">Aanbieding:</span> een prijsopgave van Forty tot het uitvoeren van een bepaalde dienst, welke nog niet door Opdrachtgever is geaccordeerd (offerte).</p>
+      <p><span class="def-term">Forty:</span> de besloten vennootschap met beperkte aansprakelijkheid Forty B.V., gevestigd te Utrecht, ingeschreven in het Handelsregister van de Kamer van Koophandel onder nummer 77600509.</p>
+      <p><span class="def-term">Opdrachtgever:</span> de natuurlijke persoon of rechtspersoon die aan Forty opdracht heeft verstrekt tot uitvoering van een overeenkomst.</p>
+      <p><span class="def-term">Overeenkomst:</span> een door Opdrachtgever mondeling of schriftelijk geaccepteerde aanbieding, dan wel een anderszins door Forty en Opdrachtgever geaccordeerde afspraak tot het verrichten van bepaalde diensten, waarop deze algemene voorwaarden van toepassing zijn verklaard.</p>
+      <p><span class="def-term">Schriftelijk:</span> per brief, e-mail of enig ander digitaal communicatiemiddel, mits de inhoud redelijkerwijs vaststaat.</p>
+    </section>
+
+    <!-- 2. AANBIEDINGEN -->
+    <section id="a2">
+      <h2><span class="sn">2.</span> Aanbiedingen en overeenkomsten</h2>
+      <p class="sub-article"><span class="sub-num">2.1</span> Deze algemene voorwaarden zijn van toepassing op alle aanbiedingen en overeenkomsten waarbij Forty goederen en/of diensten aan Opdrachtgever levert. Bij strijdigheid tussen deze voorwaarden en de overeenkomst prevaleert de overeenkomst.</p>
+      <p class="sub-article"><span class="sub-num">2.2</span> Afwijkingen van deze voorwaarden zijn slechts geldig voor zover partijen dit uitdrukkelijk schriftelijk zijn overeengekomen.</p>
+      <p class="sub-article"><span class="sub-num">2.3</span> De toepasselijkheid van inkoop- of andere voorwaarden van Opdrachtgever wordt uitdrukkelijk van de hand gewezen.</p>
+      <p class="sub-article"><span class="sub-num">2.4</span> Alle aanbiedingen zijn vrijblijvend, tenzij schriftelijk anders vermeld.</p>
+      <p class="sub-article"><span class="sub-num">2.5</span> Een aanbieding heeft een geldigheidsduur van dertig (30) dagen, tenzij anders vermeld. Een overeenkomst kan niet door Opdrachtgever worden geannuleerd, tenzij schriftelijk anders overeengekomen.</p>
+      <p class="sub-article"><span class="sub-num">2.6</span> Indien een bepaling nietig is of vernietigd wordt, blijven de overige bepalingen van kracht. Partijen treden in overleg om een vervangende bepaling overeen te komen die zoveel mogelijk aansluit bij het doel van de oorspronkelijke bepaling.</p>
+      <p class="sub-article"><span class="sub-num">2.7</span> De overeenkomst komt tot stand op het moment dat Opdrachtgever de aanbieding accepteert.</p>
+      <p class="sub-article"><span class="sub-num">2.8</span> De overeenkomst wordt aangegaan voor onbepaalde tijd, tenzij schriftelijk een bepaalde duur is overeengekomen. Een overeenkomst voor bepaalde tijd kan niet tussentijds worden opgezegd, tenzij schriftelijk anders overeengekomen. Een overeenkomst voor onbepaalde tijd kan door ieder der partijen schriftelijk worden opgezegd met inachtneming van een opzegtermijn van twee (2) maanden.</p>
+      <p class="sub-article"><span class="sub-num">2.9</span> Het is Forty toegestaan bepaalde werkzaamheden door derden te laten verrichten.</p>
+    </section>
+
+    <!-- 3. PRIJZEN -->
+    <section id="a3">
+      <h2><span class="sn">3.</span> Prijzen en betaling</h2>
+      <p class="sub-article"><span class="sub-num">3.1</span> Alle prijzen zijn exclusief btw en andere heffingen van overheidswege. Bij periodiek vervallende bedragen is Forty gerechtigd de prijzen schriftelijk aan te passen met inachtneming van een termijn van drie (3) maanden.</p>
+      <p class="sub-article"><span class="sub-num">3.2</span> Forty is gerechtigd de overeengekomen prijzen aan te passen voor prestaties die worden geleverd op een tijdstip dat ten minste drie (3) maanden na kennisgeving ligt.</p>
+      <p class="sub-article"><span class="sub-num">3.3</span> Facturen worden binnen dertig (30) dagen na factuurdatum voldaan. Bij niet-tijdige betaling volgt een schriftelijke herinnering met een nadere termijn van veertien (14) dagen. Bij blijvend verzuim is Opdrachtgever zonder nadere ingebrekestelling in verzuim. Forty mag de levering opschorten.</p>
+      <p class="sub-article"><span class="sub-num">3.4</span> Bij verzuim is Opdrachtgever de wettelijke handelsrente verschuldigd (art. 6:119a BW). Bij uitbesteding van de vordering worden buitengerechtelijke incassokosten berekend conform het Besluit BIK, met een minimum van € 40,-.</p>
+      <p class="sub-article"><span class="sub-num">3.5</span> Bezwaren tegen een factuur dienen binnen veertien (14) dagen na factuurdatum schriftelijk te worden ingediend. Bezwaren schorten de betalingsverplichting niet op.</p>
+      <p class="sub-article"><span class="sub-num">3.6</span> Na acceptatie brengt Forty een vooruitbetaling van 30% in rekening. Na ontvangst vangt Forty de werkzaamheden aan. Het restant wordt gefactureerd na oplevering, tenzij schriftelijk anders overeengekomen.</p>
+      <p class="sub-article"><span class="sub-num">3.7</span> Het recht op verrekening en opschorting door Opdrachtgever is uitdrukkelijk uitgesloten.</p>
+    </section>
+
+    <!-- 4. VERTROUWELIJKHEID -->
+    <section id="a4">
+      <h2><span class="sn">4.</span> Vertrouwelijkheid</h2>
+      <p class="sub-article"><span class="sub-num">4.1</span> Partijen houden alle vertrouwelijke informatie geheim, tenzij een wettelijke plicht openbaarmaking gebiedt. Deze verplichting blijft van kracht na beëindiging van de overeenkomst.</p>
+      <p class="sub-article"><span class="sub-num">4.2</span> Gegevens worden als vertrouwelijk beschouwd indien dit voortvloeit uit de aard van de gegevens of door een der partijen als zodanig is aangeduid.</p>
+    </section>
+
+    <!-- 5. IP -->
+    <section id="a5">
+      <h2><span class="sn">5.</span> Intellectuele eigendomsrechten</h2>
+      <p class="sub-article"><span class="sub-num">5.1</span> Alle intellectuele eigendomsrechten op door Forty ontwikkelde concepten, programmatuur, apparatuur of materialen berusten bij Forty of haar licentiegevers. Opdrachtgever verkrijgt uitsluitend de gebruiksrechten die uitdrukkelijk worden toegekend. Verveelvoudiging, openbaarmaking of verstrekking aan derden is zonder schriftelijke toestemming niet toegestaan.</p>
+      <p class="sub-article"><span class="sub-num">5.2</span> Forty mag technische beschermingsmaatregelen treffen. Opdrachtgever mag deze niet verwijderen, aanpassen of omzeilen.</p>
+      <p class="sub-article"><span class="sub-num">5.3</span> Opdrachtgever mag één reservekopie maken. Bij technische belemmeringen stelt Forty op verzoek een kopie beschikbaar. Bij beëindiging wordt deze geretourneerd en verwijderd.</p>
+      <p class="sub-article"><span class="sub-num">5.4</span> Forty is niet gehouden tot vrijwaring wegens inbreuk op rechten van derden.</p>
+      <p class="sub-article"><span class="sub-num">5.5</span> Opdrachtgever garandeert dat geen rechten van derden zich verzetten tegen beschikbaarstelling aan Forty en vrijwaart Forty tegen iedere aanspraak ter zake.</p>
+      <p class="sub-article"><span class="sub-num">5.6</span> Forty mag opgedane kennis voor andere doeleinden gebruiken, mits geen vertrouwelijke informatie wordt gedeeld.</p>
+    </section>
+
+    <!-- 6. EIGENDOMSVOORBEHOUD -->
+    <section id="a6">
+      <h2><span class="sn">6.</span> Eigendomsvoorbehoud</h2>
+      <p class="sub-article"><span class="sub-num">6.1</span> Alle geleverde zaken en ontwerpen blijven eigendom van Forty totdat alle verschuldigde bedragen (inclusief rente en kosten) volledig zijn voldaan.</p>
+      <p class="sub-article"><span class="sub-num">6.2</span> Gebruiksrechten worden verleend onder de voorwaarde dat de overeengekomen vergoeding tijdig en volledig is betaald.</p>
+    </section>
+
+    <!-- 7. OVERDRACHT -->
+    <section id="a7">
+      <h2><span class="sn">7.</span> Overdracht van rechten en verplichtingen</h2>
+      <p class="sub-article"><span class="sub-num">7.1</span> Opdrachtgever is niet gerechtigd rechten of verplichtingen uit de overeenkomst over te dragen aan derden zonder voorafgaande schriftelijke toestemming van Forty.</p>
+    </section>
+
+    <!-- 8. ONDERHOUD -->
+    <section id="a8">
+      <h2><span class="sn">8.</span> Onderhoudswerkzaamheden</h2>
+      <p class="sub-article"><span class="sub-num">8.1</span> Forty mag diensten tijdelijk opschorten voor onderhoud en zal Opdrachtgever hierover zo tijdig mogelijk informeren. Dit leidt niet tot aansprakelijkheid van Forty.</p>
+    </section>
+
+    <!-- 9. AANSPRAKELIJKHEID -->
+    <section id="a9">
+      <h2><span class="sn">9.</span> Aansprakelijkheid</h2>
+      <p class="sub-article"><span class="sub-num">9.1</span> Forty is niet aansprakelijk voor schade, tenzij sprake is van opzet of grove schuld. De aansprakelijkheid is beperkt tot het bedrag dat door de aansprakelijkheidsverzekeraar wordt uitgekeerd, vermeerderd met het eigen risico. Keert de verzekeraar niet uit, dan is de aansprakelijkheid beperkt tot het totaal van de bedragen die Opdrachtgever aan Forty heeft betaald in de twaalf (12) maanden voorafgaand aan de schadeveroorzakende gebeurtenis.</p>
+      <p class="sub-article"><span class="sub-num">9.2</span> Forty is nimmer aansprakelijk voor indirecte schade, waaronder gevolgschade, gederfde winst, gemiste besparingen en schade door bedrijfsstagnatie.</p>
+      <p class="sub-article"><span class="sub-num">9.3</span> Informatie via internet kan vrij toegankelijk zijn. Forty is niet aansprakelijk voor onbevoegde toegang tot of onderschepping van gegevens.</p>
+      <p class="sub-article"><span class="sub-num">9.4</span> Opdrachtgever vrijwaart Forty van elke aanspraak van derden die verband houdt met een fout van een door Opdrachtgever ingeschakelde partij.</p>
+    </section>
+
+    <!-- 10. OVERMACHT -->
+    <section id="a10">
+      <h2><span class="sn">10.</span> Overmacht</h2>
+      <p class="sub-article"><span class="sub-num">10.1</span> Forty is niet gehouden verplichtingen na te komen bij overmacht. Hieronder wordt mede verstaan: tekortkomingen van toeleveranciers, storingen in elektriciteit, telecommunicatie of datanetwerken, cyberaanvallen, pandemieën, overheidsmaatregelen (waaronder sancties), stakingen en iedere andere niet-toerekenbare omstandigheid.</p>
+      <p class="sub-article"><span class="sub-num">10.2</span> Duurt de overmacht langer dan dertig (30) dagen, dan kunnen beide partijen de overeenkomst schriftelijk beëindigen. Reeds geleverde prestaties worden naar verhouding afgerekend.</p>
+    </section>
+
+    <!-- 11. WIJZIGING -->
+    <section id="a11">
+      <h2><span class="sn">11.</span> Wijziging van de voorwaarden</h2>
+      <p class="sub-article"><span class="sub-num">11.1</span> Forty behoudt het recht deze voorwaarden te wijzigen of aan te vullen. Wijzigingen gelden ook voor bestaande overeenkomsten, met inachtneming van een termijn van dertig (30) dagen na schriftelijke bekendmaking.</p>
+      <p class="sub-article"><span class="sub-num">11.2</span> Accepteert Opdrachtgever de wijziging niet, dan kan de overeenkomst worden ontbonden tegen de datum van inwerkingtreding.</p>
+    </section>
+
+    <!-- 12. BEËINDIGING -->
+    <section id="a12">
+      <h2><span class="sn">12.</span> Beëindiging</h2>
+      <p class="sub-article"><span class="sub-num">12.1</span> Bij niet-tijdige betaling biedt Forty een extra termijn van veertien (14) dagen. Bij blijvend verzuim is de wettelijke handelsrente verschuldigd vanaf de vervaldag.</p>
+      <p class="sub-article"><span class="sub-num">12.2</span> Bij niet-nakoming of gegronde vrees daartoe kan Forty de overeenkomst onmiddellijk ontbinden zonder schadevergoeding. Gegronde redenen zijn onder meer: surseance, faillissement, onderbewindstelling of beslaglegging.</p>
+      <p class="sub-article"><span class="sub-num">12.3</span> Forty kan onmiddellijk beëindigen bij oneigenlijk internetgebruik, verspreiding van onwettige informatie, of informatie die discriminerend is of oproept tot geweld.</p>
+    </section>
+
+    <!-- 13. TOEPASSELIJK RECHT -->
+    <section id="a13">
+      <h2><span class="sn">13.</span> Toepasselijk recht en geschillen</h2>
+      <p class="sub-article"><span class="sub-num">13.1</span> Op de overeenkomst is uitsluitend Nederlands recht van toepassing.</p>
+      <p class="sub-article"><span class="sub-num">13.2</span> Geschillen worden uitsluitend voorgelegd aan de bevoegde rechter van de Rechtbank Midden-Nederland, locatie Utrecht.</p>
+    </section>
+
+    <!-- 14. DIENSTVERLENING -->
+    <section id="a14">
+      <h2><span class="sn">14.</span> Dienstverlening, gegevensbescherming en informatiebeveiliging</h2>
+      <p class="sub-article"><span class="sub-num">14.1</span> Forty spant zich naar beste kunnen in de dienstverlening zorgvuldig uit te voeren (inspanningsverplichting). Bij gefaseerde dienstverlening kan Forty de volgende fase uitstellen tot schriftelijke goedkeuring van de vorige fase.</p>
+      <p class="sub-article"><span class="sub-num">14.2</span> Termijnen gelden bij benadering. Overschrijding geeft geen recht op schadevergoeding of ontbinding, tenzij redelijkerwijs niet kan worden verlangd de overeenkomst in stand te laten.</p>
+      <p class="sub-article"><span class="sub-num">14.3</span> Meerwerk buiten de overeenkomst wordt vergoed volgens de gebruikelijke tarieven. Forty kan een afzonderlijke overeenkomst verlangen.</p>
+      <p class="sub-article"><span class="sub-num">14.4</span> Meerwerk kan het verwachte tijdstip van voltooiing beïnvloeden.</p>
+      <p class="sub-article"><span class="sub-num">14.5</span> Bij een vaste prijs informeert Forty vooraf schriftelijk over de financiële consequenties van meerwerk.</p>
+      <p class="sub-article"><span class="sub-num">14.6</span> Forty verwerkt persoonsgegevens conform de AVG. Bij verwerking ten behoeve van Opdrachtgever wordt een verwerkersovereenkomst gesloten (art. 28 AVG). Forty beschikt over passende beveiligingsmaatregelen en een procedure voor het melden van datalekken.</p>
+      <p class="sub-article"><span class="sub-num">14.7</span> Informatiebeveiliging beantwoordt aan een passend niveau gelet op de stand van de techniek. Opdrachtgever is verantwoordelijk voor adequate beveiliging van zijn eigen systemen.</p>
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+      <div class="contact-card">
+        <p class="org-name">Forty B.V.</p>
+        <p>Telefoon: <a href="tel:+31302737422">+31 (0)30 273 7422</a></p>
+        <p>E-mail: <a href="mailto:hello@forty.nl">hello@forty.nl</a></p>
+        <p>KvK: 77600509 · Utrecht, Nederland</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo-text">
+          <svg viewBox="0 0 40 40" fill="none"><path d="M20 4C14.5 4 10 8.5 10 14c0 4.5 3 8.5 7.5 9.5v8c0 2.5 1 4.5 2.5 4.5s2.5-2 2.5-4.5v-8C27 22.5 30 18.5 30 14c0-5.5-4.5-10-10-10zm0 16c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill="currentColor"/></svg>
+          forty
+        </div>
+        <p class="tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a href="/forty/">Werkwijze</a></li>
+          <li><a href="/forty/cases">Cases</a></li>
+          <li><a href="/forty/verhalen">Verhalen</a></li>
+          <li><a href="/forty/over">Over Forty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+31302737422">+31 (0)30 2737 422</a></li>
+          <li><a href="mailto:hello@forty.nl">hello@forty.nl</a></li>
+          <li><span style="color:var(--color-stone-500)">Utrecht, Nederland</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Forty 2026</span>
+      <div class="footer-legal">
+        <a href="/forty/privacy">Privacy</a>
+        <a href="/forty/voorwaarden" style="color:var(--color-stone-400)">Voorwaarden</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
