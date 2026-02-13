@@ -61,7 +61,7 @@
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a {
       font-size: 15px; color: var(--color-stone-600); text-decoration: none;
-      letter-spacing: 0.01em; transition: color 0.2s;
+      letter-spacing: 0.01em; padding: 12px 0; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--color-stone-950); }
 
@@ -201,6 +201,15 @@
     .hero, .toc-section { animation: fadeUp 0.6s ease-out both; }
     .toc-section { animation-delay: 0.15s; }
     .content-wrap section { opacity: 0; animation: fadeUp 0.5s ease-out forwards; animation-play-state: paused; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.75rem; }
+      h2 { font-size: 1.5rem; }
+      .hero { padding: 32px 16px 24px; }
+      .toc-section { padding: 0 16px 24px; }
+      .content-wrap { padding: 0 16px 40px; }
+      footer { padding: 40px 16px 20px; }
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {

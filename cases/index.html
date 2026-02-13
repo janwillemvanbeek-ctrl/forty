@@ -698,6 +698,20 @@
             color: var(--stone-400);
         }
 
+        @media (max-width: 1024px) {
+            .hero { padding: 140px 24px 60px; }
+            .cases { padding: 24px 24px 80px; }
+            .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            .hero { padding: 120px 16px 48px; }
+            .cases { padding: 24px 16px 48px; }
+            .footer__inner { padding: 24px 16px; }
+        }
+
     </style>
 </head>
 <body>
