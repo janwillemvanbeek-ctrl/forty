@@ -291,6 +291,7 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 400;
+            padding: 12px 0;
             transition: color 200ms ease;
         }
         
@@ -873,7 +874,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--stone-600);
             padding-top: 16px;
         }
@@ -988,7 +989,7 @@
             background: var(--stone-200); margin-bottom: 12px; object-fit: cover;
         }
         .team__name { font-size: 15px; font-weight: 500; color: var(--stone-900); margin-bottom: 2px; }
-        .team__role { font-size: 13px; color: var(--stone-500); }
+        .team__role { font-size: 14px; color: var(--stone-500); }
         .team__proof { margin-bottom: 32px; }
         .team__proof-text { font-size: 15px; color: var(--stone-500); margin-bottom: 16px; }
         .team__proof-logos { display: flex; align-items: center; gap: 32px; }
@@ -1001,6 +1002,20 @@
             .team__grid { grid-template-columns: 1fr; gap: 24px; }
             .team__member { flex-direction: row; align-items: center; gap: 16px; }
             .team__photo { margin-bottom: 0; }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            .hero { padding: 120px 16px 48px; }
+            .canvas { padding: 48px 16px; }
+            .cta { padding: 48px 16px; }
+            .cta__proof, .cta__final { padding: 24px 20px; }
+            .beslisblok { padding: 48px 16px; }
+            .herkenning { padding: 48px 16px; }
+            .team { padding: 48px 16px; }
+            .footer__inner { padding: 24px 16px; }
         }
     </style>
 </head>

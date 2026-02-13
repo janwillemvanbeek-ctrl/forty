@@ -243,6 +243,7 @@
             font-weight: 500;
             color: var(--stone-700);
             text-decoration: none;
+            padding: 12px 0;
             transition: color 200ms ease;
         }
         .header__nav a:hover { color: var(--stone-900); }
@@ -711,14 +712,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--stone-600);
         }
         .footer__legal { display: flex; gap: 24px; }
         .footer__legal a {
             color: var(--stone-600);
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
             transition: color 200ms ease;
         }
         .footer__legal a:hover { color: var(--stone-400); }
@@ -726,6 +727,14 @@
         @media (max-width: 768px) {
             .footer__top { grid-template-columns: 1fr; gap: 32px; }
             .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero { padding: 140px 24px 60px; }
+            .verhalen { padding: 48px 24px 80px; }
+            .cta { padding: 48px 24px 80px; }
+            .cta__grid { grid-template-columns: 1fr; gap: 24px; }
+            .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
         }
     </style>
 </head>

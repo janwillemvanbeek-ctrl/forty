@@ -342,6 +342,7 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 400;
+            padding: 12px 0;
             transition: color 200ms ease;
         }
         
@@ -924,7 +925,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 14px;
             color: var(--stone-600);
             padding-top: 16px;
         }
@@ -950,6 +951,17 @@
         
         .footer__legal a:hover {
             color: var(--stone-400);
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            .hero { padding: 120px 16px 48px; }
+            .canvas { padding: 48px 16px; }
+            .cta { padding: 48px 16px; }
+            .cta__proof, .cta__final { padding: 24px 20px; }
+            .footer__inner { padding: 24px 16px; }
         }
     </style>
 </head>
