@@ -1312,6 +1312,8 @@
             .closing { padding: 0 16px; }
             .footer__inner { padding: 24px 16px; }
         }
+
+        .parallax-section { will-change: transform; }
     </style>
 </head>
 <body>
@@ -1554,7 +1556,7 @@
     </section>
 
     <!-- CLOSING -->
-    <section class="closing">
+    <section class="closing parallax-section">
         <div class="closing__card animate-on-scroll">
             <p class="closing__text">
                 De brede markt zei nee. Dat is geen mislukking — dat is een beslissing die tienduizenden euro's aan verkeerde investeringen voorkomt.
@@ -1625,11 +1627,11 @@
                 <div class="footer__legal">
                     <a href="/forty/privacy">Privacy</a>
                     <a href="/forty/voorwaarden/">Voorwaarden</a>
-
                 </div>
             </div>
         </div>
     </footer>
+
 
     <script>
         // Header scroll state (throttled via rAF)
@@ -1676,6 +1678,28 @@
                 observer.observe(el);
             });
         }
-    </script>
+    
+            // Parallax
+            const pSections = document.querySelectorAll(".parallax-section");
+            if (pSections.length) {
+                let pT = false;
+                window.addEventListener("scroll", () => {
+                    if (!pT) {
+                        requestAnimationFrame(() => {
+                            pSections.forEach(s => {
+                                const r = s.getBoundingClientRect();
+                                const wH = window.innerHeight;
+                                if (r.top < wH && r.bottom > 0) {
+                                    const p = (wH - r.top) / (wH + r.height);
+                                    s.style.transform = "translateY(" + ((p - 0.5) * -30) + "px)";
+                                }
+                            });
+                            pT = false;
+                        });
+                        pT = true;
+                    }
+                }, { passive: true });
+            }
+</script>
 </body>
 </html>  

@@ -232,7 +232,38 @@
         
         .js-ready .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) translateX(0);
+        }
+        
+        /* Stagger delay for card groups */
+        .js-ready .reveal.stagger-1 { transition-delay: 0ms; }
+        .js-ready .reveal.stagger-2 { transition-delay: 120ms; }
+        .js-ready .reveal.stagger-3 { transition-delay: 240ms; }
+        .js-ready .reveal.stagger-4 { transition-delay: 360ms; }
+        
+        /* Cards: opacity only, no vertical movement (Ive principle) */
+        .js-ready .reveal-card {
+            opacity: 0;
+            transition: opacity 800ms ease;
+        }
+        .js-ready .reveal-card.visible {
+            opacity: 1;
+        }
+        
+        /* Quote: slide from left */
+        .js-ready .reveal-quote {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 800ms ease, transform 800ms ease;
+        }
+        .js-ready .reveal-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Parallax section */
+        .parallax-section {
+            will-change: transform;
         }
         
         /* ================================
@@ -1023,7 +1054,7 @@
     </div>
 
     <!-- Beslisblok — Ritme-anker -->
-    <section class="beslisblok">
+    <section class="beslisblok parallax-section">
         <div class="beslisblok__inner">
             <blockquote class="beslisblok__statement">
                 Niet elk idee vraagt om uitvoering
@@ -1036,15 +1067,15 @@
         <div class="resultaat__inner">
             <h2 class="resultaat__title">Na Forty weet je:</h2>
             <div class="canvas-grid">
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-1">
                     <div class="canvas-card__heading">Of dit de juiste richting is</div>
                     <p class="canvas-card__body">Minder aannames. Helder waar de potentie zit. Je weet of je business model schaalbaar is en wat de eerste stap naar bewijs is.</p>
                 </div>
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-2">
                     <div class="canvas-card__heading">Waar de meeste potentie zit</div>
                     <p class="canvas-card__body">Niet elk onderdeel van je idee verdient evenveel aandacht. Je ziet waar de economie zit en waar je energie het meeste oplevert.</p>
                 </div>
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-3">
                     <div class="canvas-card__heading">Wat nu nodig is om verder te komen</div>
                     <p class="canvas-card__body">De volgende stap is helder. Of dat bouwen is, bijsturen, of een ander spoor kiezen. Met bewijs, niet met aannames.</p>
                 </div>
@@ -1208,9 +1239,35 @@
             });
             
             revealElements.forEach(el => revealObserver.observe(el));
+            
+            // Also observe card and quote reveals
+            document.querySelectorAll(".reveal-card, .reveal-quote").forEach(el => revealObserver.observe(el));
+            
+            // Parallax for dark sections
+            const parallaxSections = document.querySelectorAll(".parallax-section");
+            if (parallaxSections.length) {
+                let pTicking = false;
+                window.addEventListener("scroll", () => {
+                    if (!pTicking) {
+                        requestAnimationFrame(() => {
+                            parallaxSections.forEach(section => {
+                                const rect = section.getBoundingClientRect();
+                                const wH = window.innerHeight;
+                                if (rect.top < wH && rect.bottom > 0) {
+                                    const progress = (wH - rect.top) / (wH + rect.height);
+                                    const offset = (progress - 0.5) * -30;
+                                    section.style.transform = "translateY(" + offset + "px)";
+                                }
+                            });
+                            pTicking = false;
+                        });
+                        pTicking = true;
+                    }
+                }, { passive: true });
+            }
         } else {
             // Fallback: show all reveal elements immediately
-            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+            document.querySelectorAll('.reveal, .reveal-card, .reveal-quote').forEach(el => el.classList.add('visible'));
         }
     </script>
 

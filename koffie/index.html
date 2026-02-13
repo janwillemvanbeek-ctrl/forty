@@ -1,126 +1,86 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="3;url=https://calendly.com/janwillem-vanbeek/30min">
-    <meta name="robots" content="noindex">
-    <title>Even bijpraten? — Forty</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koffiegesprek plannen — Forty</title>
+  <meta name="description" content="Plan een vrijblijvend koffiegesprek met Forty. Benieuwd welke aanname je als eerste moet toetsen?">
+  <meta http-equiv="refresh" content="3;url=https://calendly.com/janwillem-vanbeek/30min">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <link rel="icon" type="image/png" href="../forty-beeldmerk-zwart.png">
+    :root {
+      --color-stone-950: #1c1917;
+      --color-stone-100: #f5f5f4;
+      --color-stone-50: #fafaf9;
+      --color-amber: #E8A838;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+    }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400;1,9..40,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-stone-50);
+      color: var(--color-stone-950);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
 
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    .redirect {
+      max-width: 480px;
+    }
 
-        :root {
-            --amber: #E8A838;
-            --stone-50: #FAFAF9;
-            --stone-600: #78716C;
-            --stone-800: #292524;
-            --stone-900: #1C1917;
-        }
+    .redirect h1 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
 
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--stone-50);
-            color: var(--stone-800);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 24px;
-        }
+    .redirect p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      color: #57534e;
+    }
 
-        .redirect {
-            max-width: 480px;
-        }
+    .redirect a {
+      display: inline-block;
+      background: var(--color-stone-950);
+      color: var(--color-stone-100);
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
 
-        .redirect__icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 32px;
-            color: var(--amber);
-        }
+    .redirect a:hover {
+      background: #44403c;
+    }
 
-        .redirect__title {
-            font-family: 'Instrument Serif', serif;
-            font-size: clamp(32px, 5vw, 42px);
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 12px;
-            color: var(--stone-900);
-        }
-
-        .redirect__text {
-            font-size: 16px;
-            color: var(--stone-600);
-            line-height: 1.6;
-            margin-bottom: 32px;
-        }
-
-        .redirect__button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: var(--amber);
-            color: var(--stone-900);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: opacity 0.2s;
-        }
-
-        .redirect__button:hover {
-            opacity: 0.85;
-        }
-
-        .redirect__button svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .redirect__spinner {
-            width: 24px;
-            height: 24px;
-            border: 2.5px solid var(--amber);
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 24px auto 0;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-    </style>
+    .redirect .subtext {
+      font-size: 0.85rem;
+      color: #a8a29e;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="redirect">
-        <svg class="redirect__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-            <line x1="6" y1="1" x2="6" y2="4"/>
-            <line x1="10" y1="1" x2="10" y2="4"/>
-            <line x1="14" y1="1" x2="14" y2="4"/>
-        </svg>
-        <h1 class="redirect__title">Even bijpraten?</h1>
-        <p class="redirect__text">Je wordt doorgestuurd naar onze agenda</p>
-        <a href="https://calendly.com/janwillem-vanbeek/30min" class="redirect__button">
-            Direct naar Calendly
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-            </svg>
-        </a>
-        <div class="redirect__spinner"></div>
-    </div>
+  <div class="redirect">
+    <h1>Even bijpraten?</h1>
+    <p>Je wordt doorgestuurd naar onze agenda. Kies een moment dat jou uitkomt.</p>
+    <a href="https://calendly.com/janwillem-vanbeek/30min">Plan een koffiegesprek →</a>
+    <p class="subtext">Je wordt automatisch doorgestuurd…</p>
+  </div>
 </body>
 </html>

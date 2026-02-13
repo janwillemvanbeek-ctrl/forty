@@ -183,6 +183,34 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Cards: opacity only */
+        .js-ready .reveal-card {
+            opacity: 0;
+            transition: opacity 800ms ease;
+        }
+        .js-ready .reveal-card.visible {
+            opacity: 1;
+        }
+        .js-ready .reveal-card.stagger-1 { transition-delay: 0ms; }
+        .js-ready .reveal-card.stagger-2 { transition-delay: 120ms; }
+        .js-ready .reveal-card.stagger-3 { transition-delay: 240ms; }
+        .js-ready .reveal-card.stagger-4 { transition-delay: 360ms; }
+        
+        /* Quote: slide from left */
+        .js-ready .reveal-quote {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 800ms ease, transform 800ms ease;
+        }
+        .js-ready .reveal-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Parallax */
+        .parallax-section { will-change: transform; }
+
         
         /* ================================
            TYPOGRAFIE
@@ -1093,15 +1121,15 @@
         <div class="resultaat__inner">
             <h2 class="resultaat__title">Herkenbaar?</h2>
             <div class="canvas-grid">
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-1">
                     <div class="herkenning-card__label">Pre-markt</div>
                     <p class="canvas-card__body">Een founder of team met een sterk idee en eerste interesse — maar geen bewijs dat de markt het ook echt wil kopen.</p>
                 </div>
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-2">
                     <div class="herkenning-card__label">Impact</div>
                     <p class="canvas-card__body">Een organisatie die werkt aan impact maar waarvan de producten niet levensvatbaar genoeg zijn om die impact waar te maken.</p>
                 </div>
-                <div class="canvas-card">
+                <div class="canvas-card reveal-card stagger-3">
                     <div class="herkenning-card__label">Post-traction</div>
                     <p class="canvas-card__body">Een founder met klanten en omzet — maar zonder zicht op wat de groei blokkeert.</p>
                 </div>
@@ -1124,7 +1152,7 @@
             <p class="kern__text">
                 Forty werkt naast founders, directie en innovatieteams wanneer middelen, reputatie of maatschappelijke waarde op het spel staan.
             </p>
-            <blockquote class="kern__pull">
+            <blockquote class="kern__pull reveal-quote">
                 We scherpen beslissingen aan. En wanneer die kloppen — realiseren we ze.
             </blockquote>
             <p class="kern__text">
@@ -1321,4 +1349,34 @@
                     }
                 });
             }, { threshold: 0.1, rootMargin: '50px 0px 0px 0px' });
-         
+
+            document.querySelectorAll('.reveal, .reveal-card, .reveal-quote').forEach(el => revealObserver.observe(el));
+            
+            // Parallax
+            const pSections = document.querySelectorAll(".parallax-section");
+            if (pSections.length) {
+                let pT = false;
+                window.addEventListener("scroll", () => {
+                    if (!pT) {
+                        requestAnimationFrame(() => {
+                            pSections.forEach(s => {
+                                const r = s.getBoundingClientRect();
+                                const wH = window.innerHeight;
+                                if (r.top < wH && r.bottom > 0) {
+                                    const p = (wH - r.top) / (wH + r.height);
+                                    s.style.transform = "translateY(" + ((p - 0.5) * -30) + "px)";
+                                }
+                            });
+                            pT = false;
+                        });
+                        pT = true;
+                    }
+                }, { passive: true });
+            }
+        } else {
+            document.querySelectorAll('.reveal, .reveal-card, .reveal-quote').forEach(el => el.classList.add('visible'));
+        }
+    </script>
+
+</body>
+</html>

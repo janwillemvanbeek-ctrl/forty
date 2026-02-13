@@ -121,13 +121,7 @@
             ]
         }
     }
-    </script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-    
+
     <style>
         /* --- CSS VARIABLES --- */
         :root {
@@ -682,18 +676,7 @@
                 align-items: flex-start;
             }
         }
-        
-        .footer__legal {
-            display: flex;
-            gap: 32px;
-        }
-        
-        .footer__legal a {
-            color: var(--stone-600);
-            text-decoration: none;
-            transition: color 200ms ease;
-        }
-        
+
         .footer__legal a:hover {
             color: var(--stone-400);
         }
@@ -1100,28 +1083,7 @@
             placeholder.textContent = img.alt || 'Afbeelding niet beschikbaar';
             img.parentElement.insertBefore(placeholder, img);
         }
+    </script>
 
-        document.querySelectorAll('.case-card__image').forEach(function(img) {
-            img.addEventListener('error', function() {
-                handleImageError(this);
-            }, { once: true });
-            // Handle images that already failed before listener attached
-            if (img.complete && img.naturalWidth === 0) {
-                handleImageError(img);
-            }
-        });
-
-        // Header scroll state
-        const header = document.querySelector('.header');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const 
+</body>
+</html>

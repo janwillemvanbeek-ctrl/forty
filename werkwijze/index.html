@@ -255,6 +255,34 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Cards: opacity only */
+        .js-ready .reveal-card {
+            opacity: 0;
+            transition: opacity 800ms ease;
+        }
+        .js-ready .reveal-card.visible {
+            opacity: 1;
+        }
+        .js-ready .reveal-card.stagger-1 { transition-delay: 0ms; }
+        .js-ready .reveal-card.stagger-2 { transition-delay: 120ms; }
+        .js-ready .reveal-card.stagger-3 { transition-delay: 240ms; }
+        .js-ready .reveal-card.stagger-4 { transition-delay: 360ms; }
+        
+        /* Quote: slide from left */
+        .js-ready .reveal-quote {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 800ms ease, transform 800ms ease;
+        }
+        .js-ready .reveal-quote.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Parallax */
+        .parallax-section { will-change: transform; }
+
         
         /* ================================
            TYPOGRAFIE
@@ -1262,7 +1290,7 @@
     </div>
 
     <!-- Beslisblok -->
-    <section class="beslisblok">
+    <section class="beslisblok parallax-section">
         <div class="beslisblok__inner">
             <blockquote class="beslisblok__statement">
                 Elk traject begint met één vraag. En eindigt met een besluit.
@@ -1302,7 +1330,7 @@
                 Het patroon is altijd hetzelfde. De betrokkenheid past zich aan.
             </p>
             <div class="vormen__grid">
-                <div class="vormen__card">
+                <div class="vormen__card reveal-card stagger-1">
                     <div class="vormen__card-label">Coaching</div>
                     <h3 class="vormen__card-title">Jij doet het werk. Forty denkt mee op de keuzemomenten.</h3>
                     <p class="vormen__card-body">
@@ -1312,7 +1340,7 @@
                         <strong>Denk aan:</strong> startup-coaching of sparring met innovatieteams.
                     </p>
                 </div>
-                <div class="vormen__card">
+                <div class="vormen__card reveal-card stagger-2">
                     <div class="vormen__card-label">Traject</div>
                     <h3 class="vormen__card-title">Forty doet het werk. Van aanname tot bewijs tot iets dat werkt.</h3>
                     <p class="vormen__card-body">
@@ -1489,8 +1517,32 @@
                 });
             }, { threshold: 0.1, rootMargin: '50px 0px 0px 0px' });
             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            // Observe cards and quotes
+            document.querySelectorAll(".reveal-card, .reveal-quote").forEach(el => revealObserver.observe(el));
+            
+            // Parallax
+            const pSections = document.querySelectorAll(".parallax-section");
+            if (pSections.length) {
+                let pT = false;
+                window.addEventListener("scroll", () => {
+                    if (!pT) {
+                        requestAnimationFrame(() => {
+                            pSections.forEach(s => {
+                                const r = s.getBoundingClientRect();
+                                const wH = window.innerHeight;
+                                if (r.top < wH && r.bottom > 0) {
+                                    const p = (wH - r.top) / (wH + r.height);
+                                    s.style.transform = "translateY(" + ((p - 0.5) * -30) + "px)";
+                                }
+                            });
+                            pT = false;
+                        });
+                        pT = true;
+                    }
+                }, { passive: true });
+            }
         } else {
-            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+            document.querySelectorAll('.reveal, .reveal-card, .reveal-quote').forEach(el => el.classList.add('visible'));
         }
     </script>
 
