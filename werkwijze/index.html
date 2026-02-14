@@ -1010,89 +1010,192 @@
            ================================ */
         
         /* Patroon section */
+        /* Proces Flow */
         .patroon {
-            padding: 120px 24px 80px;
+            padding: 100px 24px 80px;
             background: var(--white);
         }
-        
         .patroon__inner {
             max-width: 1120px;
             margin: 0 auto;
         }
-        
         .patroon__title {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 400;
-            line-height: 1.2;
-            color: var(--stone-900);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--stone-400);
             margin-bottom: 48px;
+            text-align: center;
         }
-        
         .patroon__steps {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 24px;
-            align-items: stretch;
-        }
-        
-        .patroon__step {
-            grid-column: span 4;
             position: relative;
-            background: #ffffff;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 
-                0 1px 1px rgba(0,0,0,0.02),
-                0 4px 8px rgba(0,0,0,0.03),
-                0 12px 28px rgba(0,0,0,0.05),
-                0 20px 44px -4px rgba(0,0,0,0.04);
-            padding: clamp(28px, 3.5vw, 48px) clamp(24px, 3vw, 44px);
-            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
         }
-        
-        .patroon__step::after {
+        /* Connecting line */
+        .patroon__steps::before {
             content: '';
             position: absolute;
-            inset: 0;
-            border-radius: 8px;
-            background-image: var(--grain);
-            background-size: 200px;
-            opacity: 0.06;
-            pointer-events: none;
+            top: 28px;
+            left: 10%;
+            right: 10%;
+            height: 1.5px;
+            background: var(--stone-200);
+            z-index: 0;
         }
-        
-        .patroon__step-number {
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
+        /* Animated progress line */
+        .patroon__steps::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 10%;
+            width: 0%;
+            height: 1.5px;
+            background: var(--forty-orange);
+            z-index: 1;
+            transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .patroon__steps.proces-animate::after {
+            width: 80%;
+        }
+        .patroon__step {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 600ms ease, transform 600ms ease;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(1) {
+            opacity: 1; transform: translateY(0); transition-delay: 200ms;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(2) {
+            opacity: 1; transform: translateY(0); transition-delay: 600ms;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(3) {
+            opacity: 1; transform: translateY(0); transition-delay: 1000ms;
+        }
+        /* Step marker */
+        .patroon__marker {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1.5px solid var(--stone-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: border-color 400ms ease, background 400ms ease;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(1) .patroon__marker {
+            border-color: var(--forty-orange); transition-delay: 400ms;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(2) .patroon__marker {
+            border-color: var(--forty-orange); transition-delay: 800ms;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(3) .patroon__marker {
+            border-color: var(--forty-orange); background: var(--forty-orange); transition-delay: 1200ms;
+        }
+        .patroon__marker-num {
+            font-size: 18px; font-weight: 600; color: var(--stone-400);
+            font-family: 'DM Sans', sans-serif;
+            transition: color 400ms ease;
+        }
+        .patroon__steps.proces-animate .patroon__step:nth-child(1) .patroon__marker-num,
+        .patroon__steps.proces-animate .patroon__step:nth-child(2) .patroon__marker-num {
             color: var(--forty-orange);
-            margin-bottom: 12px;
         }
-        
+        .patroon__steps.proces-animate .patroon__step:nth-child(3) .patroon__marker-num {
+            color: white;
+        }
+        .patroon__step-number {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--stone-400);
+            margin-bottom: 8px;
+        }
         .patroon__step-title {
             font-family: 'Instrument Serif', Georgia, serif;
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 400;
             font-style: italic;
             color: var(--stone-900);
-            margin-bottom: 8px;
-            line-height: 1.4;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
-        
         .patroon__step-body {
-            font-size: 15px;
-            color: var(--stone-500);
+            font-size: 14px;
             line-height: 1.6;
+            color: var(--stone-500);
+            max-width: 280px;
+            margin: 0 auto;
         }
-        
-        @media (max-width: 1024px) {
-            .patroon__step { grid-column: span 6; }
+        /* Besluit line */
+        .patroon__besluit {
+            text-align: center;
+            margin-top: 48px;
+            opacity: 0;
+            transition: opacity 800ms ease 1400ms;
+        }
+        .patroon__steps.proces-animate ~ .patroon__besluit {
+            opacity: 1;
+        }
+        .patroon__besluit-text {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--stone-500);
+            font-style: italic;
+        }
+        .patroon__besluit-text strong {
+            color: var(--stone-900); font-weight: 400;
+        }
+        .patroon__duration {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 16px;
+            background: rgba(232, 168, 56, 0.12);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--forty-orange);
+            opacity: 0;
+            transition: opacity 600ms ease 1600ms;
+        }
+        .patroon__steps.proces-animate ~ .patroon__besluit .patroon__duration {
+            opacity: 1;
         }
         @media (max-width: 768px) {
-            .patroon__steps { gap: 16px; }
-            .patroon__step { grid-column: span 12; }
+            .patroon__steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding-left: 48px;
+            }
+            .patroon__steps::before {
+                top: 0; bottom: 0; left: 20px; right: auto;
+                width: 1.5px; height: auto;
+            }
+            .patroon__steps::after {
+                top: 0; left: 20px; width: 1.5px; height: 0%; right: auto;
+            }
+            .patroon__steps.proces-animate::after {
+                width: 1.5px; height: 100%;
+            }
+            .patroon__step {
+                text-align: left; padding: 0;
+            }
+            .patroon__marker {
+                position: absolute; left: -48px; top: 0;
+                width: 40px; height: 40px; margin: 0;
+            }
+            .patroon__marker-num { font-size: 15px; }
+            .patroon__step-body { margin: 0; max-width: none; }
         }
         
         /* Vormen section */
@@ -1304,22 +1407,29 @@
     <section class="patroon reveal" aria-label="Werkwijze patroon">
         <div class="patroon__inner">
             <h2 class="patroon__title">Wat in elk traject terugkomt</h2>
-            <div class="patroon__steps">
+            <div class="patroon__steps" id="procesFlow">
                 <div class="patroon__step">
-                    <div class="patroon__step-number">01 — Scherp stellen</div>
+                    <div class="patroon__marker"><span class="patroon__marker-num">01</span></div>
+                    <div class="patroon__step-number">Scherp stellen</div>
                     <div class="patroon__step-title"><em>Wat moet bewezen zijn?</em></div>
-                    <p class="patroon__step-body">Aannames expliciet maken. De kernvraag formuleren. Meetbare criteria definiëren — zodat je straks niet discussieert over interpretaties maar over feiten.</p>
+                    <p class="patroon__step-body">Aannames expliciet maken. De kernvraag formuleren. Meetbare criteria definiëren.</p>
                 </div>
                 <div class="patroon__step">
-                    <div class="patroon__step-number">02 — Toetsen</div>
+                    <div class="patroon__marker"><span class="patroon__marker-num">02</span></div>
+                    <div class="patroon__step-number">Toetsen</div>
                     <div class="patroon__step-title"><em>Klopt wat we aannemen?</em></div>
-                    <p class="patroon__step-body">Behoefteonderzoek, propositie-toetsing, business model stress test, koopintentie-validatie. Geen bureauonderzoek maar direct contact met de markt.</p>
+                    <p class="patroon__step-body">Behoefteonderzoek, propositie-toetsing, koopintentie-validatie. Direct contact met de markt.</p>
                 </div>
                 <div class="patroon__step">
-                    <div class="patroon__step-number">03 — Besluiten</div>
+                    <div class="patroon__marker"><span class="patroon__marker-num">03</span></div>
+                    <div class="patroon__step-number">Besluiten</div>
                     <div class="patroon__step-title"><em>Wat rechtvaardigt de volgende stap?</em></div>
-                    <p class="patroon__step-body">Go/no-go met onderbouwing. Een aangescherpte propositie, een businesscase, een prototype. Niet een rapport — maar iets waar je op door kunt bouwen.</p>
+                    <p class="patroon__step-body">Go/no-go met onderbouwing. Een propositie, een businesscase, een prototype.</p>
                 </div>
+            </div>
+            <div class="patroon__besluit">
+                <p class="patroon__besluit-text">Van aanname naar <strong>besluit waar je op verder kunt bouwen</strong></p>
+                <span class="patroon__duration">4 – 8 weken</span>
             </div>
         </div>
     </section>
@@ -1546,6 +1656,21 @@
         } else {
             document.querySelectorAll('.reveal, .reveal-card, .reveal-quote').forEach(el => el.classList.add('visible'));
         }
+    
+    // Proces flow animation
+    var procesFlow = document.getElementById('procesFlow');
+    if (procesFlow) {
+        var procesObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    procesFlow.classList.add('proces-animate');
+                    procesObserver.unobserve(procesFlow);
+                }
+            });
+        }, { threshold: 0.3 });
+        procesObserver.observe(procesFlow);
+    }
+
     </script>
 
 </body>
