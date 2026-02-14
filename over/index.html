@@ -531,6 +531,15 @@
            RESULTAAT SECTIE — Canvas Cards
            Drie losse denkobjecten op tafel.
            ================================ */
+        
+        .herkenbaar { padding: 100px 24px; background: #f0efed; }
+        .herkenbaar__inner { max-width: 700px; margin: 0 auto; }
+        .herkenbaar__title { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; color: var(--stone-400); margin-bottom: 40px; }
+        .herkenbaar__zinnen { display: flex; flex-direction: column; gap: 32px; }
+        .herkenbaar__zin { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.25rem, 2.5vw, 1.6rem); font-weight: 400; color: var(--stone-900); line-height: 1.4; padding-bottom: 32px; border-bottom: 1px solid var(--stone-200); }
+        .herkenbaar__zin:last-child { border-bottom: none; padding-bottom: 0; }
+        .herkenbaar__zin em { font-style: italic; color: var(--stone-500); }
+
         .resultaat {
             padding: 120px 24px 80px;
             background: #f0efed;
@@ -1119,22 +1128,13 @@
     </section>
 
     <!-- Herkenning -->
-    <section class="resultaat reveal">
-        <div class="resultaat__inner">
-            <h2 class="resultaat__title">Herkenbaar?</h2>
-            <div class="canvas-grid">
-                <div class="canvas-card reveal-card stagger-1">
-                    <div class="herkenning-card__label">Pre-markt</div>
-                    <p class="canvas-card__body">Een founder of team met een sterk idee en eerste interesse — maar geen bewijs dat de markt het ook echt wil kopen.</p>
-                </div>
-                <div class="canvas-card reveal-card stagger-2">
-                    <div class="herkenning-card__label">Impact</div>
-                    <p class="canvas-card__body">Een organisatie die werkt aan impact maar waarvan de producten niet levensvatbaar genoeg zijn om die impact waar te maken.</p>
-                </div>
-                <div class="canvas-card reveal-card stagger-3">
-                    <div class="herkenning-card__label">Post-traction</div>
-                    <p class="canvas-card__body">Een founder met klanten en omzet — maar zonder zicht op wat de groei blokkeert.</p>
-                </div>
+        <section class="herkenbaar reveal">
+        <div class="herkenbaar__inner">
+            <h2 class="herkenbaar__title">Herkenbaar?</h2>
+            <div class="herkenbaar__zinnen">
+                <p class="herkenbaar__zin">Je hebt klanten. <em>Maar de groei stokt.</em></p>
+                <p class="herkenbaar__zin">Je hebt een goed idee. <em>Maar koopt de markt het ook?</em></p>
+                <p class="herkenbaar__zin">Je maakt impact. <em>Maar wordt het ook een business?</em></p>
             </div>
         </div>
     </section>
