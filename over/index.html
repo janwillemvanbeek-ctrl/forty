@@ -776,19 +776,21 @@
             align-items: center;
             gap: 8px;
             padding: 12px 24px;
-            background: var(--forty-orange);
-            color: var(--white);
+            background: transparent;
+            color: var(--stone-900);
             text-decoration: none;
             font-weight: 500;
             font-size: 15px;
             line-height: 1.5;
             letter-spacing: 0.01em;
             border-radius: 8px;
-            transition: background 200ms ease;
+            border: 1.5px solid var(--forty-orange);
+            transition: background 200ms ease, color 200ms ease;
         }
         
         .cta__button:hover {
-            background: #ea580c;
+            background: var(--forty-orange);
+            color: var(--white);
         }
         
         .cta__button:focus-visible {

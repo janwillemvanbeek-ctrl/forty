@@ -639,12 +639,12 @@
         }
         
         .canvas-card__heading {
-            font-family: 'DM Sans', -apple-system, sans-serif;
-            font-size: 17px;
-            font-weight: 500;
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 19px;
+            font-weight: 400;
             color: var(--stone-900);
-            margin-bottom: 8px;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
         
         .canvas-card__body {
@@ -829,20 +829,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
-            background: var(--forty-orange);
-            color: var(--white);
+            padding: 14px 28px;
+            background: transparent;
+            color: var(--stone-900);
             text-decoration: none;
             font-weight: 500;
             font-size: 15px;
             line-height: 1.5;
             letter-spacing: 0.01em;
             border-radius: 8px;
-            transition: background 200ms ease;
+            border: 1.5px solid var(--forty-orange);
+            transition: background 200ms ease, color 200ms ease;
         }
         
         .cta__button:hover {
-            background: #ea580c;
+            background: var(--forty-orange);
+            color: var(--white);
         }
         
         .cta__button:focus-visible {
@@ -851,6 +853,42 @@
             box-shadow: 0 0 0 2px var(--white), 0 1px 3px rgba(249, 115, 22, 0.2);
         }
         
+        
+        /* Client logos */
+        .client-logos {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 48px 0 0;
+            margin-top: 48px;
+            border-top: 1px solid var(--stone-200);
+            flex-wrap: wrap;
+        }
+        .client-logos__label {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--stone-400);
+            width: 100%;
+            margin-bottom: -16px;
+        }
+        .client-logos__name {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--stone-400);
+            letter-spacing: 0.01em;
+            transition: color 200ms ease;
+        }
+        .client-logos__name:hover {
+            color: var(--stone-600);
+        }
+        @media (max-width: 768px) {
+            .client-logos { gap: 20px 32px; }
+            .client-logos__name { font-size: 14px; }
+        }
+
         /* ================================
            FOOTER
            ================================ */
@@ -1133,6 +1171,21 @@
     </main>
 
     <!-- Footer -->
+
+    <!-- Client Logos -->
+    <section class="client-logos-section reveal" style="padding: 0 24px 80px; max-width: 1120px; margin: 0 auto;">
+        <div class="client-logos">
+            <span class="client-logos__label">Eerder werkten we onder meer met</span>
+            <span class="client-logos__name">VPRO</span>
+            <span class="client-logos__name">HEMA</span>
+            <span class="client-logos__name">NOC*NSF</span>
+            <span class="client-logos__name">Ouderfonds</span>
+            <span class="client-logos__name">AVEQ</span>
+            <span class="client-logos__name">Connected River</span>
+            <span class="client-logos__name">AudioSight</span>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer__inner">
             <div class="footer__top">
