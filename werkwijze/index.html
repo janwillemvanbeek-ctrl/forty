@@ -1627,7 +1627,7 @@
                         revealObserver.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.1, rootMargin: '50px 0px 0px 0px' });
+            }, { threshold: 0.05, rootMargin: '50px 0px 0px 0px' });
             document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
             // Observe cards and quotes
             document.querySelectorAll(".reveal-card, .reveal-quote").forEach(el => revealObserver.observe(el));
@@ -1667,7 +1667,7 @@
                     procesObserver.unobserve(procesFlow);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.055 });
         procesObserver.observe(procesFlow);
     }
 
