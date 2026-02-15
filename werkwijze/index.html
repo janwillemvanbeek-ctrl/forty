@@ -1337,6 +1337,15 @@
             .footer__inner { padding: 24px 16px; }
         }
 
+    
+        /* Mobile: skip reveal animation */
+        @media (max-width: 768px) {
+            .reveal, .reveal-card, .reveal-quote {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
