@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cases — hoe ambities scherper werden | Forty</title>
+    <title>Cases — Forty</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
-    <meta name="description" content="Bekijk hoe Forty ambities scherper maakte. Van idee naar onderbouwd besluit — in 4 tot 8 weken.">
-    <meta property="og:title" content="Cases — Hoe ambities scherper werden | Forty">
-    <meta property="og:description" content="Bekijk hoe Forty ambities scherper maakte. Van idee naar onderbouwd besluit — in 4 tot 8 weken.">
+    <meta name="description" content="Beslissingen vóór schaal. Bekijk hoe Forty organisaties helpt expliciet te besluiten of verder investeren verstandig is.">
+    <meta property="og:title" content="Cases — Forty">
+    <meta property="og:description" content="Geen vage projecten, maar onderbouwde keuzes. Bekijk onze trajecten.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://forty.nl/cases">
     <meta property="og:image" content="https://forty.nl/forty/assets/images/og-cases.jpg">
@@ -20,7 +20,7 @@
         "@context": "https://schema.org",
         "@type": "CollectionPage",
         "name": "Cases — Forty",
-        "description": "Bekijk hoe Forty ambities scherper maakte. Van idee naar onderbouwd besluit — in 4 tot 8 weken.",
+        "description": "Beslissingen vóór schaal. Bekijk hoe Forty organisaties helpt expliciet te besluiten of verder investeren verstandig is.",
         "url": "https://forty.nl/cases",
         "publisher": {
             "@type": "Organization",
@@ -41,7 +41,7 @@
                     "item": {
                         "@type": "CreativeWork",
                         "name": "VPRO Spot — koopintentie vóór lancering",
-                        "description": "Onderzochten kijkgedrag en fricties en toetsten expliciet koopintentie en prijsacceptatie voordat verder werd geïnvesteerd in ontwikkeling en positionering.",
+                        "description": "Drie businessmodelvarianten ontworpen en getoetst. Behoefteonderzoek uitgevoerd — waaruit bleek dat er een grote behoefte bestaat aan hulp bij het vinden van kwalitatief goede series en films op streamingdiensten. Propositie ontworpen en getest op koopintentie. 80% van de respondenten gaf aan klant te willen worden. Businesscase uitgewerkt voor verdere investering.",
                         "url": "https://forty.nl/forty/cases/vpro-spot/",
                         "about": { "@type": "Organization", "name": "VPRO" },
                         "genre": "Media & Content"
@@ -52,8 +52,8 @@
                     "position": 2,
                     "item": {
                         "@type": "CreativeWork",
-                        "name": "AVEQ — pitchdeck als beslisinstrument",
-                        "description": "Ontwikkelden een pitchdeck dat geen marketingverhaal was, maar een toetsinstrument. Koppelden het deck aan echte gesprekken en expliciete koopcriteria.",
+                        "name": "AVEQ — van technologie naar commerciële propositie",
+                        "description": "Propositie opgebouwd vanuit behavioural design. De fundamentele onderdelen bepaald: wie ervaart het probleem, wie heeft de urgentie om te handelen, wat is het alternatief. Pitchdeck ontwikkeld en pitchtraining gegeven waarmee AVEQ bij betaalde voetbalclubs de koopintentie commercieel kon toetsen.",
                         "url": "https://forty.nl/forty/cases/aveq/",
                         "about": { "@type": "Organization", "name": "AVEQ" },
                         "genre": "Startup & Investering"
@@ -112,7 +112,7 @@
                     "position": 7,
                     "item": {
                         "@type": "CreativeWork",
-                        "name": "HEMA — innovatiepartnerschap van experiment naar schaal",
+                        "name": "HEMA — Schone Billenbox",
                         "description": "Werkten als innovatiepartner aan meerdere trajecten, waaronder Click & Collect in de HEMA-app.",
                         "url": "https://forty.nl/forty/cases/hema/",
                         "about": { "@type": "Organization", "name": "HEMA" },
@@ -123,7 +123,12 @@
         }
     }
     </script>
-
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    
     <style>
         /* --- CSS VARIABLES --- */
         :root {
@@ -217,7 +222,6 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 400;
-            padding: 12px 0;
             transition: color 200ms ease;
         }
         
@@ -666,7 +670,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--stone-600);
             padding-top: 16px;
         }
@@ -678,25 +682,31 @@
                 align-items: flex-start;
             }
         }
-
+        
+        .footer__legal {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer__legal a {
+            color: var(--stone-600);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+        
         .footer__legal a:hover {
             color: var(--stone-400);
         }
 
-        @media (max-width: 1024px) {
-            .hero { padding: 140px 24px 60px; }
-            .cases { padding: 24px 24px 80px; }
-            .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    
+        /* Mobile: skip reveal animation */
+        @media (max-width: 768px) {
+            .reveal, .reveal-card, .reveal-quote {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
         }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 1.75rem; }
-            h2 { font-size: 1.5rem; }
-            .hero { padding: 120px 16px 48px; }
-            .cases { padding: 24px 16px 48px; }
-            .footer__inner { padding: 24px 16px; }
-        }
-
     </style>
 </head>
 <body>
@@ -714,7 +724,7 @@
                 <a href="/forty/over">Over Forty</a>
             </nav>
             <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
-                <span></span>
+                <span>Menu</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"/>
                     <line x1="3" y1="6" x2="21" y2="6"/>
@@ -734,9 +744,9 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero__inner">
-            <h1 class="hero__title">Hoe ambities <em>scherper werden</em></h1>
+            <h1 class="hero__title">Beslissingen <em>vóór schaal</em></h1>
             <p class="hero__body">
-                In deze trajecten bepaalden we welke keuzes nodig waren om van idee naar iets dat werkt te komen. Geen vage projecten, maar onderbouwde besluiten.
+                In deze trajecten bepaalden we expliciet of verder investeren verstandig was. Geen vage projecten, maar onderbouwde keuzes.
             </p>
         </div>
     </section>
@@ -745,7 +755,7 @@
     <section class="reflective">
         <div class="reflective__inner">
             <p class="reflective__text">
-                Niet elk traject eindigt in een lancering. Wel elk traject in helderheid over de juiste volgende stap.
+                Niet elk traject eindigt in een lancering. Wel elk traject in een helder besluit.
             </p>
         </div>
     </section>
@@ -757,7 +767,7 @@
             <div class="cases__grid">
 
 <!-- CASE 1: VPRO Spot -->
-                <a href="/forty/cases/vpro-spot/" class="case-card" data-client="VPRO" data-sector="Media & Content" data-decision="stop">
+                <a href="/forty/cases/vpro-spot/" class="case-card" data-client="VPRO" data-sector="Media & Content" data-decision="go">
                     <img src="/forty/assets/images/vpro-spot.jpg" 
                          alt="VPRO Spot kijklijst interface" 
                          class="case-card__image"
@@ -770,22 +780,22 @@
                         
                         <div class="case-card__section">
                             <span class="case-card__label">Beslissing</span>
-                            <div class="case-card__decision-value decision--stop">
-                                <span class="decision-marker">STOP</span> Is er markt voor podcast-abonnementen?
+                            <div class="case-card__decision-value decision--go">
+                                <span class="decision-marker">GO</span> Kan de VPRO haar redactionele kracht commercieel inzetten?
                             </div>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Wat we deden</span>
                             <p class="case-card__text">
-                                Onderzochten kijkgedrag en fricties en toetsten expliciet koopintentie en prijsacceptatie voordat verder werd geïnvesteerd in ontwikkeling en positionering.
+                                Drie businessmodelvarianten ontworpen en getoetst. Behoefteonderzoek uitgevoerd — waaruit bleek dat er een grote behoefte bestaat aan hulp bij het vinden van kwalitatief goede series en films op streamingdiensten. Propositie ontworpen en getest op koopintentie. 80% van de respondenten gaf aan klant te willen worden. Businesscase uitgewerkt voor verdere investering.
                             </p>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Uitkomst</span>
                             <p class="case-card__text">
-                                Heldere inzichten in waarde en drempels. Besluitvorming gebaseerd op echte betaalbereidheid in plaats van aannames of enthousiasme.
+                                Een onderbouwde kans. Niet een idee, maar een getoetste propositie met bewezen koopintentie. In een tijd waarin omroepen krimpen, heeft de VPRO nu een pad naar commerciële versterking van wat ze al het beste doet: mensen helpen kiezen wat de moeite waard is.
                             </p>
                         </div>
 
@@ -802,27 +812,27 @@
                         >
                     <article class="case-card__content">
                         <div class="case-card__header">
-                            <div class="case-card__title">AVEQ — pitchdeck als beslisinstrument</div>
+                            <div class="case-card__title">AVEQ — van technologie naar commerciële propositie</div>
                         </div>
                         
                         <div class="case-card__section">
                             <span class="case-card__label">Beslissing</span>
                             <div class="case-card__decision-value decision--go">
-                                <span class="decision-marker">GO</span> Overtuigt dit verhaal klanten én investeerders?
+                                <span class="decision-marker">GO</span> Er is werkende technologie. Maar wie betaalt ervoor — en waarom?
                             </div>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Wat we deden</span>
                             <p class="case-card__text">
-                                Ontwikkelden een pitchdeck dat geen marketingverhaal was, maar een toetsinstrument. Koppelden het deck aan echte gesprekken en expliciete koopcriteria.
+                                Propositie opgebouwd vanuit behavioural design. De fundamentele onderdelen bepaald: wie ervaart het probleem, wie heeft de urgentie om te handelen, wat is het alternatief. Pitchdeck ontwikkeld en pitchtraining gegeven waarmee AVEQ bij betaalde voetbalclubs de koopintentie commercieel kon toetsen.
                             </p>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Uitkomst</span>
                             <p class="case-card__text">
-                                Scherp inzicht in positionering en koopintentie. Heldere basis voor vervolgstappen richting investering — of aanscherping.
+                                Een propositie die niet vertrekt vanuit technologie maar vanuit het probleem van de koper. AVEQ heeft nu een onderbouwd verhaal en de middelen om het te toetsen bij de markt.
                             </p>
                         </div>
 
@@ -956,21 +966,21 @@
                         <div class="case-card__section">
                             <span class="case-card__label">Beslissing</span>
                             <div class="case-card__decision-value decision--go">
-                                <span class="decision-marker">GO</span> Werkt dit concept breed genoeg voor uitrol?
+                                <span class="decision-marker">GO</span> Hoe krijg je jongeren aan het sporten die zich niet aangesproken voelen door sport?
                             </div>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Wat we deden</span>
                             <p class="case-card__text">
-                                Onderzochten motivatie en drempels bij jongeren, ontwierpen Shuffle Sports als laagdrempelig sportconcept en definieerden meetbare succescriteria vóór opschaling.
+                                Gestart met behoefteonderzoek bij de doelgroep zelf. Het inzicht: deze jongeren raken niet geïnspireerd door prestatie en competitie — ze willen lol maken met vrienden. Bovendien hebben ze een laag sportief zelfvertrouwen. Op basis daarvan Shuffle Sports ontwikkeld: onverwachte sportcombinaties als trampolinefitness en obstakelvoetbal. Iets waar je niet goed in hoeft te zijn, maar waar je wél beweegt en plezier maakt.
                             </p>
                         </div>
 
                         <div class="case-card__section">
                             <span class="case-card__label">Uitkomst</span>
                             <p class="case-card__text">
-                                Inzicht in wat werkt en wat niet. Gerichte keuzes over doorontwikkeling en uitrol, zonder grootschalige implementatie op aannames.
+                                Een jaar gepilot bij twee scholen. Inmiddels uitgerold bij vmbo-scholen door heel Nederland. Niet door harder te duwen op bestaand sportaanbod, maar door te beginnen bij wat de doelgroep daadwerkelijk beweegt.
                             </p>
                         </div>
 
@@ -979,7 +989,7 @@
                 </a>
 
 <!-- CASE 7: HEMA -->
-                <a href="/forty/cases/hema/" class="case-card" data-client="HEMA" data-sector="Retail &amp; E-commerce" data-decision="go">
+                <a href="/forty/cases/hema/" class="case-card" data-client="HEMA" data-sector="Retail &amp; E-commerce" data-decision="stop">
                     <img src="/forty/assets/images/hema.jpg" 
                          alt="HEMA Click & Collect app interface" 
                          class="case-card__image"
@@ -987,13 +997,13 @@
                         >
                     <article class="case-card__content">
                         <div class="case-card__header">
-                            <div class="case-card__title">HEMA — innovatiepartnerschap van experiment naar schaal</div>
+                            <div class="case-card__title">HEMA — Schone Billenbox</div>
                         </div>
                         
                         <div class="case-card__section">
                             <span class="case-card__label">Beslissing</span>
-                            <div class="case-card__decision-value decision--go">
-                                <span class="decision-marker">GO</span> Wat is robuust genoeg voor landelijke uitrol?
+                            <div class="case-card__decision-value decision--stop">
+                                <span class="decision-marker">STOP</span> Is er markt voor een HEMA-abonnement op luiers?
                             </div>
                         </div>
 
@@ -1007,7 +1017,7 @@
                         <div class="case-card__section">
                             <span class="case-card__label">Uitkomst</span>
                             <p class="case-card__text">
-                                Click & Collect grootschalig geïmplementeerd. Lagere risico's en snellere besluitvorming bij landelijke uitrol.
+                                Koopintentie bewezen. Maar de luiers die HEMA kon leveren voldeden niet aan de verwachting van de klant. Een helder STOP — niet omdat niemand het wilde kopen, maar omdat de feasibility het niet toeliet.
                             </p>
                         </div>
 
@@ -1052,10 +1062,7 @@
                     <a href="/forty/cases">Cases</a>
                     <a href="/forty/verhalen">Verhalen</a>
                     <a href="/forty/over">Over Forty</a>
-                    <a href="/forty/werkwijze" style="margin-top: 24px;">Startups</a>
-                    <a href="/forty/werkwijze">Bedrijven</a>
-                    <a href="/forty/werkwijze">Investeerders</a>
-                </div>
+                    </div>
                 
                 <div class="footer__col">
                     <div class="footer__col-title">Contact</div>
@@ -1085,7 +1092,35 @@
             placeholder.textContent = img.alt || 'Afbeelding niet beschikbaar';
             img.parentElement.insertBefore(placeholder, img);
         }
-    </script>
 
-</body>
-</html>
+        document.querySelectorAll('.case-card__image').forEach(function(img) {
+            img.addEventListener('error', function() {
+                handleImageError(this);
+            }, { once: true });
+            // Handle images that already failed before listener attached
+            if (img.complete && img.naturalWidth === 0) {
+                handleImageError(img);
+            }
+        });
+
+        // Header scroll state
+        const header = document.querySelector('.header');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileMenuToggle && mobileMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+        }
+    </script>
