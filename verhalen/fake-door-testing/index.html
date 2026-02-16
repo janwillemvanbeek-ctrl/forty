@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Door Testing | Forty verhaal</title>
+    <title>Fake Door Testing | Forty verhalen</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
-    <meta name="description" content="Hoe je met fake door testing snel en kostenefficiënt de levensvatbaarheid van een productidee valideert — zonder te bouwen.">
+    <meta name="description" content="Fake door testing: snel en kostenefficiënt valideren of je doelgroep daadwerkelijk interesse heeft in je productidee.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
             --white: #FFFFFF; --stone-50: #FAFAF9; --stone-100: #F5F5F4; --stone-200: #E7E5E4;
@@ -18,55 +18,64 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; color: var(--stone-900); background: var(--white); -webkit-font-smoothing: antialiased; }
+        body { font-family: 'DM Sans', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; color: var(--stone-900); background: var(--white); -webkit-font-smoothing: antialiased; }
 
+        /* Header */
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
         @supports (backdrop-filter: blur(12px)) { .header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px) saturate(180%); } }
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-        .header__logo img { height: 84px !important; display: block; }
         .header__logo { text-decoration: none; }
-        .header__nav { display: flex; gap: 32px; }
-        .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; transition: color 200ms; }
+        .header__logo img { height: 84px !important; display: block; }
+        .header__nav { display: flex; align-items: center; gap: 32px; }
+        .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
         .header__mobile-toggle { display: none; }
         .header__mobile-menu { display: none; position: fixed; top: 116px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--stone-200); padding: 24px; z-index: 999; }
         .header__mobile-menu.active { display: block; }
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
-        .article-hero { padding: 160px 24px 64px; max-width: 720px; margin: 0 auto; }
-        .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 16px; }
+        /* Article hero */
+        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero__inner { max-width: 720px; margin: 0 auto; }
+        .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
         .article-hero__breadcrumb a:hover { color: var(--stone-900); }
-        .article-hero__title { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.2; margin-bottom: 24px; }
+        .article-hero__title { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2; color: var(--stone-900); margin-bottom: 24px; }
         .article-hero__intro { font-size: 18px; line-height: 1.7; color: var(--stone-600); margin-bottom: 32px; }
-        .article-hero__meta { display: flex; gap: 24px; font-size: 13px; color: var(--stone-400); border-top: 1px solid var(--stone-200); padding-top: 16px; }
-        .article-hero__meta span { display: flex; align-items: center; gap: 6px; }
-        .article-hero__pill { font-size: 12px; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--stone-200); color: var(--stone-500); }
+        .article-hero__meta { display: flex; gap: 24px; padding-top: 24px; border-top: 1px solid var(--stone-200); }
+        .article-hero__meta-item { font-size: 13px; color: var(--stone-500); }
+        .article-hero__meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 2px; }
 
-        .article-body { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+        /* Article body */
+        .article-body { padding: 0 24px 80px; }
+        .article-body__inner { max-width: 720px; margin: 0 auto; }
         .article__section { margin-bottom: 48px; }
-        .article__subheading { font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; font-weight: 400; line-height: 1.3; margin-bottom: 16px; color: var(--stone-900); }
-        .article__section p { font-size: 16px; line-height: 1.8; color: var(--stone-700); margin-bottom: 14px; }
+        .article__section h2 { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
+        .article__section p { font-size: 16px; line-height: 1.8; color: var(--stone-700); margin-bottom: 16px; }
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
 
+        /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
         .cta-section__inner { max-width: 640px; margin: 0 auto; }
-        .cta-section__quote { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--white); line-height: 1.4; margin-bottom: 32px; }
+        .cta-section__quote { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 400; color: var(--white); line-height: 1.4; margin-bottom: 32px; }
         .cta-section__sub { font-size: 15px; color: var(--stone-400); margin-bottom: 40px; line-height: 1.6; }
-        .cta-section__btn { display: inline-block; padding: 14px 32px; background: var(--amber-500); color: var(--white); text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 4px; transition: background 200ms; }
+        .cta-section__btn { display: inline-block; padding: 14px 32px; background: var(--amber-500); color: var(--white); text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 4px; transition: background 200ms ease; }
         .cta-section__btn:hover { background: var(--amber-600); }
 
-        .article-nav { padding: 48px 24px; border-top: 1px solid var(--stone-100); }
-        .article-nav__inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; }
-        .article-nav__link { text-decoration: none; transition: color 200ms; }
-        .article-nav__link:hover .article-nav__title { color: var(--stone-900); }
+        /* Article nav */
+        .article-nav { padding: 48px 24px; background: var(--white); border-top: 1px solid var(--stone-100); }
+        .article-nav__inner { max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .article-nav__link { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .article-nav__link:hover { color: var(--stone-900); }
         .article-nav__link--next { text-align: right; }
         .article-nav__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 4px; }
-        .article-nav__title { font-size: 15px; color: var(--stone-600); font-weight: 500; }
+        .article-nav__title { font-size: 16px; color: var(--stone-700); font-weight: 500; }
+        .article-nav__link:hover .article-nav__title { color: var(--stone-900); }
 
+        /* Footer */
         .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
         .footer__inner { max-width: 1120px; margin: 0 auto; }
         .footer__top { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 96px; padding-bottom: 72px; border-bottom: 1px solid var(--stone-800); margin-bottom: 48px; }
@@ -74,8 +83,10 @@
         .footer__brand-tagline { font-size: 14px; line-height: 1.6; color: var(--stone-500); margin-top: 32px; margin-bottom: 24px; max-width: 280px; }
         .footer__social { display: flex; gap: 16px; }
         .footer__social a { color: var(--stone-500); }
+        .footer__social a:hover { color: var(--stone-300); }
         .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
         .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+        .footer__col a:hover { color: var(--stone-200); }
         .footer__contact-item { display: block; margin-bottom: 12px; }
         .footer__contact-item a { color: var(--stone-400); text-decoration: none; }
         .footer__bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--stone-600); padding-top: 16px; }
@@ -87,6 +98,9 @@
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
             .header__logo img { height: 72px !important; }
             .article-hero { padding: 120px 24px 48px; }
+            .article-hero__meta { flex-wrap: wrap; gap: 16px; }
+            .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
+            .article-nav__link--next { text-align: left; }
             .footer__top { grid-template-columns: 1fr; gap: 32px; }
             .footer__bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
         }
@@ -117,42 +131,51 @@
 
 <article>
     <div class="article-hero">
-        <div class="article-hero__breadcrumb">
-            <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Fake Door Testing</strong>
-        </div>
-        <h1 class="article-hero__title">Fake Door Testing</h1>
-        <p class="article-hero__intro">In de wereld van productontwikkeling is het essentieel om te begrijpen wat gebruikers willen en hoe ze zich gedragen. Fake door testing stelt je in staat om snel en kostenefficiënt de levensvatbaarheid van een productidee te valideren.</p>
-        <div class="article-hero__meta">
-            <span class="article-hero__pill">Methodiek</span>
-            <span>9 mei 2023</span>
-            <span>4 min leestijd</span>
+        <div class="article-hero__inner">
+            <div class="article-hero__breadcrumb">
+                <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Fake Door Testing</strong>
+            </div>
+            <h1 class="article-hero__title">Fake Door Testing</h1>
+            <p class="article-hero__intro">Hoe valideer je snel of je doelgroep daadwerkelijk interesse heeft — zonder eerst een product te bouwen? Fake door testing geeft antwoord door gedrag te meten in plaats van intentie.</p>
+            <div class="article-hero__meta">
+                <div class="article-hero__meta-item">
+                    <span class="article-hero__meta-label">Datum</span>
+                    9 mei 2023
+                </div>
+                <div class="article-hero__meta-item">
+                    <span class="article-hero__meta-label">Leestijd</span>
+                    4 min
+                </div>
+                <div class="article-hero__meta-item">
+                    <span class="article-hero__meta-label">Categorie</span>
+                    Methodiek
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="article-body">
+        <div class="article-body__inner">
 
                 <section class="article__section">
-                    <h2 class="article__subheading">Wat is fake door testing?</h2>
-                    <p>Fake door testing houdt in dat je het gebruik van een functie simuleert zonder daadwerkelijke ontwikkeling van het product. Het idee is om gebruikers te laten kiezen voor een product of dienst, terwijl er achter de schermen helemaal geen werkend concept is.</p>
-                    <p>Je maakt bijvoorbeeld een poster met mock-ups die eruitzien alsof je het al daadwerkelijk kan gebruiken, met een QR-code onderaan. Je meet vervolgens hoe vaak de QR-code wordt gescand.</p>
-                    <p>Sneller nog is het digitaal doen: een link op social media of in een advertentie. Het percentage dat klikt noemen we de conversie van je propositie.</p>
+                    <h2>Wat is fake door testing?</h2>
+                    <p>Fake door testing houdt in dat je het gebruik van een functie simuleert zonder daadwerkelijke ontwikkeling. Het idee is om gebruikers te laten kiezen voor een product of dienst, terwijl er achter de schermen helemaal geen werkend concept is. Op deze manier kun je meten of gebruikers daadwerkelijk interesse hebben voordat je er veel tijd en geld aan besteedt.</p>
+                    <p>Je maakt bijvoorbeeld een poster van je idee, met een aantal mock-ups die eruitzien alsof je het al daadwerkelijk kan gebruiken. Dan zet je een QR-code onderaan om het 'product te gebruiken'. Je meet vervolgens hoe vaak de QR-code wordt gescand.</p>
                 </section>
 
                 <section class="article__section">
-                    <h2 class="article__subheading">Hoe werkt het?</h2>
-                    <p><strong>Idee-generatie:</strong> Identificeer het productidee of de functie die je wilt valideren.</p>
-                    <p><strong>Prototype-ontwikkeling:</strong> Bouw een eenvoudige, niet-functionele versie — met wireframes, mock-ups of een simpele webpagina.</p>
-                    <p><strong>Gebruikerstest:</strong> Plaats de niet-functionele versie achter een 'deur' — een knop, een link, een QR-code. Alles wat meetbaar is.</p>
-                    <p><strong>Gegevensanalyse:</strong> Bepaal de conversie door het percentage te berekenen van mensen die de nep-deur hebben gebruikt.</p>
+                    <h2>Hoe werkt het in de praktijk?</h2>
+                    <p>Het proces omvat vier stappen: Identificeer het productidee dat je wilt valideren. Bouw een eenvoudige, niet-functionele versie — wireframes, mock-ups of een simpele webpagina. Plaats de niet-functionele versie achter een meetbare 'deur' — een knop, link of QR-code. Analyseer de conversie: het percentage mensen dat actie onderneemt.</p>
+                    <p>Sneller nog is fake door testing digitaal doen. Je plaatst een link op social media of in een advertentie en schrijft daarbij welke product of dienst zich achter de link bevindt. Het percentage dat klikt noemen we de conversie van je propositie.</p>
                 </section>
 
                 <section class="article__section">
-                    <h2 class="article__subheading">Waarom zou je het doen?</h2>
-                    <p>Ten eerste is het kostenefficiënt. Je minimaliseert ontwikkelingskosten door vroegtijdig inzicht te krijgen in de vraag van gebruikers.</p>
-                    <p>Daarnaast kun je snel itereren. Je kunt allerlei concepten testen en feedback in realtime verzamelen.</p>
-                    <p>En je vermindert het risico dat je concept niet succesvol is. Door gebruikers te betrekken voordat je grote investeringen doet.</p>
+                    <h2>Waarom fake door testing werkt</h2>
+                    <p>Het is kostenefficiënt — je valideert voordat je ontwikkelt. Je kunt snel itereren — allerlei concepten testen en feedback in realtime verzamelen. En je vermindert risico door potentiële gebruikers te betrekken vóór grote investeringen.</p>
+                    <p>Let wel op dat je dit niet te vaak gebruikt. Je doelgroep wordt namelijk een beetje voor de gek gehouden en je wilt niet dat ze je uiteindelijk niet meer vertrouwen.</p>
                 </section>
 
+        </div>
     </div>
 </article>
 
@@ -164,7 +187,7 @@
     </div>
 </section>
 
-<nav class="article-nav"><div class="article-nav__inner"><a href="/forty/verhalen/groei-zonder-groeipijn/" class="article-nav__link"><span class="article-nav__label">&larr; Vorig verhaal</span><span class="article-nav__title">Groei zonder groeipijn</span></a><a href="/forty/verhalen/bamboi-interview/" class="article-nav__link article-nav__link--next"><span class="article-nav__label">Volgend verhaal &rarr;</span><span class="article-nav__title">Hoe Bamboi de markt wil veranderen</span></a></div></nav>
+<nav class="article-nav"><div class="article-nav__inner"><a href="/forty/verhalen/groei-zonder-groeipijn/" class="article-nav__link"><span class="article-nav__label">&larr; Vorig verhaal</span><span class="article-nav__title">Groei zonder groeipijn</span></a><a href="/forty/verhalen/bamboi-zebra-show/" class="article-nav__link article-nav__link--next"><span class="article-nav__label">Volgend verhaal &rarr;</span><span class="article-nav__title">Hoe Bamboi de markt wil veranderen</span></a></div></nav>
 
 <footer class="footer">
     <div class="footer__inner">
