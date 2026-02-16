@@ -52,7 +52,7 @@
         .hero__image-wrapper { border-radius: 8px; overflow: hidden; }
         .hero__image-wrapper img { width: 100%; display: block; filter: saturate(0.92) contrast(1.05); }
 
-        .decision-core { padding: 64px 24px; background: var(--white); }
+        .decision-core { padding: 64px 24px; background: var(--stone-50); }
         .decision-core__inner { max-width: 800px; margin: 0 auto; }
         .decision-core__card { border-left: 3px solid var(--amber-500); padding: 40px; background: var(--stone-50); border-radius: 0 8px 8px 0; }
         .decision-core__title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 24px; }
@@ -87,6 +87,24 @@
         .sidebar__value { font-size: 15px; line-height: 1.6; color: var(--stone-700); }
         .sidebar__card--outline { background: var(--white); border: 1px solid var(--stone-200); text-align: center; }
         .sidebar__card--outline .sidebar__value { font-size: 14px; color: var(--stone-500); }
+
+        /* CTA Section */
+        .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
+        .cta-section__inner { max-width: 640px; margin: 0 auto; }
+        .cta-section__quote { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 400; color: var(--white); line-height: 1.4; margin-bottom: 32px; }
+        .cta-section__sub { font-size: 15px; color: var(--stone-400); margin-bottom: 40px; line-height: 1.6; }
+        .cta-section__btn { display: inline-block; padding: 14px 32px; background: var(--amber-500); color: var(--white); text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 4px; transition: background 200ms ease; }
+        .cta-section__btn:hover { background: var(--amber-600); }
+
+        /* Case nav */
+        .case-nav { padding: 48px 24px; background: var(--white); border-top: 1px solid var(--stone-100); }
+        .case-nav__inner { max-width: 1120px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .case-nav__link { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .case-nav__link:hover { color: var(--stone-900); }
+        .case-nav__link--next { text-align: right; }
+        .case-nav__label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 4px; }
+        .case-nav__title { font-size: 16px; color: var(--stone-700); font-weight: 500; }
+        .case-nav__link:hover .case-nav__title { color: var(--stone-900); }
 
         .back-link { padding: 0 24px 80px; background: var(--white); }
         .back-link__inner { max-width: 1120px; margin: 0 auto; }
@@ -259,11 +277,15 @@
     </div>
 </section>
 
-<div class="back-link">
-    <div class="back-link__inner">
-        <a href="/forty/cases">&larr; Alle cases</a>
+<section class="cta-section">
+    <div class="cta-section__inner">
+        <p class="cta-section__quote">Helderheid vóór de volgende investering</p>
+        <p class="cta-section__sub">Elk traject begint met dezelfde vraag: wat is de aanname die het meeste risico draagt?</p>
+        <a href="mailto:hallo@forty.nl" class="cta-section__btn">Plan een gesprek</a>
     </div>
-</div>
+</section>
+
+<nav class="case-nav"><div class="case-nav__inner"><a href="/forty/cases/sportup-boost/" class="case-nav__link"><span class="case-nav__label">&larr; Vorige case</span><span class="case-nav__title">Sportup Boost</span></a><a href="/forty/cases/ouderenfonds/" class="case-nav__link case-nav__link--next"><span class="case-nav__label">Volgende case &rarr;</span><span class="case-nav__title">Nationaal Ouderenfonds</span></a></div></nav>
 
 <footer class="footer">
     <div class="footer__inner">
