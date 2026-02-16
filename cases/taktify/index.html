@@ -20,7 +20,6 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; line-height: 1.6; color: var(--stone-900); background: var(--white); -webkit-font-smoothing: antialiased; }
 
-        /* Header */
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
         @supports (backdrop-filter: blur(12px)) { .header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px) saturate(180%); } }
         .header.scrolled { border-bottom-color: var(--stone-200); }
@@ -36,10 +35,8 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
         .header__mobile-cta { margin-top: 16px; padding: 12px 24px !important; background: var(--amber-500); color: white !important; border-radius: 4px; text-align: center; }
 
-        /* Hero */
         .hero { padding: 160px 24px 80px; background: var(--white); }
         .hero__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .hero__content { }
         .breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 16px; }
         .breadcrumb a { color: var(--stone-500); text-decoration: none; }
         .breadcrumb a:hover { color: var(--stone-900); }
@@ -50,11 +47,9 @@
         .hero__pill--decision { background: var(--amber-500); color: white; border-color: var(--amber-500); font-weight: 600; }
         .hero__narrative { font-size: 17px; line-height: 1.7; color: var(--stone-700); }
         .hero__narrative strong { color: var(--stone-900); font-weight: 600; }
-        .hero__image-col { }
         .hero__image-wrapper { border-radius: 8px; overflow: hidden; }
         .hero__image-wrapper img { width: 100%; display: block; filter: saturate(0.92) contrast(1.05); }
 
-        /* Decision Core */
         .decision-core { padding: 64px 24px; background: var(--white); }
         .decision-core__inner { max-width: 800px; margin: 0 auto; }
         .decision-core__card { border-left: 3px solid var(--amber-500); padding: 40px; background: var(--stone-50); border-radius: 0 8px 8px 0; }
@@ -64,9 +59,10 @@
         .decision-core__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-500); margin-bottom: 4px; }
         .decision-core__value { font-size: 16px; color: var(--stone-800); line-height: 1.5; }
 
-        /* Content */
+        /* Content with sidebar */
         .content { padding: 80px 24px 120px; background: var(--white); }
-        .content__inner { max-width: 720px; margin: 0 auto; }
+        .content__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+        .content__main { }
         .content__section { margin-bottom: 56px; }
         .content__heading { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
         .content__section p { font-size: 16px; line-height: 1.75; color: var(--stone-700); margin-bottom: 16px; }
@@ -74,13 +70,20 @@
         .content__section p em { font-style: italic; }
         .content__section p strong { font-weight: 600; color: var(--stone-800); }
 
-        /* Back link */
+        /* Sidebar */
+        .sidebar { position: sticky; top: 140px; }
+        .sidebar__card { background: var(--stone-50); border-radius: 8px; padding: 32px; margin-bottom: 24px; }
+        .sidebar__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--stone-500); margin-bottom: 8px; }
+        .sidebar__value { font-size: 15px; line-height: 1.6; color: var(--stone-700); }
+        .sidebar__card--outline { background: var(--white); border: 1px solid var(--stone-200); text-align: center; }
+        .sidebar__card--outline .sidebar__label { margin-bottom: 6px; }
+        .sidebar__card--outline .sidebar__value { font-size: 14px; color: var(--stone-500); }
+
         .back-link { padding: 0 24px 80px; background: var(--white); }
-        .back-link__inner { max-width: 720px; margin: 0 auto; }
+        .back-link__inner { max-width: 1120px; margin: 0 auto; }
         .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
         .back-link__inner a:hover { color: var(--stone-900); }
 
-        /* Footer */
         .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
         .footer__inner { max-width: 1120px; margin: 0 auto; }
         .footer__top { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 96px; padding-bottom: 72px; border-bottom: 1px solid var(--stone-800); margin-bottom: 48px; }
@@ -90,7 +93,7 @@
         .footer__social a { color: var(--stone-500); transition: color 200ms ease; }
         .footer__social a:hover { color: var(--stone-300); }
         .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
-        .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; transition: color 200ms ease; }
+        .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
         .footer__col a:hover { color: var(--stone-200); }
         .footer__contact-item { display: block; margin-bottom: 12px; }
         .footer__contact-item a { color: var(--stone-400); text-decoration: none; }
@@ -98,7 +101,6 @@
         .footer__legal { display: flex; gap: 32px; }
         .footer__legal a { color: var(--stone-600); text-decoration: none; }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
@@ -107,6 +109,8 @@
             .hero { padding: 120px 24px 60px; }
             .hero__inner { grid-template-columns: 1fr; gap: 40px; }
             .hero__image-col { order: -1; }
+            .content__inner { grid-template-columns: 1fr; gap: 48px; }
+            .sidebar { position: static; }
             .footer__top { grid-template-columns: 1fr; gap: 32px; }
             .footer__bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
         }
@@ -182,35 +186,51 @@
 
 <section class="content">
     <div class="content__inner">
+        <div class="content__main">
 
-                <section class="content__section">
-                    <h2 class="content__heading">Uitgangssituatie</h2>
-                    <p>Taktify heeft AI-technologie waarmee zorgplanners complexe roosters sneller beheren. De technologie werkte. Maar de zorgsector is notoir lastig te betreden als startup: lange besliscycli, veel stakeholders, conservatieve inkoop, budgetten die via complexe financieringsstromen lopen. Het founding team had sterke technische kennis maar geen pad naar de eerste betalende klant.</p>
-                    <p>De vraag was niet of de AI werkte. De vraag was of er een markt was die bereid was ervoor te betalen — en hoe je daar binnenkomt.</p>
-                </section>
+                    <section class="content__section">
+                        <h2 class="content__heading">Uitgangssituatie</h2>
+                        <p>Taktify heeft AI-technologie waarmee zorgplanners complexe roosters sneller beheren. De technologie werkte. Maar de zorgsector is notoir lastig te betreden als startup: lange besliscycli, veel stakeholders, conservatieve inkoop, budgetten die via complexe financieringsstromen lopen. Het founding team had sterke technische kennis maar geen pad naar de eerste betalende klant.</p>
+                        <p>De vraag was niet of de AI werkte. De vraag was of er een markt was die bereid was ervoor te betalen — en hoe je daar binnenkomt.</p>
+                    </section>
 
-                <section class="content__section">
-                    <h2 class="content__heading">Aanname die we toetsten</h2>
-                    <p>Er is een betalende markt voor AI-roosteroplossingen in de thuiszorg — mits je het gesprek voert over het planningsprobleem van de zorgplanner, niet over de mogelijkheden van de AI.</p>
-                </section>
+                    <section class="content__section">
+                        <h2 class="content__heading">Aanname die we toetsten</h2>
+                        <p>Er is een betalende markt voor AI-roosteroplossingen in de thuiszorg — mits je het gesprek voert over het planningsprobleem van de zorgplanner, niet over de mogelijkheden van de AI.</p>
+                    </section>
 
-                <section class="content__section">
-                    <h2 class="content__heading">Wat we deden</h2>
-                    <p>Drie maanden intensieve begeleiding. We startten niet bij de technologie maar bij de markt: welk probleem is urgent genoeg dat iemand ervoor betaalt? Wie in de organisatie heeft het budget? Wat gebruiken ze nu — en waarom is dat niet goed genoeg?</p>
-                    <p>Op basis daarvan herschreven we de propositie. Van "onze AI kan X" naar "jouw planners besteden Y uur per week aan handmatig roosteren — en dat hoeft niet." We bouwden een go-to-market strategie met pitchdeck, specifiek voor de zorgsector: hoe kom je voorbij de eerste deur, wie moet je overtuigen, en in welke volgorde.</p>
-                </section>
+                    <section class="content__section">
+                        <h2 class="content__heading">Wat we deden</h2>
+                        <p>Drie maanden intensieve begeleiding. We startten niet bij de technologie maar bij de markt: welk probleem is urgent genoeg dat iemand ervoor betaalt? Wie in de organisatie heeft het budget? Wat gebruiken ze nu — en waarom is dat niet goed genoeg?</p>
+                        <p>Op basis daarvan herschreven we de propositie. Van "onze AI kan X" naar "jouw planners besteden Y uur per week aan handmatig roosteren — en dat hoeft niet." We bouwden een go-to-market strategie met pitchdeck, specifiek voor de zorgsector: hoe kom je voorbij de eerste deur, wie moet je overtuigen, en in welke volgorde.</p>
+                    </section>
 
-                <section class="content__section">
-                    <h2 class="content__heading">Uitkomst</h2>
-                    <p>Een aangescherpt businessmodel met een heldere prijs-propositie. Niet een technologie-pitch maar een probleem-pitch — gericht op de mensen die het budget en de urgentie hebben. Taktify weet nu niet alleen wat ze kunnen bouwen, maar voor wie, en hoe ze daar komen.</p>
-                </section>
+                    <section class="content__section">
+                        <h2 class="content__heading">Uitkomst</h2>
+                        <p>Een aangescherpt businessmodel met een heldere prijs-propositie. Niet een technologie-pitch maar een probleem-pitch — gericht op de mensen die het budget en de urgentie hebben. Taktify weet nu niet alleen wat ze kunnen bouwen, maar voor wie, en hoe ze daar komen.</p>
+                    </section>
 
+        </div>
+        <aside class="sidebar">
+            <div class="sidebar__card">
+                <div class="sidebar__label">Samen met</div>
+                <div class="sidebar__value">Care Tech Scaling Program</div>
+                <div style="margin-top: 24px;">
+                    <div class="sidebar__label">Rol Forty</div>
+                    <div class="sidebar__value">Forty begeleidde het volledige traject: businessmodel-analyse, propositie-herschrijving, go-to-market strategie en pitchdeck-ontwikkeling.</div>
+                </div>
+            </div>
+            <div class="sidebar__card sidebar__card--outline">
+                <div class="sidebar__label">Bewust niet</div>
+                <div class="sidebar__value">Technische productontwikkeling of AI-engineering</div>
+            </div>
+        </aside>
     </div>
 </section>
 
 <div class="back-link">
     <div class="back-link__inner">
-        <a href="/forty/cases">← Alle cases</a>
+        <a href="/forty/cases">&larr; Alle cases</a>
     </div>
 </div>
 
