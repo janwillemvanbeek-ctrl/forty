@@ -419,3 +419,40 @@ document.querySelectorAll('.case-card__image').forEach(function(img) {
 var header = document.querySelector('.header');
 window.addEventListener('scroll', function() {
     header.classList.toggle('scrolled', wi
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="418949bf-833f-4b75-b74e-f9d3f68b195e"></script>
+    <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      var text = link.textContent.trim();
+      if (text.indexOf('Plan een gesprek') !== -1 || href.indexOf('calendly') !== -1) {
+        if (typeof umami !== 'undefined') umami.track('cta-plan-gesprek', { page: location.pathname });
+      }
+      if (href.indexOf('/cases/') !== -1 && location.pathname === '/forty/cases/') {
+        if (typeof umami !== 'undefined') umami.track('case-click', { case: href });
+      }
+    });
+    </script>
+    <script>
+    (function() {
+      var tracked = {};
+      var thresholds = [25, 50, 75, 100];
+      function getScrollPercent() {
+        var h = document.documentElement, b = document.body;
+        var st = h.scrollTop || b.scrollTop;
+        var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+        return sh > 0 ? Math.round((st / sh) * 100) : 0;
+      }
+      window.addEventListener('scroll', function() {
+        var pct = getScrollPercent();
+        for (var i = 0; i < thresholds.length; i++) {
+          var t = thresholds[i];
+          if (pct >= t && !tracked[t]) {
+            tracked[t] = true;
+            if (typeof umami !== 'undefined') umami.track('scroll-depth', { depth: t + '%', page: location.pathname });
+          }
+        }
+      });
+    })();
+    </script>
