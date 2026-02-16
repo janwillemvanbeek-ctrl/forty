@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connected River — data-gedreven beheer van stedelijk riviergebied | Forty case</title>
+    <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
+    <meta name="description" content="Van meten achteraf naar handelen binnen uren. Hoe Forty als innovatiecoach de Spiegelwaal Nijmegen hielp met data-gedreven rivier­beheer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF; --stone-50: #FAFAF9; --stone-100: #F5F5F4; --stone-200: #E7E5E4;
+            --stone-300: #D6D3D1; --stone-400: #A8A29E; --stone-500: #78716C; --stone-600: #57534E;
+            --stone-700: #44403C; --stone-800: #292524; --stone-900: #1C1917;
+            --amber-500: #F59E0B; --amber-600: #D97706;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 16px; line-height: 1.6; color: var(--stone-900); background: var(--white); -webkit-font-smoothing: antialiased; }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
+        @supports (backdrop-filter: blur(12px)) { .header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px) saturate(180%); } }
+        .header.scrolled { border-bottom-color: var(--stone-200); }
+        .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+        .header__logo { text-decoration: none; }
+        .header__logo img { height: 84px !important; display: block; }
+        .header__nav { display: flex; align-items: center; gap: 32px; }
+        .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
+        .header__nav a:hover { color: var(--stone-900); }
+        .header__mobile-toggle { display: none; }
+        .header__mobile-menu { display: none; position: fixed; top: 116px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--stone-200); padding: 24px; z-index: 999; }
+        .header__mobile-menu.active { display: block; }
+        .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
+        .header__mobile-cta { margin-top: 16px; padding: 12px 24px !important; background: var(--amber-500); color: white !important; border-radius: 4px; text-align: center; }
+
+        /* Hero */
+        .hero { padding: 160px 24px 80px; background: var(--white); }
+        .hero__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .hero__content { }
+        .breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 16px; }
+        .breadcrumb a { color: var(--stone-500); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--stone-900); }
+        .hero__title { font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.15; color: var(--stone-900); margin-bottom: 20px; }
+        .hero__title em { font-style: italic; }
+        .hero__meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .hero__pill { font-size: 13px; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--stone-200); color: var(--stone-600); background: var(--white); }
+        .hero__pill--decision { background: var(--amber-500); color: white; border-color: var(--amber-500); font-weight: 600; }
+        .hero__narrative { font-size: 17px; line-height: 1.7; color: var(--stone-700); }
+        .hero__narrative strong { color: var(--stone-900); font-weight: 600; }
+        .hero__image-col { }
+        .hero__image-wrapper { border-radius: 8px; overflow: hidden; }
+        .hero__image-wrapper img { width: 100%; display: block; filter: saturate(0.92) contrast(1.05); }
+
+        /* Decision Core */
+        .decision-core { padding: 64px 24px; background: var(--white); }
+        .decision-core__inner { max-width: 800px; margin: 0 auto; }
+        .decision-core__card { border-left: 3px solid var(--amber-500); padding: 40px; background: var(--stone-50); border-radius: 0 8px 8px 0; }
+        .decision-core__title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 24px; }
+        .decision-core__item { margin-bottom: 20px; }
+        .decision-core__item:last-child { margin-bottom: 0; }
+        .decision-core__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-500); margin-bottom: 4px; }
+        .decision-core__value { font-size: 16px; color: var(--stone-800); line-height: 1.5; }
+
+        /* Content */
+        .content { padding: 80px 24px 120px; background: var(--white); }
+        .content__inner { max-width: 720px; margin: 0 auto; }
+        .content__section { margin-bottom: 56px; }
+        .content__heading { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
+        .content__section p { font-size: 16px; line-height: 1.75; color: var(--stone-700); margin-bottom: 16px; }
+        .content__section p:last-child { margin-bottom: 0; }
+        .content__section p em { font-style: italic; }
+        .content__section p strong { font-weight: 600; color: var(--stone-800); }
+
+        /* Back link */
+        .back-link { padding: 0 24px 80px; background: var(--white); }
+        .back-link__inner { max-width: 720px; margin: 0 auto; }
+        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .back-link__inner a:hover { color: var(--stone-900); }
+
+        /* Footer */
+        .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
+        .footer__inner { max-width: 1120px; margin: 0 auto; }
+        .footer__top { display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 96px; padding-bottom: 72px; border-bottom: 1px solid var(--stone-800); margin-bottom: 48px; }
+        .footer__brand img { height: 72px !important; }
+        .footer__brand-tagline { font-size: 14px; line-height: 1.6; color: var(--stone-500); margin-top: 32px; margin-bottom: 24px; max-width: 280px; }
+        .footer__social { display: flex; gap: 16px; }
+        .footer__social a { color: var(--stone-500); transition: color 200ms ease; }
+        .footer__social a:hover { color: var(--stone-300); }
+        .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
+        .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; transition: color 200ms ease; }
+        .footer__col a:hover { color: var(--stone-200); }
+        .footer__contact-item { display: block; margin-bottom: 12px; }
+        .footer__contact-item a { color: var(--stone-400); text-decoration: none; }
+        .footer__bottom { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--stone-600); padding-top: 16px; }
+        .footer__legal { display: flex; gap: 32px; }
+        .footer__legal a { color: var(--stone-600); text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header__nav { display: none; }
+            .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
+            .header__mobile-toggle svg { width: 20px; height: 20px; }
+            .header__logo img { height: 72px !important; }
+            .hero { padding: 120px 24px 60px; }
+            .hero__inner { grid-template-columns: 1fr; gap: 40px; }
+            .hero__image-col { order: -1; }
+            .footer__top { grid-template-columns: 1fr; gap: 32px; }
+            .footer__bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__inner">
+        <a href="/forty/" class="header__logo"><img src="/forty/Forty_Zwart_Liggend_rgb.svg" alt="Forty"></a>
+        <nav class="header__nav">
+            <a href="/forty/werkwijze">Werkwijze</a>
+            <a href="/forty/cases">Cases</a>
+            <a href="/forty/verhalen">Verhalen</a>
+            <a href="/forty/over">Over Forty</a>
+        </nav>
+        <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+            <span>Menu</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+    </div>
+    <div class="header__mobile-menu" id="mobileMenu">
+        <a href="/forty/werkwijze">Werkwijze</a>
+        <a href="/forty/cases">Cases</a>
+        <a href="/forty/verhalen">Verhalen</a>
+        <a href="/forty/over">Over Forty</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero__inner">
+        <div class="hero__content">
+            <div class="breadcrumb">
+                <a href="/forty/cases">Cases</a> <span>/</span> <strong>Connected River</strong>
+            </div>
+            <h1 class="hero__title">Connected <em>(River)</em></h1>
+            <div class="hero__meta">
+                <span class="hero__pill hero__pill--decision">Go</span>
+                <span class="hero__pill">Overheid &amp; Infrastructuur</span>
+                        <span class="hero__pill">Innovatiecoaching</span>
+                        <span class="hero__pill">2021–2024</span>
+                        
+            </div>
+            <p class="hero__narrative">De Spiegelwaal was nooit bedoeld als recreatiegebied — maar trok duizenden zwemmers aan. De waterkwaliteit kon snel veranderen, de standaardmeting kwam te laat. Forty werkte als innovatiecoach aan een <strong>data-gedreven alternatief voor miljoeneninvesteringen in infrastructuur.</strong></p>
+        </div>
+        <div class="hero__image-col">
+            <div class="hero__image-wrapper">
+                <img src="/forty/assets/images/connected-river.jpg" alt="Connected River Spiegelwaal Nijmegen" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="decision-core">
+    <div class="decision-core__inner">
+        <div class="decision-core__card">
+            <div class="decision-core__title">Besliskern</div>
+            <div class="decision-core__item">
+                <div class="decision-core__label">Beslisvraag</div>
+                <div class="decision-core__value">Kun je een drukbezocht riviergebied veilig beheren met data in plaats van infrastructuur?</div>
+            </div>
+            <div class="decision-core__item">
+                <div class="decision-core__label">Toetsingsaanpak</div>
+                <div class="decision-core__value">Negen experimenten in twee sporen: qPCR-waterkwaliteitsmetingen en sensormonitoring van brugspringers</div>
+            </div>
+            <div class="decision-core__item">
+                <div class="decision-core__label">Uitkomst</div>
+                <div class="decision-core__value">Go — dagelijkse metingen, directe waarschuwingen, data als basis voor beleid. Van meten achteraf naar vooruitkijken</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="content__inner">
+
+                <section class="content__section">
+                    <h2 class="content__heading">Uitgangssituatie</h2>
+                    <p>De Spiegelwaal in Nijmegen was nooit bedoeld als recreatiegebied. De nevengeul werd aangelegd om de Waal meer ruimte te geven bij hoogwater — een ingenieurstechnische ingreep. Maar wat er gebeurde was onverwacht: het water trok mensen aan. Zwemmers, roeiers, vissers, recreanten. Op warme dagen springen tientallen jongeren van de brug, ondanks een verbod. De Spiegelwaal groeide uit tot een van de drukstbezochte stedelijke zwemlocaties van Nederland.</p>
+                    <p>Tegelijk kan de waterkwaliteit snel veranderen door vervuilingsbronnen bovenstrooms. De standaardmeting levert pas na twee dagen een uitslag — te laat om zwemmers te waarschuwen bij een vervuilingspiek die binnen 24 uur weer verdwenen kan zijn.</p>
+                    <p>Gemeente Nijmegen en Rijkswaterstaat stonden voor een keuze: miljoenen investeren in infrastructuur om het water af te sluiten, of een slimmere aanpak vinden. Maar dat vraagt eerst om een antwoord op de vraag: levert snellere data voldoende basis om het gebied veilig te beheren?</p>
+                </section>
+
+                <section class="content__section">
+                    <h2 class="content__heading">Aannames die we toetsten</h2>
+                    <p>Snellere waterkwaliteitsmetingen (uren i.p.v. dagen) maken tijdig waarschuwen mogelijk — zonder het water af te sluiten. En: sensordata over brugspringers levert voldoende inzicht voor gericht beleid — zonder permanente handhaving.</p>
+                </section>
+
+                <section class="content__section">
+                    <h2 class="content__heading">Wat we deden</h2>
+                    <p>Binnen het Europese Connected River-programma werkten we als innovatiecoach voor de pilot area Spiegelwaal. Negen experimenten, twee hoofdsporen.</p>
+                    <p><strong>Waterkwaliteit — van dagen naar uren.</strong> Het riviersysteem heeft meer dan zeventien potentiële vervuilingsbronnen bovenstrooms. Vervuilingspieken kunnen binnen 24 uur verdwijnen — de standaardmeting komt dan te laat. We introduceerden qPCR-metingen: resultaat binnen enkele uren in plaats van dagen. Dagelijkse metingen op locatie. Daarmee liepen we in Nederland voorop in qPCR-toepassing voor open rivierwater. Afgelopen seizoen detecteerden we daadwerkelijk overschrijdingen en werd direct gewaarschuwd.</p>
+                    <p><strong>Brugspringers — van anekdote naar data.</strong> Sensoren registreerden meer dan 10.000 sprongen — bewijs dat het gedrag systematisch is. De data onthulde ook een onverwacht risico: gevaarlijke interacties tussen springers en passerende boten en roeiers. Door objectief inzicht in frequentie, timing en patronen verschoof het gesprek van incidentgerichte handhaving naar begrip van gedeeld ruimtegebruik.</p>
+                </section>
+
+                <section class="content__section">
+                    <h2 class="content__heading">Uitkomst</h2>
+                    <p>Waterkwaliteit wordt dagelijks gemeten. Bij overschrijdingen wordt direct gewaarschuwd. De brugspringdata vormt de basis voor gericht beleid. We verkennen nu voorspelmodellen op basis van neerslag, temperatuur en riviercondities. Van meten achteraf, naar handelen binnen uren, naar vooruitkijken.</p>
+                </section>
+
+                <section class="content__section content__partners">
+                    <h2 class="content__heading">Partners</h2>
+                    <p>Gemeente Nijmegen, Rijkswaterstaat</p>
+                </section>
+
+    </div>
+</section>
+
+<div class="back-link">
+    <div class="back-link__inner">
+        <a href="/forty/cases">← Alle cases</a>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__top">
+            <div>
+                <a href="/forty/"><img src="/forty/Forty_Wit_Liggend_rgb.svg" alt="Forty"></a>
+                <p class="footer__brand-tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
+                <div class="footer__social">
+                    <a href="https://www.linkedin.com/company/fortyutrecht/" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <div class="footer__col-title">Navigatie</div>
+                <a href="/forty/werkwijze">Werkwijze</a>
+                <a href="/forty/cases">Cases</a>
+                <a href="/forty/verhalen">Verhalen</a>
+                <a href="/forty/over">Over Forty</a>
+            </div>
+            <div class="footer__col">
+                <div class="footer__col-title">Contact</div>
+                <span class="footer__contact-item"><a href="mailto:hallo@forty.nl">hallo@forty.nl</a></span>
+                <span class="footer__contact-item" style="font-size: 12px; color: var(--stone-600);">Utrecht, Nederland</span>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>&copy; Forty 2026</span>
+            <div class="footer__legal">
+                <a href="/forty/privacy">Privacy</a>
+                <a href="/forty/voorwaarden/">Voorwaarden</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+var header = document.querySelector('.header');
+window.addEventListener('scroll', function() { header.classList.toggle('scrolled', window.pageYOffset > 50); });
+var toggle = document.getElementById('mobileMenuToggle');
+var menu = document.getElementById('mobileMenu');
+if (toggle && menu) { toggle.addEventListener('click', function() { menu.classList.toggle('active'); }); }
+</script>
+
+</body>
+</html>
