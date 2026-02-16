@@ -1724,5 +1724,28 @@
     });
     </script>
 
+    <script>
+    (function() {
+      var tracked = {};
+      var thresholds = [25, 50, 75, 100];
+      function getScrollPercent() {
+        var h = document.documentElement;
+        var b = document.body;
+        var st = h.scrollTop || b.scrollTop;
+        var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+        return sh > 0 ? Math.round((st / sh) * 100) : 0;
+      }
+      window.addEventListener('scroll', function() {
+        var pct = getScrollPercent();
+        for (var i = 0; i < thresholds.length; i++) {
+          var t = thresholds[i];
+          if (pct >= t && !tracked[t]) {
+            tracked[t] = true;
+            if (typeof umami !== 'undefined') umami.track('scroll-depth', { depth: t + '%', page: location.pathname });
+          }
+        }
+      });
+    })();
+    </script>
 </body>
 </html>  
