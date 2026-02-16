@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wanneer je van richting moet veranderen | Forty verhalen</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
-    <meta name="description" content="Bamboi begon met consumenten en pivotte naar B2B. Het verhaal van een beslissing die alles veranderde.">
+    <meta name="description" content="Bamboi begon met consumenten en pivotte naar B2B. Het verhaal achter een van de moeilijkste beslissingen die een ondernemer kan nemen.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Wanneer je van richting moet veranderen</strong>
             </div>
+            <div class="article-hero__category">Perspectief</div>
             <h1 class="article-hero__title">Wanneer je van richting moet veranderen</h1>
-            <p class="article-hero__intro">Bamboi maakt toiletpapier van bamboe. Niet het meest glamoureuze product. Maar hun verhaal illustreert een van de moeilijkste beslissingen die een ondernemer kan nemen: erkennen dat je huidige richting niet de juiste is.</p>
+            <p class="article-hero__intro">Bamboi maakt toiletpapier van bamboe. Niet het meest glamoureuze product. Maar hun verhaal illustreert een van de moeilijkste beslissingen die een ondernemer kan nemen: erkennen dat je huidige richting niet de juiste is — en bijsturen voordat het te laat is.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,11 +156,11 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    5 min
+                    6 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
-                    Gesprek
+                    Perspectief
                 </div>
             </div>
         </div>
@@ -160,25 +172,44 @@
                 <section class="article__section">
                     <h2>Het product klopte. Het kanaal niet.</h2>
                     <p>Jozef Nikkish en zijn compagnon Leroy begonnen met een webshop. Consumenten, e-commerce, direct-to-consumer. Het product was goed — bamboe toiletpapier dat zachter is, langer meegaat en voordeliger uitpakt per velletje.</p>
-                    <p>Maar de groei bleef achter bij de verwachting. Niet omdat het product niet klopte, maar omdat het kanaal niet schaalde. De kosten per acquisitie waren te hoog, de herhaalaankoop te onvoorspelbaar.</p>
+                    <p>Maar de groei bleef achter bij de verwachting. Niet omdat het product niet klopte, maar omdat het kanaal niet schaalde. De kosten per acquisitie waren te hoog, de herhaalaankoop te onvoorspelbaar. Elke nieuwe klant kostte meer dan die opleverde.</p>
+                    <p>Dit is een patroon dat we vaker zien: het product is goed, de reviews zijn positief, maar het businessmodel draait niet rond. De verleiding is dan om harder te duwen — meer advertenties, meer content, meer kanalen. Maar harder duwen op een kanaal dat niet werkt, maakt het probleem groter, niet kleiner.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>De pivot naar B2B</h2>
-                    <p>De doorbraak kwam toen ze van richting veranderden. Niet een nieuw product, maar een nieuwe klant: universiteiten, schoonmaakbedrijven, facilitaire dienstverleners. Grotere volumes, voorspelbaardere inkomsten, en — cruciaal — meer impact per deal.</p>
-                    <p>"Je moet weten waar je de meeste waarde toevoegt als founder," zegt Jozef. Niet alles zelf doen, maar kiezen waar je onmisbaar bent. De rest uitbesteden.</p>
+                    <p>De doorbraak kwam toen Bamboi van richting veranderde. Niet een nieuw product, maar een nieuwe klant: universiteiten, schoonmaakbedrijven, facilitaire dienstverleners. Grotere volumes, voorspelbaardere inkomsten, en — cruciaal — meer impact per deal.</p>
+                    <p>"Je moet weten waar je de meeste waarde toevoegt als founder," zegt Jozef. Niet alles zelf doen, maar kiezen waar je onmisbaar bent. De webshop werd uitbesteed. De energie ging naar partnerships en het opleiden van verkoopteams bij grote leveranciers.</p>
                     <p>Dat is een beslissing die veel founders te lang uitstellen. Niet omdat ze de signalen niet zien, maar omdat loslaten voelt als opgeven. Het verschil: opgeven is stoppen. Pivotten is bijsturen op basis van bewijs.</p>
+                    <p>In onze trajecten zien we hetzelfde. Teams die hun eerste aanpak loslaten op basis van data — niet op basis van gevoel — komen sneller tot een model dat werkt. Het kost moed om te erkennen dat je eerste richting niet de juiste is. Maar die moed bespaart maanden.</p>
                 </section>
 
                 <section class="article__section">
-                    <h2>Impact zonder het erover te hebben</h2>
+                    <h2>Impact als kern, niet als bijzaak</h2>
                     <p>Het opvallendste aan Bamboi: duurzaamheid is niet het verkoopargument. Het papier is beter én duurzamer. De klant merkt het eerste. De wereld het tweede.</p>
-                    <p>Dat is een les die verder reikt dan toiletpapier. Impact hoeft geen apart verhaal te zijn — het kan de kern van je waardepropositie vormen. Onzichtbaar voor de klant, maar meetbaar voor de wereld.</p>
+                    <p>"De duurzaamheid? Die regelen wij. De klant moet vooral een goed product ervaren."</p>
+                    <p>Dat is een les die verder reikt dan toiletpapier. Veel impactorganisaties positioneren hun impact als het primaire argument. Maar de klant koopt geen impact — de klant koopt een oplossing voor een probleem. Impact is de reden waarom het bedrijf bestaat. De oplossing is de reden waarom de klant koopt.</p>
+                    <p>Bij het Nationaal Ouderenfonds zagen we dezelfde spanning: de impact was helder (eenzaamheid verminderen), maar het verdienmodel stond of viel met de vraag of de betaler — niet de begunstigde — de waarde ervan erkende. Impact hoeft geen apart verhaal te zijn. Het kan de kern van je waardepropositie vormen — onzichtbaar voor de klant, maar meetbaar voor de wereld.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Waarom jouw klant niet kiest voor winst</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Waarom jouw klant niet kiest voor winst</h1>
-            <p class="article-hero__intro">De meeste proposities beloven winst: meer gemak, tijdsbesparing, groei. Maar winst is psychologisch gezien niet de sterkste trigger. Verlies wel. En dat principe geldt niet alleen voor je klant — het geldt ook voor jouw eigen beslissing om wél of niet te investeren.</p>
+            <p class="article-hero__intro">De meeste proposities beloven winst: meer gemak, tijdsbesparing, groei. Maar winst is psychologisch gezien niet de sterkste trigger. Verlies wel. En dat principe geldt niet alleen voor je klant — het geldt ook voor jouw eigen beslissing om wél of niet verder te investeren.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    5 min
+                    7 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -160,26 +172,51 @@
                 <section class="article__section">
                     <h2>Verlies weegt twee keer zo zwaar</h2>
                     <p>Daniel Kahneman toonde aan dat verlies ongeveer twee keer zo zwaar weegt als een even grote winst. Het plezier van €1.000 winnen is lang niet zo sterk als de pijn van €1.000 verliezen.</p>
-                    <p>Dat principe — verliesaversie — verklaart waarom de meeste organisaties te lang wachten met beslissen. Stoppen voelt als verlies. Kiezen voelt als verlies van alternatieven. Dus doen ze niets. En dat is precies de duurste optie.</p>
+                    <p>Dat principe — verliesaversie — verklaart meer over menselijk gedrag dan de meeste marketingmodellen. Het verklaart waarom mensen vasthouden aan producten die niet meer werken. Waarom ze abonnementen niet opzeggen. Waarom ze liever niets doen dan iets verkeerds.</p>
+                    <p>En het heeft directe consequenties voor hoe je een propositie formuleert, test en positioneert.</p>
                 </section>
 
                 <section class="article__section">
-                    <h2>Je propositie anders framen</h2>
-                    <p>De meeste teams communiceren in winst: "Met ons platform bespaar je 10 uur per maand." Klinkt redelijk. Maar het zet niet in beweging.</p>
+                    <h2>Van winst-framing naar verlies-framing</h2>
+                    <p>De meeste teams communiceren in winst: "Met ons platform bespaar je 10 uur per maand." Klinkt redelijk. Maar het zet zelden in beweging.</p>
                     <p>Draai het om: "Elke maand dat je dit niet aanpakt, verlies je 10 uur aan werk dat niet nodig is."</p>
                     <p>Het verschil is subtiel maar krachtig. Verlies-framing activeert urgentie. Winst-framing activeert interesse — en interesse alleen verandert geen gedrag.</p>
+                    <p>In onze trajecten passen we dit toe bij het toetsen van koopintentie. We laten respondenten niet alleen zien wat ze krijgen, maar ook wat ze mislopen. De conversieverschillen zijn consistent: verlies-framing levert hogere koopintentie op dan winst-framing. Niet altijd, maar significant vaker.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>De duurste beslissing is geen beslissing</h2>
-                    <p>In onze trajecten zien we dit patroon voortdurend. Teams die maanden doorontwikkelen aan een propositie waarvan de basis niet klopt. Niet omdat ze niet twijfelen, maar omdat stoppen voelt als falen.</p>
-                    <p>Maar de werkelijke kosten zitten in het uitstellen. Elke maand zonder helder besluit is een maand van investering zonder richting. Wij helpen organisaties om dat verlies zichtbaar te maken — zodat de beslissing makkelijker wordt, niet moeilijker.</p>
-                    <p>Het doel is niet om te stoppen. Het doel is om te weten of je door mag.</p>
+                    <p>Verliesaversie werkt niet alleen bij je klant. Het werkt ook bij jou. In onze trajecten zien we dit patroon voortdurend: teams die maanden doorontwikkelen aan een propositie waarvan de basis niet klopt. Niet omdat ze niet twijfelen, maar omdat stoppen voelt als falen.</p>
+                    <p>Dat is verliesaversie in actie. Je hebt al drie maanden geïnvesteerd. Je hebt een team dat eraan werkt. Je hebt het aan je directie gepresenteerd. Stoppen betekent erkennen dat die investering niet terugkomt. Dat voelt als verlies.</p>
+                    <p>Maar de werkelijke kosten zitten in het uitstellen. Elke maand zonder helder besluit is een maand van investering zonder richting. Bij het Ouderenfonds bespaarde het stoppen van drie varianten niet alleen geld — het gaf het team focus om de drie wél levensvatbare varianten goed uit te werken.</p>
+                    <p>Wij helpen organisaties om dat verlies zichtbaar te maken — zodat de beslissing makkelijker wordt, niet moeilijker. Het doel is niet om te stoppen. Het doel is om te weten of je door mag.</p>
+                </section>
+
+                <section class="article__section">
+                    <h2>Geen truc, maar eerlijkheid</h2>
+                    <p>Verliesaversie inzetten is geen manipulatie. Het is eerlijker communiceren over wat er op het spel staat.</p>
+                    <p>Veel proposities verzachten hun boodschap. Ze beloven winst in plaats van het benoemen van verlies. Maar de realiteit is: je klant verliest iets als ze blijven doen wat ze doen. Tijd, geld, kansen, concurrentiepositie. Dat benoemen is niet negatief — dat is de situatie helder maken.</p>
+                    <p>En helderheid is precies wat mensen nodig hebben om in beweging te komen.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

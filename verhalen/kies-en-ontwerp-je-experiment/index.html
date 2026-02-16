@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Het juiste experiment voor de juiste aanname</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Het juiste experiment voor de juiste aanname</h1>
-            <p class="article-hero__intro">Je hebt een propositie en je hebt aannames. Nu moet je toetsen. Maar niet alles tegelijk — en niet elk experiment past bij elke aanname. Het kiezen van het juiste experiment is zelf een beslissing.</p>
+            <p class="article-hero__intro">Je hebt een propositie en je hebt aannames. Nu moet je toetsen. Maar niet alles tegelijk — en niet elk experiment past bij elke aanname. Het kiezen van het juiste experiment is zelf een beslissing die het verschil maakt tussen maanden verspillen en weken leren.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    4 min
+                    6 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -159,28 +171,46 @@
 
                 <section class="article__section">
                     <h2>De verleiding van perfectie</h2>
-                    <p>De meeste teams willen alles uitwerken voordat ze de markt in gaan. Maanden bouwen, perfectie nastreven, dan lanceren. Maar de kans dat je eerste versie precies klopt is vrijwel nul.</p>
+                    <p>De meeste teams willen alles uitwerken voordat ze de markt in gaan. Maanden bouwen, perfectie nastreven, dan lanceren. Het voelt veilig — je laat pas iets zien als het af is.</p>
+                    <p>Maar de kans dat je eerste versie precies klopt is vrijwel nul. Niet omdat het team niet goed is, maar omdat elke propositie gebaseerd is op aannames. Over je doelgroep, je prijspunt, je kanaal, je timing. Hoe meer aannames ongetoetst blijven, hoe groter het risico dat je maanden investeert in een richting die niet klopt.</p>
                     <p>De alternatieve route: bouw het kleinste dat je kunt, meet hoe mensen reageren, leer, en pas aan. In onze trajecten betekent dat soms niet meer dan een landingspagina. Soms een gesprek met tien mensen. Soms een prototype dat er echt uitziet maar niets doet.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Welk experiment wanneer</h2>
-                    <p><strong>Wenselijkheids-aanname:</strong> Wil iemand dit? → Fake door test, landingspagina met conversie-meting, of een uitlegvideo die meet hoeveel mensen doorklikken. Dropbox deed dit en ging van 5.000 naar 750.000 signups in één dag.</p>
-                    <p><strong>Koopintentie-aanname:</strong> Wil iemand hiervoor betalen? → Concierge-test of pre-sale. Je levert de dienst handmatig alsof het product al bestaat. Schaalt niet, maar je leert alles over het werkelijke koopgedrag.</p>
-                    <p><strong>Haalbaarheids-aanname:</strong> Kunnen we dit maken? → Technische spike of wizard-of-oz test. De voorkant ziet er echt uit, de achterkant is handwerk. Zo toets je de beleving zonder de investering.</p>
-                    <p>Bij HEMA combineerden we een landingspagina (wenselijkheid) met telefonische interviews (motivatie). Die combinatie leverde niet alleen een conversiepercentage op, maar ook het verhaal erachter.</p>
+                    <p>Niet elk experiment past bij elke aanname. De keuze hangt af van wat je wilt weten:</p>
+                    <p><strong>Wenselijkheids-aanname: wil iemand dit?</strong><br>Experiment: fake door test, landingspagina met conversie-meting, of een uitlegvideo die meet hoeveel mensen doorklikken. Dropbox deed dit en ging van 5.000 naar 750.000 signups in één dag — met een video van drie minuten over een product dat nog niet af was. Het bewees dat de wenselijkheid er was, zonder ook maar één regel code extra te schrijven.</p>
+                    <p><strong>Koopintentie-aanname: wil iemand hiervoor betalen?</strong><br>Experiment: concierge-test of pre-sale. Je levert de dienst handmatig alsof het product al bestaat. Bij Sportinnovator coachten we startups om hun dienst eerst handmatig aan te bieden aan vijf klanten. Niet schaalbaar, maar het bewees of er betalingsbereidheid was — of alleen enthousiasme.</p>
+                    <p><strong>Haalbaarheids-aanname: kunnen we dit maken?</strong><br>Experiment: technische spike of wizard-of-oz test. De voorkant ziet er echt uit, de achterkant is handwerk. Zo toets je de beleving zonder de investering in technologie.</p>
+                    <p>Bij HEMA combineerden we een landingspagina (wenselijkheid) met telefonische interviews (motivatie). Die combinatie leverde niet alleen een conversiepercentage op, maar ook het verhaal erachter. Dat verhaal maakte het verschil in de beslissing om wél of niet door te gaan.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Wanneer weet je genoeg?</h2>
                     <p>Het doel van een experiment is niet zekerheid. Het doel is genoeg informatie om een beslissing te nemen: doorgaan, bijsturen of stoppen.</p>
-                    <p>Wij hanteren een simpele vuistregel: als het experiment je niet dwingt om iets te veranderen aan je aanpak, heb je de verkeerde aanname getoetst — of het verkeerde experiment gekozen.</p>
-                    <p>Het juiste experiment levert een ongemakkelijk antwoord op. En dat is precies de bedoeling.</p>
+                    <p>Wij hanteren een simpele vuistregel: als het experiment je niet dwingt om iets te veranderen aan je aanpak, heb je de verkeerde aanname getoetst — of het verkeerde experiment gekozen. Een goed experiment levert een ongemakkelijk antwoord op. Het dwingt je om te kiezen.</p>
+                    <p>Bij het Ouderenfonds leverden de stress tests op zes varianten drie keer een stop-besluit op. Niet omdat de impact niet relevant was, maar omdat het verdienmodel niet klopte. Die drie stops waren niet prettig. Maar ze waren helder. En ze gaven het team ruimte om de drie wél levensvatbare varianten goed uit te werken.</p>
+                    <p>Dat is de bedoeling van elk experiment: niet bevestiging zoeken, maar helderheid forceren.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

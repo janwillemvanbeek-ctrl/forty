@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Fake Door Testing</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Fake Door Testing</h1>
-            <p class="article-hero__intro">Hoe weet je of iemand bereid is te betalen — zonder eerst een product te bouwen? Door gedrag te meten in plaats van intentie te vragen. Dit is een van de experimenten die we het vaakst inzetten.</p>
+            <p class="article-hero__intro">Hoe weet je of iemand bereid is te betalen — zonder eerst een product te bouwen? Door gedrag te meten in plaats van intentie te vragen. Dit is een van de experimenten die we het vaakst inzetten in onze Business Model Stress Tests.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    4 min
+                    5 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -160,25 +172,49 @@
                 <section class="article__section">
                     <h2>Het principe</h2>
                     <p>Fake door testing simuleert het gebruik van een product dat nog niet bestaat. Je laat mensen klikken, scannen of bestellen — en meet wat ze doen. Niet wat ze zeggen.</p>
-                    <p>Dat verschil is cruciaal. Als je mensen vraagt of ze iets zouden kopen, zegt een groot deel ja. In de praktijk gedragen ze zich anders. Die kloof — de intention-behavior gap — is de reden waarom enquêtes en interviews alleen niet genoeg zijn om een propositie te valideren.</p>
+                    <p>Dat verschil is cruciaal. Als je mensen vraagt of ze iets zouden kopen, zegt een groot deel ja. In de praktijk gedragen ze zich anders. Die kloof — de intention-behavior gap — is een van de grootste valkuilen in propositie-ontwikkeling. Teams die valideren op basis van interviews en enquêtes alleen, overschatten hun koopintentie systematisch.</p>
+                    <p>Fake door testing omzeilt dat probleem. Je meet geen intentie. Je meet gedrag.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Hoe wij dit inzetten</h2>
-                    <p>In een traject met HEMA bouwden we een landingspagina voor een propositie die nog niet bestond. Eén pagina, geen menu, alleen de propositie en een inschrijfknop. Alles wat eruitzag als een echt product.</p>
-                    <p>We maten conversie: hoeveel bezoekers schreven zich in voor de pilot? En iedereen die zich inschreef, belden we op. Niet om te verkopen, maar om te begrijpen: wat trok je aan? Waarom nu? Wat verwacht je?</p>
-                    <p>Zo combineer je kwantitatief bewijs (conversie) met kwalitatief inzicht (motivatie). Dat levert een beslisbaar antwoord op: is hier genoeg koopintentie om verder te investeren?</p>
+                    <p>In een traject met HEMA bouwden we een landingspagina voor een propositie die nog niet bestond — de Billenbox, een toiletabonnement. Eén pagina, geen menu, alleen de propositie en een inschrijfknop. Alles zag eruit als een echt product.</p>
+                    <p>We maten conversie: hoeveel bezoekers schreven zich in voor de pilot? Dat gaf ons een kwantitatief signaal: er is wél of géén koopintentie. Maar het gaf ons nog niet het waarom.</p>
+                    <p>Daarom belden we iedereen die zich inschreef. Niet om te verkopen, maar om te begrijpen: wat trok je aan? Waarom nu? Wat verwacht je? Die gesprekken leverden inzichten op die de landingspagina-data niet konden geven. Eén respondent zei: 'Ik dacht, eindelijk iemand die snapt dat ik geen zin heb om over WC-papier na te denken.' Dat is het soort inzicht waarmee je een propositie scherper maakt.</p>
+                    <p>Zo combineer je kwantitatief bewijs (conversie) met kwalitatief inzicht (motivatie). Samen leveren ze een beslisbaar antwoord op: is hier genoeg koopintentie om verder te investeren?</p>
+                </section>
+
+                <section class="article__section">
+                    <h2>Varianten die we gebruiken</h2>
+                    <p>Een fake door test hoeft niet altijd een landingspagina te zijn. Het principe is: presenteer je propositie alsof die bestaat en meet of mensen actie ondernemen.</p>
+                    <p>Dat kan een advertentie zijn met een meetbare klik. Een poster met een QR-code. Een e-mail met een bestelknop. Een social media post met een wachtlijst-link. Het format doet er minder toe dan het principe: meten of mensen doen wat je hoopt — niet of ze zeggen dat ze het zouden doen.</p>
+                    <p>Wel geldt: hoe echter het experiment eruitziet, hoe betrouwbaarder het signaal. Een slordige mock-up levert slordige data op.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Eerlijk zijn over de methode</h2>
                     <p>Je doelgroep wordt een beetje voor de gek gehouden. Dat is de afspraak bij dit soort experimenten: je test met minimale investering of iets levensvatbaar is. Maar vertrouwen is fragiel — doe het niet te vaak en leg aan het einde altijd uit waarom.</p>
-                    <p>Het alternatief — maanden bouwen en dan ontdekken dat niemand wil betalen — is voor iedereen duurder.</p>
+                    <p>Het alternatief — maanden bouwen en dan ontdekken dat niemand wil betalen — is voor iedereen duurder. Voor jou, voor je team, en voor de organisatie die in het project heeft geïnvesteerd.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

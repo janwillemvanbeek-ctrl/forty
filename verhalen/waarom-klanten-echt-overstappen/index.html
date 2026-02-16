@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Waarom klanten écht overstappen</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Waarom klanten écht overstappen</h1>
-            <p class="article-hero__intro">Proposities die alleen leunen op 'kijk hoe goed wij zijn' negeren drie van de vier krachten die bepalen of iemand daadwerkelijk overstapt. Dit is het model waarmee wij dat toetsen.</p>
+            <p class="article-hero__intro">Proposities die alleen leunen op 'kijk hoe goed wij zijn' negeren drie van de vier krachten die bepalen of iemand daadwerkelijk overstapt. Dit is het model waarmee wij dat toetsen — en waarom het verschil maakt.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    5 min
+                    7 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -162,27 +174,44 @@
                     <p>Je zit met een walkman op je kamer. Je favoriete nummer staat ergens halverwege kant B. Je spoelt. En spoelt. En spoelt terug.</p>
                     <p>Dan komt de CD. Track 6, klik, klaar.</p>
                     <p>De meeste mensen stapten niet over vanwege de geluidskwaliteit. Ze stapten over vanwege het spoelen. De frictie met het oude — niet de aantrekkingskracht van het nieuwe — dreef de verandering.</p>
+                    <p>Dit voorbeeld klinkt gedateerd, maar het mechanisme is tijdloos. De reden dat mensen overstappen is zelden wat je denkt. Het is bijna nooit de feature. Het is bijna altijd de frustratie.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Vier krachten, niet één</h2>
-                    <p>Het Customer Forces-model beschrijft vier krachten die bij elke overstap spelen. Wij gebruiken dit model om te bepalen of een propositie genoeg spanning heeft om mensen in beweging te zetten:</p>
-                    <p><strong>Push</strong> — de frustratie met het oude. Wat wringt er aan de huidige situatie? Hoe groot is die pijn? Dit is de kracht die wij als eerste toetsen, want zonder push is er geen urgentie.</p>
-                    <p><strong>Pull</strong> — de aantrekkingskracht van het nieuwe. Wat belooft jouw oplossing? Hier focussen de meeste teams zich op — maar pull alleen is zelden genoeg.</p>
-                    <p><strong>Anxiety</strong> — de twijfel. Is het duur? Complex? Riskant? Elke onbeantwoorde vraag versterkt deze kracht. In onze stress tests brengen we anxiety expliciet in kaart, want dit is waar proposities het vaakst stranden.</p>
-                    <p><strong>Inertia</strong> — de kracht van gewoonte. Het oude werkt. Het is vertrouwd. De drempel om iets nieuws te proberen is altijd hoger dan teams denken.</p>
-                    <p>Een propositie die alleen op pull leunt, negeert drie van de vier krachten. Daarom stranden zoveel innovaties na de eerste pilot.</p>
+                    <p>Het Customer Forces-model beschrijft vier krachten die bij elke overstap spelen. Wij gebruiken dit model in onze Business Model Stress Tests om te bepalen of een propositie genoeg spanning heeft om mensen in beweging te zetten.</p>
+                    <p><strong>Push</strong> — de frustratie met het oude. Wat wringt er aan de huidige situatie? Hoe concreet is die pijn? Dit is de kracht die wij als eerste toetsen, want zonder push is er geen urgentie. Een propositie kan nog zo goed zijn — als er geen push is, is er geen reden om te bewegen. Bij het Ouderenfonds was de push: initiatieven die steeds strandden na lancering, omdat het verdienmodel pas te laat werd getoetst.</p>
+                    <p><strong>Pull</strong> — de aantrekkingskracht van het nieuwe. Wat belooft jouw oplossing? Hier focussen de meeste teams zich op — maar pull alleen is zelden genoeg. Een mooie belofte zonder urgentie verdwijnt in de inbox.</p>
+                    <p><strong>Anxiety</strong> — de twijfel. Is het duur? Complex? Riskant? Wat als het niet werkt? Elke onbeantwoorde vraag versterkt deze kracht. In onze stress tests brengen we anxiety expliciet in kaart, want dit is waar proposities het vaakst stranden. Niet aan gebrek aan interesse, maar aan twijfel die niet wordt weggenomen. Bij Taktify zagen we dat zorgprofessionals wél interesse hadden in AI-ondersteuning, maar dat de anxiety over privacy en betrouwbaarheid elke conversie blokkeerde.</p>
+                    <p><strong>Inertia</strong> — de kracht van gewoonte. Het oude werkt. Het is vertrouwd. De drempel om iets nieuws te proberen is altijd hoger dan teams denken. Inertia is de reden dat veel innovaties na de eerste pilot stranden: de early adopters waren enthousiast, maar de massa verandert niet zomaar van gedrag.</p>
+                    <p>Een propositie die alleen op pull leunt, negeert drie van de vier krachten. Dat verklaart waarom zoveel producten die 'beter' zijn toch niet worden gekozen.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Wat dit betekent voor beslissingen</h2>
                     <p>Als de push zwak is, heeft je propositie geen urgentie — ongeacht hoe goed je product is. Als de anxiety hoog is en je die niet adresseert, converteert niemand. Als de inertia sterker is dan je push en pull samen, verandert er niets.</p>
-                    <p>Wij toetsen deze vier krachten vóórdat een team verder investeert. Want als de balans niet klopt, is meer bouwen niet het antwoord — scherper positioneren wel.</p>
+                    <p>Wij toetsen deze vier krachten vóórdat een team verder investeert. Want als de balans niet klopt, is meer bouwen niet het antwoord — scherper positioneren wel. Soms betekent dat een andere doelgroep. Soms een andere framing. En soms betekent het: stoppen, want er is niet genoeg spanning om deze propositie levensvatbaar te maken.</p>
+                    <p>Dat is geen falen. Dat is helderheid — precies op het moment dat het er toe doet.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

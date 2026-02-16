@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,6 +146,7 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Waar switcht je klant van weg?</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Waar switcht je klant van weg?</h1>
             <p class="article-hero__intro">In elk traject dat we doen komt hetzelfde patroon terug: teams die gefocust zijn op wat ze bouwen, maar niet scherp hebben wat ze vervangen. Dat onderscheid maakt het verschil tussen een propositie die landt en een die verdampt.</p>
             <div class="article-hero__meta">
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    5 min
+                    7 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -160,27 +172,46 @@
                 <section class="article__section">
                     <h2>Het kantelpunt, niet het product</h2>
                     <p>Mensen veranderen niet omdat jij iets nieuws aanbiedt. Ze veranderen omdat het oude niet meer klopt — en ze dat op een gegeven moment voelen.</p>
+                    <p>Dat klinkt logisch. Maar kijk eens naar hoe de meeste proposities worden gepresenteerd: "Wij bieden X, waarmee je Y bereikt." De hele communicatie draait om het nieuwe. Terwijl de beslissing om over te stappen begint bij het oude.</p>
                     <p>Het echte werk zit niet in het overtuigen van je klant. Het zit in het vinden van dat kantelpunt: het moment waarop de bestaande situatie begint te wringen. Pas als je dat snapt, kun je een propositie bouwen die aansluit op een beweging die al gaande is.</p>
                     <p>In onze trajecten starten we daarom nooit bij de oplossing. We starten bij de verschuiving.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Vier vragen die wij in elk traject stellen</h2>
-                    <p><strong>1. Wat is er veranderd in de wereld van je klant?</strong><br>Wetgeving, technologie, verwachtingen, gedrag — er is altijd iets verschoven. Zonder die verschuiving is er geen urgentie. En zonder urgentie geen beweging. Bij het Nationaal Ouderenfonds was de verschuiving: subsidiedruk op impactinitiatieven groeit, maar de systematiek om levensvatbaarheid te toetsen ontbrak.</p>
-                    <p><strong>2. Wie voelt die verschuiving het sterkst?</strong><br>Niet iedereen ervaart dezelfde urgentie. Je early adopters zijn de mensen die de pijn al voelen. Bij NOC*NSF waren dat jongeren die niet sporten — niet uit luiheid, maar omdat het aanbod niet voor hen ontworpen is. Dat is een ander startpunt dan 'alle Nederlanders moeten meer bewegen.'</p>
-                    <p><strong>3. Wat doen ze nu om het op te lossen?</strong><br>Je concurreert niet met andere producten. Je concurreert met het huidige gedrag — inclusief niets doen. Een Excel-sheet, een telefoontje, een workaround die 'goed genoeg' is. Dat is je echte concurrent.</p>
-                    <p><strong>4. Waar schiet dat tekort?</strong><br>De frictie in het huidige gedrag is je kans. Niet omdat je iets nieuws kunt bouwen, maar omdat je iets kunt wegnemen dat al te lang duurt. Bij HEMA was de frictie: medewerkers moesten zeven apps gebruiken voor wat één oplossing had kunnen zijn.</p>
+                    <p>In elk Business Model Stress Test dat we uitvoeren, starten we met dezelfde vier vragen. Ze zijn simpel, maar de antwoorden zijn dat zelden.</p>
+                    <p><strong>1. Wat is er veranderd in de wereld van je klant?</strong><br>Wetgeving, technologie, verwachtingen, gedrag — er is altijd iets verschoven. Zonder die verschuiving is er geen urgentie. En zonder urgentie geen beweging. Bij het Nationaal Ouderenfonds was de verschuiving: subsidiedruk op impactinitiatieven groeit, maar de systematiek om levensvatbaarheid te toetsen ontbrak. Het fonds initieerde steeds nieuwe projecten, maar zonder te weten of ze structureel konden bestaan. Die verschuiving — van 'we starten iets' naar 'we moeten weten of het werkt' — was het kantelpunt.</p>
+                    <p><strong>2. Wie voelt die verschuiving het sterkst?</strong><br>Niet iedereen ervaart dezelfde urgentie. Je early adopters zijn de mensen die de pijn al voelen. Bij NOC*NSF waren dat jongeren die niet sporten — niet uit luiheid, maar omdat het aanbod niet voor hen ontworpen is. Dat is een ander startpunt dan 'alle Nederlanders moeten meer bewegen.' De groep die de frictie het sterkst voelt, is je ingang. Niet de grootste markt, maar de meest urgente.</p>
+                    <p><strong>3. Wat doen ze nu om het op te lossen?</strong><br>Dit is de vraag die teams het vaakst overslaan. Ze zijn zo gefocust op hun eigen oplossing dat ze vergeten te kijken wat er al bestaat. En er bestaat altijd iets — al is het een workaround met Excel, een telefoontje, of simpelweg niets doen. Die bestaande oplossing is je echte concurrent. Niet het andere product dat hetzelfde doet, maar het gedrag dat al werkt. Bij HEMA zagen we dat medewerkers zeven verschillende apps gebruikten voor interne communicatie. Geen van die apps was ontworpen voor hun situatie, maar samen vulden ze de behoefte net genoeg. Dát was de concurrent — niet een andere communicatie-app.</p>
+                    <p><strong>4. Waar schiet dat tekort?</strong><br>De frictie in het huidige gedrag is je kans. Niet omdat je iets nieuws kunt bouwen, maar omdat je iets kunt wegnemen dat al te lang duurt, te omslachtig is, of te veel fouten oplevert. Bij de HEMA-medewerkers was de frictie niet dat ze geen tools hadden — ze hadden er te veel. De fragmentatie was het probleem, niet het gebrek aan functionaliteit.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Eerst de verschuiving, dan de propositie</h2>
-                    <p>Dit klinkt als open deuren. Maar in de praktijk beginnen de meeste teams bij hun oplossing en werken ze terug naar het probleem. Dat levert proposities op die technisch kloppen maar gedragsmatig niet landen.</p>
-                    <p>De volgorde die wij hanteren: verschuiving → urgentie → huidig gedrag → frictie → jouw rol. Pas als die keten klopt, heeft investeren in uitwerking zin. En als die keten niet klopt, bespaart dat maanden werk.</p>
+                    <p>Dit klinkt als open deuren. Maar in de praktijk beginnen de meeste teams bij hun oplossing en werken ze terug naar het probleem. Ze bouwen iets moois en zoeken dan iemand die het wil gebruiken.</p>
+                    <p>De volgorde die wij hanteren is andersom: verschuiving → urgentie → huidig gedrag → frictie → jouw rol. Het is een keten. Als één schakel ontbreekt, valt de propositie uit elkaar.</p>
+                    <p>Als er geen verschuiving is, is er geen urgentie. Als er geen urgentie is, is er geen reden om te bewegen. Als je het huidige gedrag niet kent, weet je niet wat je vervangt. En als je de frictie niet begrijpt, bouw je een oplossing voor een probleem dat niemand zo ervaart.</p>
+                    <p>Pas als die keten klopt, heeft investeren in uitwerking zin. En als die keten niet klopt, bespaart dat maanden werk — en vaak tienduizenden euro's.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">

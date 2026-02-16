@@ -26,7 +26,7 @@
         .header.scrolled { border-bottom-color: var(--stone-200); }
         .header__inner { max-width: 1120px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
         .header__logo { text-decoration: none; }
-        .header__logo img { height: 84px !important; display: block; }
+        .header__logo img { height: 40px !important; display: block; }
         .header__nav { display: flex; align-items: center; gap: 32px; }
         .header__nav a { color: var(--stone-500); text-decoration: none; font-size: 14px; font-weight: 400; transition: color 200ms ease; }
         .header__nav a:hover { color: var(--stone-900); }
@@ -36,7 +36,7 @@
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
 
         /* Article hero */
-        .article-hero { padding: 160px 24px 64px; background: var(--white); }
+        .article-hero { padding: 160px 24px 64px; background: var(--stone-50); }
         .article-hero__inner { max-width: 720px; margin: 0 auto; }
         .article-hero__breadcrumb { font-size: 14px; color: var(--stone-500); margin-bottom: 24px; }
         .article-hero__breadcrumb a { color: var(--stone-500); text-decoration: none; }
@@ -56,6 +56,17 @@
         .article__section p:last-child { margin-bottom: 0; }
         .article__section p strong { font-weight: 600; color: var(--stone-800); }
         .article__section p em { font-style: italic; }
+
+        
+        /* Author */
+        .article__author { padding: 48px 0 0; margin-top: 48px; border-top: 1px solid var(--stone-200); }
+        .article__author-inner { display: flex; align-items: center; gap: 16px; }
+        .article__author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--stone-100); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 500; color: var(--stone-500); }
+        .article__author-name { font-size: 14px; font-weight: 500; color: var(--stone-800); }
+        .article__author-role { font-size: 13px; color: var(--stone-500); }
+
+        /* Category label */
+        .article-hero__category { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber-600); margin-bottom: 16px; }
 
         /* CTA */
         .cta-section { background: var(--stone-900); padding: 80px 24px; text-align: center; }
@@ -96,7 +107,7 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__logo img { height: 72px !important; }
+            .header__logo img { height: 36px !important; }
             .article-hero { padding: 120px 24px 48px; }
             .article-hero__meta { flex-wrap: wrap; gap: 16px; }
             .article-nav__inner { flex-direction: column; gap: 24px; align-items: flex-start; }
@@ -135,8 +146,9 @@
             <div class="article-hero__breadcrumb">
                 <a href="/forty/verhalen">Verhalen</a> <span>/</span> <strong>Groei zonder groeipijn</strong>
             </div>
+            <div class="article-hero__category">Methodiek</div>
             <h1 class="article-hero__title">Groei zonder groeipijn</h1>
-            <p class="article-hero__intro">Iedereen wil groeien. Maar 74% van de startups faalt door te vroeg op te schalen — harder groeien zonder te begrijpen waarom iets werkt. Het verschil zit niet in ambitie. Het zit in weten wanneer je door mag.</p>
+            <p class="article-hero__intro">Iedereen wil groeien. Maar 74% van de startups faalt door te vroeg op te schalen — harder groeien zonder te begrijpen waarom iets werkt. Het verschil zit niet in ambitie. Het zit in weten wanneer je door mag — en de discipline om te wachten tot het bewijs er is.</p>
             <div class="article-hero__meta">
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Datum</span>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Leestijd</span>
-                    8 min
+                    9 min
                 </div>
                 <div class="article-hero__meta-item">
                     <span class="article-hero__meta-label">Categorie</span>
@@ -158,29 +170,53 @@
         <div class="article-body__inner">
 
                 <section class="article__section">
-                    <h2>Drie dingen die niet kloppen</h2>
-                    <p><strong>Groei is niet lineair.</strong> De eerste klanten kosten tien keer meer moeite dan klant vijftig. Dat voelt als stilstand, maar het is fundament. Het vlakke stuk is geen vertraging — het is het stuk waarin je leert of je basis klopt.</p>
-                    <p><strong>Groei is niet voorspelbaar.</strong> Pieken, dalen, doorbraken, stiltes. Wie groei probeert te voorspellen raakt teleurgesteld. Wie groei probeert te begrijpen leert sneller.</p>
-                    <p><strong>Snelheid is geen bewijs.</strong> Snelheid zonder inzicht vergroot fouten. Wie te vroeg opschaalt, versterkt instabiliteit. Dat is geen groeistrategie — dat is versneld risico.</p>
+                    <h2>Drie dingen die niet kloppen over groei</h2>
+                    <p><strong>Groei is niet lineair.</strong> De eerste klanten kosten tien keer meer moeite dan klant vijftig. Dat voelt als stilstand, maar het is fundament. Het vlakke stuk is geen vertraging — het is het stuk waarin je leert of je basis klopt. Bij Sportup Boost zagen we dit bij elk team: de eerste drie maanden voelden traag, maar de teams die dat stuk serieus namen, kwamen met significant sterkere pitches dan teams die meteen wilden versnellen.</p>
+                    <p><strong>Groei is niet voorspelbaar.</strong> Pieken, dalen, doorbraken, stiltes. Wie groei probeert te voorspellen raakt teleurgesteld. Wie groei probeert te begrijpen leert sneller. De schommelingen zijn geen ruis — ze zijn informatie. Elke dip vertelt je iets over je propositie, je kanaal of je timing.</p>
+                    <p><strong>Snelheid is geen bewijs.</strong> Snelheid zonder inzicht vergroot fouten. Wie te vroeg opschaalt, versterkt instabiliteit. Dat is geen groeistrategie — dat is versneld risico. Het onderzoek is consistent: premature scaling is de nummer één doodsoorzaak van startups. Niet gebrek aan ideeën, niet gebrek aan funding, maar te snel groeien zonder te begrijpen wat werkt.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>Groei als reeks beslismomenten</h2>
                     <p>Bedrijven groeien in sprongen. Elke sprong vraagt een ander systeem — en een expliciet besluit of de basis klopt.</p>
-                    <p>Tot ±10 klanten: bewijzen dat je iets bouwt dat waarde heeft. Tot ±100: leren hoe je dat herhaalbaar maakt. Tot ±1.000: versnellen zonder dat de kwaliteit breekt.</p>
+                    <p>Tot ±10 klanten: bewijzen dat je iets bouwt dat waarde heeft. Dit is de fase van handwerk, directe gesprekken, en de vraag: willen mensen dit genoeg om ervoor te betalen? Alles draait om koopintentie, niet om schaal.</p>
+                    <p>Tot ±100 klanten: leren hoe je dat herhaalbaar maakt. De vraag verschuift: kun je klanten binnenhalen zonder dat de founder elk gesprek zelf voert? Worden klanten doorverwezen? Komt er herhaling in het proces?</p>
+                    <p>Tot ±1.000 klanten: versnellen zonder dat de kwaliteit breekt. De organisatie moet meegroeien. Processen die bij 50 klanten werkten, bezwijken bij 500. Mensen die bij 10 klanten alles konden, moeten specialiseren bij 200.</p>
                     <p>De overgang tussen die fasen is geen obstakel. Het is een gate — een bewust beslismoment. Precies het soort moment waarop wij organisaties helpen. Niet door te duwen richting groei, maar door te toetsen of de basis de volgende fase aankan.</p>
-                    <p>Van 10 naar 100: retentie boven 85%, LTV groter dan CAC, 20% nieuwe klanten via referrals. Van 100 naar 1.000: brutomarge boven 70%, churn onder 5%, maandelijkse groei boven 15%. Pas als die metrics kloppen, mag je door.</p>
+                </section>
+
+                <section class="article__section">
+                    <h2>Wanneer mag je door?</h2>
+                    <p>Van 10 naar 100: retentie boven 85%, LTV groter dan CAC, verkoopcyclus onder 30 dagen, 20% nieuwe klanten via referrals. Als je referrals onder de 20% liggen, is je product niet goed genoeg om over te praten. Dat is een signaal, geen probleem dat je oplost met meer marketing.</p>
+                    <p>Van 100 naar 1.000: brutomarge boven 70%, churn onder 5% per maand, maandelijkse groei boven 15%. Als je churn boven de 5% zit, verlies je elke maand een op de twintig klanten. Dat compenseert geen enkele groeicampagne.</p>
+                    <p>Groei is geen tempo. Groei is timing. Teams die hun groei managen via dit soort metrics bouwen grip — niet alleen momentum.</p>
                 </section>
 
                 <section class="article__section">
                     <h2>De bewuste hockeystick</h2>
                     <p>Elke scale-up begon klein. Ze schaaldeden pas toen het bewijs er was. De hockeystick is geen sprint — het is een reeks bewuste sprongen, elk voorafgegaan door een beslissing.</p>
                     <p>Wie groei ziet als een doel brandt op in zijn eigen ambitie. Wie groei ziet als een reeks beslismomenten bouwt iets dat blijft staan.</p>
+                    <p>En het mooie is: die beslismomenten kun je voorbereiden. Je kunt de data verzamelen, de metrics definiëren en het gesprek voeren vóórdat de druk om te groeien onhoudbaar wordt. Dat is geen rem op ambitie. Dat is de structuur die ambitie houdbaar maakt.</p>
                 </section>
 
         </div>
     </div>
 </article>
+
+
+    <div class="article-body">
+        <div class="article-body__inner">
+            <div class="article__author">
+                <div class="article__author-inner">
+                    <div class="article__author-avatar">JW</div>
+                    <div>
+                        <div class="article__author-name">Jan-Willem van Beek</div>
+                        <div class="article__author-role">Forty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <section class="cta-section">
     <div class="cta-section__inner">
