@@ -47,6 +47,11 @@
         .article-hero__meta-item { font-size: 13px; color: var(--stone-500); }
         .article-hero__meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 2px; }
 
+        
+        /* Hero illustration */
+        .article-hero__illustration { max-width: 720px; margin: 40px auto 0; padding: 32px; background: var(--white); border-radius: 8px; border: 1px solid var(--stone-200); }
+        .article-hero__illustration svg { width: 100%; height: auto; display: block; }
+
         /* Article body */
         .article-body { padding: 0 24px 80px; }
         .article-body__inner { max-width: 720px; margin: 0 auto; }
@@ -163,6 +168,30 @@
                     Methodiek
                 </div>
             </div>
+        </div>
+        <div class="article-hero__illustration">
+            <svg viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Customer Forces quadrant -->
+            <!-- Crosshair -->
+            <line x1="180" y1="30" x2="180" y2="150" stroke="#D6D3D1" stroke-width="1"/>
+            <line x1="60" y1="90" x2="300" y2="90" stroke="#D6D3D1" stroke-width="1"/>
+            <!-- Push arrow -->
+            <line x1="100" y1="90" x2="160" y2="90" stroke="#D97706" stroke-width="2.5"/>
+            <polygon points="160,84 172,90 160,96" fill="#D97706"/>
+            <text x="100" y="82" font-family="DM Sans" font-size="10" fill="#D97706" font-weight="500">Push</text>
+            <!-- Pull arrow -->
+            <line x1="260" y1="90" x2="200" y2="90" stroke="#44403C" stroke-width="2.5"/>
+            <polygon points="200,84 188,90 200,96" fill="#44403C"/>
+            <text x="240" y="82" font-family="DM Sans" font-size="10" fill="#44403C" font-weight="500">Pull</text>
+            <!-- Anxiety up -->
+            <line x1="180" y1="70" x2="180" y2="42" stroke="#78716C" stroke-width="2"/>
+            <polygon points="174,42 180,30 186,42" fill="#78716C"/>
+            <text x="196" y="48" font-family="DM Sans" font-size="10" fill="#78716C">Anxiety</text>
+            <!-- Inertia down -->
+            <line x1="180" y1="110" x2="180" y2="138" stroke="#78716C" stroke-width="2"/>
+            <polygon points="174,138 180,150 186,138" fill="#78716C"/>
+            <text x="196" y="140" font-family="DM Sans" font-size="10" fill="#78716C">Inertia</text>
+        </svg>
         </div>
     </div>
 

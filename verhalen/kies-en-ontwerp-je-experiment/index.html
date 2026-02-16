@@ -47,6 +47,11 @@
         .article-hero__meta-item { font-size: 13px; color: var(--stone-500); }
         .article-hero__meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 2px; }
 
+        
+        /* Hero illustration */
+        .article-hero__illustration { max-width: 720px; margin: 40px auto 0; padding: 32px; background: var(--white); border-radius: 8px; border: 1px solid var(--stone-200); }
+        .article-hero__illustration svg { width: 100%; height: auto; display: block; }
+
         /* Article body */
         .article-body { padding: 0 24px 80px; }
         .article-body__inner { max-width: 720px; margin: 0 auto; }
@@ -163,6 +168,31 @@
                     Methodiek
                 </div>
             </div>
+        </div>
+        <div class="article-hero__illustration">
+            <svg viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Experiment selection matrix -->
+            <!-- Aanname column -->
+            <text x="40" y="35" font-family="DM Sans" font-size="10" fill="#78716C" font-weight="500">AANNAME</text>
+            <text x="200" y="35" font-family="DM Sans" font-size="10" fill="#78716C" font-weight="500">EXPERIMENT</text>
+            <line x1="40" y1="42" x2="320" y2="42" stroke="#E7E5E4" stroke-width="1"/>
+            <!-- Row 1 -->
+            <text x="40" y="66" font-family="DM Sans" font-size="11" fill="#44403C">Wenselijkheid</text>
+            <text x="200" y="66" font-family="DM Sans" font-size="11" fill="#D97706">Fake door test</text>
+            <line x1="175" y1="54" x2="195" y2="66" stroke="#D6D3D1" stroke-width="1"/>
+            <!-- Row 2 -->
+            <text x="40" y="96" font-family="DM Sans" font-size="11" fill="#44403C">Koopintentie</text>
+            <text x="200" y="96" font-family="DM Sans" font-size="11" fill="#D97706">Concierge-test</text>
+            <line x1="175" y1="84" x2="195" y2="96" stroke="#D6D3D1" stroke-width="1"/>
+            <!-- Row 3 -->
+            <text x="40" y="126" font-family="DM Sans" font-size="11" fill="#44403C">Haalbaarheid</text>
+            <text x="200" y="126" font-family="DM Sans" font-size="11" fill="#D97706">Wizard-of-oz</text>
+            <line x1="175" y1="114" x2="195" y2="126" stroke="#D6D3D1" stroke-width="1"/>
+            <!-- Decision arrow -->
+            <line x1="160" y1="150" x2="310" y2="150" stroke="#44403C" stroke-width="1.5"/>
+            <polygon points="310,146 320,150 310,154" fill="#44403C"/>
+            <text x="200" y="168" font-family="DM Sans" font-size="9" fill="#78716C">→ beslisbaar antwoord</text>
+        </svg>
         </div>
     </div>
 

@@ -47,6 +47,11 @@
         .article-hero__meta-item { font-size: 13px; color: var(--stone-500); }
         .article-hero__meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-400); display: block; margin-bottom: 2px; }
 
+        
+        /* Hero illustration */
+        .article-hero__illustration { max-width: 720px; margin: 40px auto 0; padding: 32px; background: var(--white); border-radius: 8px; border: 1px solid var(--stone-200); }
+        .article-hero__illustration svg { width: 100%; height: auto; display: block; }
+
         /* Article body */
         .article-body { padding: 0 24px 80px; }
         .article-body__inner { max-width: 720px; margin: 0 auto; }
@@ -163,6 +168,27 @@
                     Perspectief
                 </div>
             </div>
+        </div>
+        <div class="article-hero__illustration">
+            <svg viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pivot arrow -->
+            <text x="30" y="30" font-family="Instrument Serif" font-size="28" fill="#D6D3D1">"</text>
+            <!-- B2C path (fading) -->
+            <line x1="60" y1="110" x2="160" y2="110" stroke="#D6D3D1" stroke-width="2"/>
+            <text x="60" y="100" font-family="DM Sans" font-size="10" fill="#A8A29E">B2C</text>
+            <!-- X mark -->
+            <line x1="155" y1="105" x2="165" y2="115" stroke="#A8A29E" stroke-width="2"/>
+            <line x1="165" y1="105" x2="155" y2="115" stroke="#A8A29E" stroke-width="2"/>
+            <!-- Pivot curve -->
+            <path d="M 160 110 Q 200 110 220 75" stroke="#D97706" stroke-width="2.5" fill="none"/>
+            <polygon points="216,68 224,68 220,58" fill="#D97706"/>
+            <!-- B2B path (strong) -->
+            <line x1="220" y1="70" x2="310" y2="70" stroke="#44403C" stroke-width="2.5"/>
+            <polygon points="310,64 322,70 310,76" fill="#44403C"/>
+            <text x="250" y="60" font-family="DM Sans" font-size="10" fill="#44403C" font-weight="600">B2B</text>
+            <!-- Impact note -->
+            <text x="250" y="140" font-family="DM Sans" font-size="10" fill="#78716C">Impact × volume</text>
+        </svg>
         </div>
     </div>
 
