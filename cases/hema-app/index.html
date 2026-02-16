@@ -6,6 +6,9 @@
     <title>HEMA Medewerkers App — dashboard voor Click & Collect | Forty case</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
     <meta name="description" content="Eén knelpunt achter twee problemen. Hoe Forty een dashboard-app bouwde die de afhandelingstijd bij HEMA aanzienlijk verminderde.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Waarom bouwen op bestaande hardware?","acceptedAnswer":{"@type":"Answer","text":"HEMA-medewerkers hadden al Zebra PDA's in hun handen. Door daar een app-laag overheen te bouwen in plaats van nieuwe apparaten te introduceren, vermijd je een heel IT-aanbestedingstraject en is adoptie meteen hoog — het past in het bestaande werkproces."}},{"@type":"Question","name":"Wat was het knelpunt dat twee problemen verbond?","acceptedAnswer":{"@type":"Answer","text":"Zowel Click &amp; Collect als lokale distributie hadden hetzelfde onderliggende probleem: medewerkers hadden geen digitaal overzicht van wat er waar lag en wanneer het opgehaald moest worden. Eén dashboard loste beide knelpunten op."}},{"@type":"Question","name":"Hoe lang duurde het van observatie tot werkende MVP?","acceptedAnswer":{"@type":"Answer","text":"Van werkvloerobservaties tot werkende MVP in twee pilotwinkels: enkele maanden. De sleutel was bewust om de complexe IT-systemen heen werken in plaats van erdoorheen."}},{"@type":"Question","name":"Wat is het verschil met een regulier IT-project?","acceptedAnswer":{"@type":"Answer","text":"Een regulier IT-project begint bij systeemvereisten en architectuur. Dit traject begon op de werkvloer: wat frustreert medewerkers? De technische oplossing volgde uit het inzicht, niet andersom."}}]}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -33,7 +36,6 @@
         .header__mobile-menu { display: none; position: fixed; top: 116px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--stone-200); padding: 24px; z-index: 999; }
         .header__mobile-menu.active { display: block; }
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
-        .header__mobile-cta { margin-top: 16px; padding: 12px 24px !important; background: var(--amber-500); color: white !important; border-radius: 4px; text-align: center; }
 
         .hero { padding: 160px 24px 80px; background: var(--white); }
         .hero__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -59,10 +61,8 @@
         .decision-core__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-500); margin-bottom: 4px; }
         .decision-core__value { font-size: 16px; color: var(--stone-800); line-height: 1.5; }
 
-        /* Content with sidebar */
         .content { padding: 80px 24px 120px; background: var(--white); }
         .content__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
-        .content__main { }
         .content__section { margin-bottom: 56px; }
         .content__heading { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
         .content__section p { font-size: 16px; line-height: 1.75; color: var(--stone-700); margin-bottom: 16px; }
@@ -70,18 +70,27 @@
         .content__section p em { font-style: italic; }
         .content__section p strong { font-weight: 600; color: var(--stone-800); }
 
-        /* Sidebar */
+        /* FAQ */
+        .faq__list { display: flex; flex-direction: column; gap: 0; }
+        .faq__item { border-bottom: 1px solid var(--stone-200); }
+        .faq__item:first-child { border-top: 1px solid var(--stone-200); }
+        .faq__question { font-size: 16px; font-weight: 500; color: var(--stone-800); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq__question::-webkit-details-marker { display: none; }
+        .faq__question::after { content: '+'; font-size: 20px; color: var(--stone-400); transition: transform 200ms ease; flex-shrink: 0; margin-left: 16px; }
+        details[open] .faq__question::after { content: '−'; }
+        .faq__answer { padding: 0 0 20px 0; }
+        .faq__answer p { font-size: 15px; line-height: 1.7; color: var(--stone-600); }
+
         .sidebar { position: sticky; top: 140px; }
         .sidebar__card { background: var(--stone-50); border-radius: 8px; padding: 32px; margin-bottom: 24px; }
         .sidebar__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--stone-500); margin-bottom: 8px; }
         .sidebar__value { font-size: 15px; line-height: 1.6; color: var(--stone-700); }
         .sidebar__card--outline { background: var(--white); border: 1px solid var(--stone-200); text-align: center; }
-        .sidebar__card--outline .sidebar__label { margin-bottom: 6px; }
         .sidebar__card--outline .sidebar__value { font-size: 14px; color: var(--stone-500); }
 
         .back-link { padding: 0 24px 80px; background: var(--white); }
         .back-link__inner { max-width: 1120px; margin: 0 auto; }
-        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; }
         .back-link__inner a:hover { color: var(--stone-900); }
 
         .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
@@ -90,7 +99,7 @@
         .footer__brand img { height: 72px !important; }
         .footer__brand-tagline { font-size: 14px; line-height: 1.6; color: var(--stone-500); margin-top: 32px; margin-bottom: 24px; max-width: 280px; }
         .footer__social { display: flex; gap: 16px; }
-        .footer__social a { color: var(--stone-500); transition: color 200ms ease; }
+        .footer__social a { color: var(--stone-500); }
         .footer__social a:hover { color: var(--stone-300); }
         .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
         .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
@@ -104,7 +113,6 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__mobile-toggle svg { width: 20px; height: 20px; }
             .header__logo img { height: 72px !important; }
             .hero { padding: 120px 24px 60px; }
             .hero__inner { grid-template-columns: 1fr; gap: 40px; }
@@ -190,26 +198,47 @@
 
                     <section class="content__section">
                         <h2 class="content__heading">Uitgangssituatie</h2>
-                        <p>HEMA's winkels stonden onder toenemende druk door online bestellingen. Click &amp; Collect groeide, maar het ophaalproces was handmatig — klanten wachtten, medewerkers zochten. Tegelijk werd lokale distributie steeds belangrijker: elke winkel als mini-distributiecentrum. Maar ook daar ontbrak digitale ondersteuning.</p>
+                        <p>HEMA's winkels stonden onder toenemende druk door online bestellingen. Click &amp; Collect groeide, maar het ophaalproces was handmatig — klanten wachtten, medewerkers zochten.</p>
                         <p>Twee verschillende trajecten, maar op de werkvloer bleek hetzelfde: medewerkers misten de tools om hun werk efficiënt te doen.</p>
                     </section>
 
                     <section class="content__section">
                         <h2 class="content__heading">Aanname die we toetsten</h2>
-                        <p>Een eenvoudige digitale tool kan het bestelproces zo versnellen dat hogere volumes haalbaar worden zonder extra personeel — mits je om de complexe IT-systemen heen werkt in plaats van erdoorheen.</p>
+                        <p>Een eenvoudige digitale tool kan het bestelproces zo versnellen dat hogere volumes haalbaar worden zonder extra personeel — mits je om de complexe IT-systemen heen werkt.</p>
                     </section>
 
                     <section class="content__section">
                         <h2 class="content__heading">Wat we deden</h2>
-                        <p>We begonnen op de werkvloer. Observaties, interviews, journey mapping met medewerkers en klanten. Bij Click &amp; Collect was het knelpunt de zoektijd. Bij lokale distributie: medewerkers wisten niet waar producten lagen in hun eigen winkel.</p>
-                        <p>Het winnende concept: een dashboard-app voor de Zebra PDA's die medewerkers al in hun handen hadden. Geen nieuw systeem, geen IT-migratie — een laag eromheen. Drie experimenten met een prototype. Daarna een MVP met alleen de essentiële functies, gevoed met echte data uit twee pilotwinkels.</p>
+                        <p>We begonnen op de werkvloer. Observaties, interviews, journey mapping. Het winnende concept: een dashboard-app voor de Zebra PDA's die medewerkers al in hun handen hadden. Geen nieuw systeem — een laag eromheen.</p>
+                        <p>Drie experimenten met een prototype. Daarna een MVP met alleen de essentiële functies, gevoed met echte data uit twee pilotwinkels.</p>
                     </section>
 
                     <section class="content__section">
                         <h2 class="content__heading">Uitkomst</h2>
-                        <p>Aanzienlijke vermindering van de afhandelingstijd. Medewerkers waren enthousiast — niet omdat de app bijzonder was, maar omdat hij een dagelijkse frustratie wegnam. De oplossing wordt geschaald naar meer locaties.</p>
+                        <p>Aanzienlijke vermindering van de afhandelingstijd. Medewerkers waren enthousiast — niet omdat de app bijzonder was, maar omdat hij een dagelijkse frustratie wegnam.</p>
                     </section>
 
+                    <section class="content__section content__faq">
+                        <h2 class="content__heading">Veelgestelde vragen</h2>
+                        <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__question">Waarom bouwen op bestaande hardware?</summary>
+                        <div class="faq__answer"><p>HEMA-medewerkers hadden al Zebra PDA's in hun handen. Door daar een app-laag overheen te bouwen in plaats van nieuwe apparaten te introduceren, vermijd je een heel IT-aanbestedingstraject en is adoptie meteen hoog — het past in het bestaande werkproces.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Wat was het knelpunt dat twee problemen verbond?</summary>
+                        <div class="faq__answer"><p>Zowel Click &amp; Collect als lokale distributie hadden hetzelfde onderliggende probleem: medewerkers hadden geen digitaal overzicht van wat er waar lag en wanneer het opgehaald moest worden. Eén dashboard loste beide knelpunten op.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Hoe lang duurde het van observatie tot werkende MVP?</summary>
+                        <div class="faq__answer"><p>Van werkvloerobservaties tot werkende MVP in twee pilotwinkels: enkele maanden. De sleutel was bewust om de complexe IT-systemen heen werken in plaats van erdoorheen.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Wat is het verschil met een regulier IT-project?</summary>
+                        <div class="faq__answer"><p>Een regulier IT-project begint bij systeemvereisten en architectuur. Dit traject begon op de werkvloer: wat frustreert medewerkers? De technische oplossing volgde uit het inzicht, niet andersom.</p></div>
+                    </details>
+                        </div>
+                    </section>
         </div>
         <aside class="sidebar">
             <div class="sidebar__card">

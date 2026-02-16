@@ -6,6 +6,9 @@
     <title>HEMA Schone Billenbox — luierabonnement getest op koopintentie | Forty case</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
     <meta name="description" content="15,4% koopintentie — ver boven retailgemiddelde. Maar de operatie kon het niet waarmaken. Een helder STOP.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Waarom is 15,4% koopintentie hoog?","acceptedAnswer":{"@type":"Answer","text":"Het gemiddelde conversiepercentage voor e-commerce landingspagina's ligt rond de 2-3%. 15,4% van de bezoekers die bereid zijn om zich in te schrijven voor een abonnement is uitzonderlijk — het bewees dat er reële marktvraag was."}},{"@type":"Question","name":"Waarom dan toch stoppen?","acceptedAnswer":{"@type":"Answer","text":"Omdat marktvraag niet genoeg is. De luiers die HEMA kon leveren voldeden kwalitatief niet aan de verwachting van de doelgroep. Een abonnementsmodel draait op herhaalaankopen — als het product teleurstelt bij de eerste levering, is het model dood. De markt zei ja, de operatie zei nee."}},{"@type":"Question","name":"Wat is het verschil tussen een pilot en een koopintentietest?","acceptedAnswer":{"@type":"Answer","text":"Een pilot bouwt het product en test het in de markt. Een koopintentietest toetst of mensen bereid zijn te betalen vóórdat je iets bouwt. Dat scheelt maanden ontwikkeltijd en aanzienlijke kosten als het antwoord nee blijkt te zijn."}},{"@type":"Question","name":"Hoe snel heb je zo'n koopintentietest?","acceptedAnswer":{"@type":"Answer","text":"Voor de Schone Billenbox: van concept tot resultaat in enkele weken. Een landingspagina, drie acquisitiekanalen, en bellen met mensen die zich inschreven om hun drijfveren te begrijpen."}}]}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -33,7 +36,6 @@
         .header__mobile-menu { display: none; position: fixed; top: 116px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--stone-200); padding: 24px; z-index: 999; }
         .header__mobile-menu.active { display: block; }
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
-        .header__mobile-cta { margin-top: 16px; padding: 12px 24px !important; background: var(--amber-500); color: white !important; border-radius: 4px; text-align: center; }
 
         .hero { padding: 160px 24px 80px; background: var(--white); }
         .hero__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -59,10 +61,8 @@
         .decision-core__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-500); margin-bottom: 4px; }
         .decision-core__value { font-size: 16px; color: var(--stone-800); line-height: 1.5; }
 
-        /* Content with sidebar */
         .content { padding: 80px 24px 120px; background: var(--white); }
         .content__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
-        .content__main { }
         .content__section { margin-bottom: 56px; }
         .content__heading { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
         .content__section p { font-size: 16px; line-height: 1.75; color: var(--stone-700); margin-bottom: 16px; }
@@ -70,18 +70,27 @@
         .content__section p em { font-style: italic; }
         .content__section p strong { font-weight: 600; color: var(--stone-800); }
 
-        /* Sidebar */
+        /* FAQ */
+        .faq__list { display: flex; flex-direction: column; gap: 0; }
+        .faq__item { border-bottom: 1px solid var(--stone-200); }
+        .faq__item:first-child { border-top: 1px solid var(--stone-200); }
+        .faq__question { font-size: 16px; font-weight: 500; color: var(--stone-800); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq__question::-webkit-details-marker { display: none; }
+        .faq__question::after { content: '+'; font-size: 20px; color: var(--stone-400); transition: transform 200ms ease; flex-shrink: 0; margin-left: 16px; }
+        details[open] .faq__question::after { content: '−'; }
+        .faq__answer { padding: 0 0 20px 0; }
+        .faq__answer p { font-size: 15px; line-height: 1.7; color: var(--stone-600); }
+
         .sidebar { position: sticky; top: 140px; }
         .sidebar__card { background: var(--stone-50); border-radius: 8px; padding: 32px; margin-bottom: 24px; }
         .sidebar__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--stone-500); margin-bottom: 8px; }
         .sidebar__value { font-size: 15px; line-height: 1.6; color: var(--stone-700); }
         .sidebar__card--outline { background: var(--white); border: 1px solid var(--stone-200); text-align: center; }
-        .sidebar__card--outline .sidebar__label { margin-bottom: 6px; }
         .sidebar__card--outline .sidebar__value { font-size: 14px; color: var(--stone-500); }
 
         .back-link { padding: 0 24px 80px; background: var(--white); }
         .back-link__inner { max-width: 1120px; margin: 0 auto; }
-        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; }
         .back-link__inner a:hover { color: var(--stone-900); }
 
         .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
@@ -90,7 +99,7 @@
         .footer__brand img { height: 72px !important; }
         .footer__brand-tagline { font-size: 14px; line-height: 1.6; color: var(--stone-500); margin-top: 32px; margin-bottom: 24px; max-width: 280px; }
         .footer__social { display: flex; gap: 16px; }
-        .footer__social a { color: var(--stone-500); transition: color 200ms ease; }
+        .footer__social a { color: var(--stone-500); }
         .footer__social a:hover { color: var(--stone-300); }
         .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
         .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
@@ -104,7 +113,6 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__mobile-toggle svg { width: 20px; height: 20px; }
             .header__logo img { height: 72px !important; }
             .hero { padding: 120px 24px 60px; }
             .hero__inner { grid-template-columns: 1fr; gap: 40px; }
@@ -178,7 +186,7 @@
             </div>
             <div class="decision-core__item">
                 <div class="decision-core__label">Uitkomst</div>
-                <div class="decision-core__value">Stop — 15,4% koopintentie bewezen, maar productkwaliteit voldeed niet. De markt zei ja, de operatie zei nee</div>
+                <div class="decision-core__value">Stop — 15,4% koopintentie bewezen, maar productkwaliteit voldeed niet</div>
             </div>
         </div>
     </div>
@@ -190,7 +198,7 @@
 
                     <section class="content__section">
                         <h2 class="content__heading">Uitgangssituatie</h2>
-                        <p>HEMA zocht nieuwe inkomstenstromen via abonnementsmodellen. Jonge ouders zijn een aantrekkelijke doelgroep: de komst van een baby verandert het koopgedrag volledig. De vraag was niet of ouders behoefte hebben aan gemak — dat is evident. De vraag was of HEMA degene is die dat gemak kan leveren op een manier die commercieel werkt.</p>
+                        <p>HEMA zocht nieuwe inkomstenstromen via abonnementsmodellen. Jonge ouders zijn een aantrekkelijke doelgroep: de komst van een baby verandert het koopgedrag volledig. De vraag was of HEMA degene is die dat gemak kan leveren op een manier die commercieel werkt.</p>
                     </section>
 
                     <section class="content__section">
@@ -200,16 +208,37 @@
 
                     <section class="content__section">
                         <h2 class="content__heading">Wat we deden</h2>
-                        <p>We maakten onderscheid tussen twee doelgroepen: zwangere vrouwen (onzeker, zoekend) en jonge ouders met meerdere kinderen (hectisch, efficiëntie-gedreven). Voor beide groepen ontworpen we concepten. Een lease-model voor dure babyproducten en een periodiek luierabonnement. Getest via paneldiscussie.</p>
-                        <p>Het luierabonnement had de meeste potentie. We werkten het uit tot de Schone Billenbox: landingspagina met USP's en prijsstrategie. Getest op koopintentie via drie kanalen. Bezoekers die zich inschreven belden we op om te begrijpen wat hen dreef.</p>
+                        <p>We maakten onderscheid tussen twee doelgroepen: zwangere vrouwen en jonge ouders met meerdere kinderen. Voor beide ontworpen we concepten. Een lease-model voor dure babyproducten en een periodiek luierabonnement.</p>
+                        <p>Het luierabonnement had de meeste potentie. We werkten het uit tot de Schone Billenbox: landingspagina met USP's en prijsstrategie. Getest op koopintentie via drie kanalen.</p>
                     </section>
 
                     <section class="content__section">
                         <h2 class="content__heading">Uitkomst</h2>
                         <p>15,4% koopintentie — ver boven het gemiddelde voor retail en e-commerce. Maar de luierkwaliteit die HEMA kon leveren voldeed niet aan de verwachting. De markt wilde het. De operatie kon het niet waarmaken.</p>
-                        <p>STOP. Zonder die toets had HEMA maanden doorgebouwd aan een pilot die bij lancering strandt op productkwaliteit. Nu was het antwoord er in weken, niet in kwartalen.</p>
+                        <p>STOP. Zonder die toets had HEMA maanden doorgebouwd aan een pilot die bij lancering strandt op productkwaliteit.</p>
                     </section>
 
+                    <section class="content__section content__faq">
+                        <h2 class="content__heading">Veelgestelde vragen</h2>
+                        <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__question">Waarom is 15,4% koopintentie hoog?</summary>
+                        <div class="faq__answer"><p>Het gemiddelde conversiepercentage voor e-commerce landingspagina's ligt rond de 2-3%. 15,4% van de bezoekers die bereid zijn om zich in te schrijven voor een abonnement is uitzonderlijk — het bewees dat er reële marktvraag was.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Waarom dan toch stoppen?</summary>
+                        <div class="faq__answer"><p>Omdat marktvraag niet genoeg is. De luiers die HEMA kon leveren voldeden kwalitatief niet aan de verwachting van de doelgroep. Een abonnementsmodel draait op herhaalaankopen — als het product teleurstelt bij de eerste levering, is het model dood. De markt zei ja, de operatie zei nee.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Wat is het verschil tussen een pilot en een koopintentietest?</summary>
+                        <div class="faq__answer"><p>Een pilot bouwt het product en test het in de markt. Een koopintentietest toetst of mensen bereid zijn te betalen vóórdat je iets bouwt. Dat scheelt maanden ontwikkeltijd en aanzienlijke kosten als het antwoord nee blijkt te zijn.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Hoe snel heb je zo'n koopintentietest?</summary>
+                        <div class="faq__answer"><p>Voor de Schone Billenbox: van concept tot resultaat in enkele weken. Een landingspagina, drie acquisitiekanalen, en bellen met mensen die zich inschreven om hun drijfveren te begrijpen.</p></div>
+                    </details>
+                        </div>
+                    </section>
         </div>
         <aside class="sidebar">
             <div class="sidebar__card">

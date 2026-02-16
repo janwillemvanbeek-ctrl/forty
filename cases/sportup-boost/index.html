@@ -6,6 +6,9 @@
     <title>Sportup Boost — besluitvorming in een accelerator | Forty case</title>
     <link rel="icon" type="image/svg+xml" href="/forty/Forty_Zwart_Liggend_rgb.svg">
     <meta name="description" content="Drie maanden begeleiding met expliciete go/stop/pivot-momenten. Hoe Forty sportinnovatie-startups hielp met heldere besluiten.">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wat is het verschil tussen Sportup Boost en een reguliere accelerator?","acceptedAnswer":{"@type":"Answer","text":"De meeste accelerators focussen op groei: hoe ga je sneller? Sportup Boost begint eerder: klopt het businessmodel überhaupt? Elk team werkt toe naar een expliciet go/stop/pivot-besluit, niet naar een demopresentatie."}},{"@type":"Question","name":"Wat als een team moet stoppen — is dat dan een mislukking?","acceptedAnswer":{"@type":"Answer","text":"Nee. Stoppen op basis van bewijs bespaart maanden werk en duizenden euro's aan verkeerde investering. Teams die stoppen krijgen duidelijkheid vóórdat ze verder investeren. Dat is waardevoller dan doormodderen met een model dat niet werkt."}},{"@type":"Question","name":"Hoe ziet zo'n pitchevent eruit?","acceptedAnswer":{"@type":"Answer","text":"Teams presenteren niet een idee maar bewijs. Een pitchdeck met koopintentiedata, een onderbouwd verdienmodel en een concrete go-to-market strategie. Jury en experts geven feedback op de onderbouwing, niet op de presentatie."}},{"@type":"Question","name":"Welke startups zijn geschikt voor dit programma?","acceptedAnswer":{"@type":"Answer","text":"Early-stage sportinnovatiebedrijven die een werkend concept hebben maar nog geen bewezen businessmodel. De founder moet bereid zijn om aannames kritisch te toetsen — ook als dat betekent dat het model moet veranderen."}}]}
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
@@ -33,7 +36,6 @@
         .header__mobile-menu { display: none; position: fixed; top: 116px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--stone-200); padding: 24px; z-index: 999; }
         .header__mobile-menu.active { display: block; }
         .header__mobile-menu a { display: block; color: var(--stone-700); text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid var(--stone-100); }
-        .header__mobile-cta { margin-top: 16px; padding: 12px 24px !important; background: var(--amber-500); color: white !important; border-radius: 4px; text-align: center; }
 
         .hero { padding: 160px 24px 80px; background: var(--white); }
         .hero__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -59,10 +61,8 @@
         .decision-core__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--stone-500); margin-bottom: 4px; }
         .decision-core__value { font-size: 16px; color: var(--stone-800); line-height: 1.5; }
 
-        /* Content with sidebar */
         .content { padding: 80px 24px 120px; background: var(--white); }
         .content__inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
-        .content__main { }
         .content__section { margin-bottom: 56px; }
         .content__heading { font-family: 'Instrument Serif', Georgia, serif; font-size: 24px; font-weight: 400; color: var(--stone-900); margin-bottom: 20px; line-height: 1.3; }
         .content__section p { font-size: 16px; line-height: 1.75; color: var(--stone-700); margin-bottom: 16px; }
@@ -70,18 +70,27 @@
         .content__section p em { font-style: italic; }
         .content__section p strong { font-weight: 600; color: var(--stone-800); }
 
-        /* Sidebar */
+        /* FAQ */
+        .faq__list { display: flex; flex-direction: column; gap: 0; }
+        .faq__item { border-bottom: 1px solid var(--stone-200); }
+        .faq__item:first-child { border-top: 1px solid var(--stone-200); }
+        .faq__question { font-size: 16px; font-weight: 500; color: var(--stone-800); padding: 20px 0; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq__question::-webkit-details-marker { display: none; }
+        .faq__question::after { content: '+'; font-size: 20px; color: var(--stone-400); transition: transform 200ms ease; flex-shrink: 0; margin-left: 16px; }
+        details[open] .faq__question::after { content: '−'; }
+        .faq__answer { padding: 0 0 20px 0; }
+        .faq__answer p { font-size: 15px; line-height: 1.7; color: var(--stone-600); }
+
         .sidebar { position: sticky; top: 140px; }
         .sidebar__card { background: var(--stone-50); border-radius: 8px; padding: 32px; margin-bottom: 24px; }
         .sidebar__label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--stone-500); margin-bottom: 8px; }
         .sidebar__value { font-size: 15px; line-height: 1.6; color: var(--stone-700); }
         .sidebar__card--outline { background: var(--white); border: 1px solid var(--stone-200); text-align: center; }
-        .sidebar__card--outline .sidebar__label { margin-bottom: 6px; }
         .sidebar__card--outline .sidebar__value { font-size: 14px; color: var(--stone-500); }
 
         .back-link { padding: 0 24px 80px; background: var(--white); }
         .back-link__inner { max-width: 1120px; margin: 0 auto; }
-        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; transition: color 200ms ease; }
+        .back-link__inner a { font-size: 14px; color: var(--stone-500); text-decoration: none; }
         .back-link__inner a:hover { color: var(--stone-900); }
 
         .footer { background: var(--stone-900); color: var(--stone-400); padding: 64px 24px 32px; }
@@ -90,7 +99,7 @@
         .footer__brand img { height: 72px !important; }
         .footer__brand-tagline { font-size: 14px; line-height: 1.6; color: var(--stone-500); margin-top: 32px; margin-bottom: 24px; max-width: 280px; }
         .footer__social { display: flex; gap: 16px; }
-        .footer__social a { color: var(--stone-500); transition: color 200ms ease; }
+        .footer__social a { color: var(--stone-500); }
         .footer__social a:hover { color: var(--stone-300); }
         .footer__col-title { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone-500); margin-bottom: 24px; }
         .footer__col a { display: block; color: var(--stone-400); text-decoration: none; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
@@ -104,7 +113,6 @@
         @media (max-width: 768px) {
             .header__nav { display: none; }
             .header__mobile-toggle { display: flex; align-items: center; gap: 8px; background: none; border: none; color: var(--stone-700); font-size: 14px; font-weight: 500; cursor: pointer; padding: 8px; }
-            .header__mobile-toggle svg { width: 20px; height: 20px; }
             .header__logo img { height: 72px !important; }
             .hero { padding: 120px 24px 60px; }
             .hero__inner { grid-template-columns: 1fr; gap: 40px; }
@@ -209,6 +217,27 @@
                         <p>Sommige teams gingen door met een aangescherpt model en bewezen marktpotentie. Anderen stopten — en kregen daar duidelijkheid over voordat ze maanden verder hadden geïnvesteerd. Niet elk idee verdient uitvoering. Maar elk team verdient een helder besluit.</p>
                     </section>
 
+                    <section class="content__section content__faq">
+                        <h2 class="content__heading">Veelgestelde vragen</h2>
+                        <div class="faq__list">
+                    <details class="faq__item">
+                        <summary class="faq__question">Wat is het verschil tussen Sportup Boost en een reguliere accelerator?</summary>
+                        <div class="faq__answer"><p>De meeste accelerators focussen op groei: hoe ga je sneller? Sportup Boost begint eerder: klopt het businessmodel überhaupt? Elk team werkt toe naar een expliciet go/stop/pivot-besluit, niet naar een demopresentatie.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Wat als een team moet stoppen — is dat dan een mislukking?</summary>
+                        <div class="faq__answer"><p>Nee. Stoppen op basis van bewijs bespaart maanden werk en duizenden euro's aan verkeerde investering. Teams die stoppen krijgen duidelijkheid vóórdat ze verder investeren. Dat is waardevoller dan doormodderen met een model dat niet werkt.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Hoe ziet zo'n pitchevent eruit?</summary>
+                        <div class="faq__answer"><p>Teams presenteren niet een idee maar bewijs. Een pitchdeck met koopintentiedata, een onderbouwd verdienmodel en een concrete go-to-market strategie. Jury en experts geven feedback op de onderbouwing, niet op de presentatie.</p></div>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__question">Welke startups zijn geschikt voor dit programma?</summary>
+                        <div class="faq__answer"><p>Early-stage sportinnovatiebedrijven die een werkend concept hebben maar nog geen bewezen businessmodel. De founder moet bereid zijn om aannames kritisch te toetsen — ook als dat betekent dat het model moet veranderen.</p></div>
+                    </details>
+                        </div>
+                    </section>
         </div>
         <aside class="sidebar">
             <div class="sidebar__card">
