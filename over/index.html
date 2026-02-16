@@ -1359,5 +1359,28 @@
         }
     </script>
 
-<script src="/assets/js/hero-animations.js"></script></body>
+<script src="/assets/js/hero-animations.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="418949bf-833f-4b75-b74e-f9d3f68b195e"></script>
+    <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      var text = link.textContent.trim();
+      // Track CTA clicks
+      if (text.indexOf('Plan een gesprek') !== -1 || href.indexOf('calendly') !== -1 || href.indexOf('plan-een-gesprek') !== -1) {
+        if (typeof umami !== 'undefined') umami.track('cta-plan-gesprek', { page: location.pathname });
+      }
+      // Track case clicks from overview
+      if (href.indexOf('/cases/') !== -1 && location.pathname.indexOf('/cases/') !== -1 && !location.pathname.match(/cases\/[a-z]/)) {
+        if (typeof umami !== 'undefined') umami.track('case-click', { case: href });
+      }
+      // Track verhaal clicks from overview
+      if (href.indexOf('/verhalen/') !== -1 && location.pathname.indexOf('/verhalen/') !== -1 && !location.pathname.match(/verhalen\/[a-z]/)) {
+        if (typeof umami !== 'undefined') umami.track('verhaal-click', { verhaal: href });
+      }
+    });
+    </script>
+
+</body>
 </html>
