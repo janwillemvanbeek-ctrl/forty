@@ -37,6 +37,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.6; color: var(--stone-900); background: var(--white); -webkit-font-smoothing: antialiased; }
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--amber-600); outline-offset: 2px; }
+        .skip-link { position: absolute; top: -100%; left: 16px; padding: 8px 16px; background: var(--stone-900); color: var(--white); font-size: 14px; font-weight: 500; text-decoration: none; border-radius: 0 0 8px 8px; z-index: 200; transition: top 200ms ease; }
+        .skip-link:focus { top: 0; }
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); border-bottom: 1px solid transparent; transition: border-color 200ms ease; }
         @supports (backdrop-filter: blur(12px)) { .header { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px) saturate(180%); } }
         .header.scrolled { border-bottom-color: var(--stone-200); }
@@ -115,22 +118,24 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Ga naar inhoud</a>
+
 <!-- HEADER -->
-<header class="header">
+<header class="header" role="banner">
     <div class="header__inner">
-        <a href="/" class="header__logo"><img src="/Forty_Zwart_Liggend_rgb.svg" alt="Forty"></a>
-        <nav class="header__nav">
+        <a href="/" class="header__logo"><img src="/Forty_Zwart_Liggend_rgb.svg" alt="Forty" width="140" height="84" decoding="async"></a>
+        <nav class="header__nav" aria-label="Hoofdnavigatie">
             <a href="/werkwijze">Werkwijze</a>
             <a href="/cases" aria-current="page">Cases</a>
             <a href="/verhalen">Verhalen</a>
             <a href="/over">Over Forty</a>
         </nav>
-        <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mobileMenu">
             <span>Menu</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
     </div>
-    <div class="header__mobile-menu" id="mobileMenu">
+    <div class="header__mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobiele navigatie">
         <a href="/werkwijze">Werkwijze</a>
         <a href="/cases">Cases</a>
         <a href="/verhalen">Verhalen</a>
@@ -138,6 +143,8 @@
         <a href="/cdn-cgi/l/email-protection#472f262b2b2807212835333e69292b" class="header__mobile-cta">Plan een gesprek</a>
     </div>
 </header>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero">
@@ -161,7 +168,7 @@
 
             <!-- CASE 2: AVEQ -->
             <a href="/cases/aveq/" class="case-card">
-                <img src="/assets/images/aveq.jpeg" alt="AVEQ boarding in ADO Den Haag stadion" class="case-card__image" loading="lazy">
+                <img src="/assets/images/aveq.jpeg" alt="AVEQ boarding in ADO Den Haag stadion" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">AVEQ — van sensortechnologie naar propositie voor voetbalclubs</div></div>
                     <div class="case-card__section">
@@ -181,7 +188,7 @@
 
             <!-- CASE 3: Sportup Boost -->
             <a href="/cases/sportup-boost/" class="case-card">
-                <img src="/assets/images/sportup-boost.jpeg" alt="Sportup Boost pitchsessie" class="case-card__image" loading="lazy">
+                <img src="/assets/images/sportup-boost.jpeg" alt="Sportup Boost pitchsessie" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">Sportup Boost — besluitvorming in een accelerator</div></div>
                     <div class="case-card__section">
@@ -201,7 +208,7 @@
 
             <!-- CASE 4: Sportinnovator 1-op-1 -->
             <a href="/cases/sportinnovator/" class="case-card">
-                <img src="/assets/images/sportinnovator-coaching.jpeg" alt="Sportinnovator 1-op-1 coaching sessie" class="case-card__image" loading="lazy">
+                <img src="/assets/images/sportinnovator-coaching.jpeg" alt="Sportinnovator 1-op-1 coaching sessie" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">Sportinnovator — 1-op-1 coaching van sportstartups</div></div>
                     <div class="case-card__section">
@@ -221,7 +228,7 @@
 
             <!-- CASE 5: Nationaal Ouderenfonds -->
             <a href="/cases/ouderenfonds/" class="case-card">
-                <img src="/assets/images/ouderfonds.jpg" alt="Nationaal Ouderenfonds business model canvas" class="case-card__image" loading="lazy">
+                <img src="/assets/images/ouderfonds.jpg" alt="Nationaal Ouderenfonds business model canvas" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">Nationaal Ouderenfonds — business-model-first innovatie</div></div>
                     <div class="case-card__section">
@@ -241,7 +248,7 @@
 
             <!-- CASE 6: Connected River -->
             <a href="/cases/connected-river/" class="case-card">
-                <img src="/assets/images/connected-river.jpg" alt="Connected River Spiegelwaal Nijmegen" class="case-card__image" loading="lazy">
+                <img src="/assets/images/connected-river.jpg" alt="Connected River Spiegelwaal Nijmegen" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">Connected River — data-gedreven beheer van stedelijk riviergebied</div></div>
                     <div class="case-card__section">
@@ -261,7 +268,7 @@
 
             <!-- CASE 7: NOC*NSF Shuffle Sports -->
             <a href="/cases/nocnsf-shuffle-sports/" class="case-card">
-                <img src="/assets/images/nocnsf-shuffle-sports.jpg" alt="NOC*NSF Shuffle Sports jongeren in actie" class="case-card__image" loading="lazy">
+                <img src="/assets/images/nocnsf-shuffle-sports.jpg" alt="NOC*NSF Shuffle Sports jongeren in actie" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">NOC*NSF — Shuffle Sports</div></div>
                     <div class="case-card__section">
@@ -281,7 +288,7 @@
 
             <!-- CASE 8: HEMA Schone Billenbox -->
             <a href="/cases/hema-billenbox/" class="case-card">
-                <img src="/assets/images/hema-billenbox.png" alt="HEMA Schone Billenbox product" class="case-card__image" loading="lazy">
+                <img src="/assets/images/hema-billenbox.png" alt="HEMA Schone Billenbox product" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">HEMA — Schone Billenbox</div></div>
                     <div class="case-card__section">
@@ -301,7 +308,7 @@
 
             <!-- CASE 9: HEMA Medewerkers App -->
             <a href="/cases/hema-app/" class="case-card">
-                <img src="/assets/images/hema-app.png" alt="HEMA Medewerkers App dashboard" class="case-card__image" loading="lazy">
+                <img src="/assets/images/hema-app.png" alt="HEMA Medewerkers App dashboard" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">HEMA — Medewerkers App</div></div>
                     <div class="case-card__section">
@@ -321,7 +328,7 @@
 
             <!-- CASE 10: Taktify -->
             <a href="/cases/taktify/" class="case-card">
-                <img src="/assets/images/taktify.jpg" alt="Taktify dashboard zorgplanning" class="case-card__image" loading="lazy">
+                <img src="/assets/images/taktify.jpg" alt="Taktify dashboard zorgplanning" class="case-card__image" loading="lazy" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">Taktify — van AI-technologie naar eerste klanten in de zorg</div></div>
                     <div class="case-card__section">
@@ -343,12 +350,14 @@
     </div>
 </section>
 
+    </main>
+
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__top">
             <div class="footer__brand-col">
-                <a href="/" class="footer__brand"><img src="/Forty_Wit_Liggend_rgb.svg" alt="Forty"></a>
+                <a href="/" class="footer__brand"><img src="/Forty_Wit_Liggend_rgb.svg" alt="Forty" width="140" height="84" loading="lazy" decoding="async"></a>
                 <p class="footer__brand-tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
                 <div class="footer__social">
                     <a href="https://www.linkedin.com/company/fortyutrecht/" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
@@ -379,7 +388,8 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
 document.querySelectorAll('.case-card__image').forEach(function(img) {
     img.addEventListener('error', function() {
         this.style.display = 'none';
@@ -388,6 +398,7 @@ document.querySelectorAll('.case-card__image').forEach(function(img) {
         ph.textContent = 'Beeld volgt';
         this.parentElement.insertBefore(ph, this);
     }, { once: true });
+
     if (img.complete && img.naturalWidth === 0) {
         img.style.display = 'none';
         var ph = document.createElement('div');
@@ -396,43 +407,66 @@ document.querySelectorAll('.case-card__image').forEach(function(img) {
         img.parentElement.insertBefore(ph, img);
     }
 });
+
 var header = document.querySelector('.header');
 window.addEventListener('scroll', function() {
-    header.classList.toggle('scrolled', wi
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="418949bf-833f-4b75-b74e-f9d3f68b195e"></script>
-    <script>
-    document.addEventListener('click', function(e) {
-      var link = e.target.closest('a');
-      if (!link) return;
-      var href = link.getAttribute('href') || '';
-      var text = link.textContent.trim();
-      if (text.indexOf('Plan een gesprek') !== -1 || href.indexOf('calendly') !== -1) {
-        if (typeof umami !== 'undefined') umami.track('cta-plan-gesprek', { page: location.pathname });
-      }
-      if (href.indexOf('/cases/') !== -1 && location.pathname === '/cases/') {
-        if (typeof umami !== 'undefined') umami.track('case-click', { case: href });
-      }
+    header.classList.toggle('scrolled', window.pageYOffset > 30);
+}, { passive: true });
+
+var mobileMenuToggle = document.getElementById('mobileMenuToggle');
+var mobileMenu = document.getElementById('mobileMenu');
+if (mobileMenuToggle && mobileMenu) {
+    mobileMenuToggle.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.toggle('active');
+        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
     });
-    </script>
-    <script>
-    (function() {
-      var tracked = {};
-      var thresholds = [25, 50, 75, 100];
-      function getScrollPercent() {
-        var h = document.documentElement, b = document.body;
-        var st = h.scrollTop || b.scrollTop;
-        var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
-        return sh > 0 ? Math.round((st / sh) * 100) : 0;
+
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="418949bf-833f-4b75-b74e-f9d3f68b195e"></script>
+<script>
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a');
+  if (!link) return;
+  var href = link.getAttribute('href') || '';
+  var text = link.textContent.trim();
+
+  if (text.indexOf('Plan een gesprek') !== -1 || href.indexOf('calendly') !== -1 || href.indexOf('plan-een-gesprek') !== -1) {
+    if (typeof umami !== 'undefined') umami.track('cta-plan-gesprek', { page: location.pathname });
+  }
+  if (href.indexOf('/cases/') !== -1 && location.pathname.indexOf('/cases/') !== -1 && !location.pathname.match(/cases\/[a-z]/)) {
+    if (typeof umami !== 'undefined') umami.track('case-click', { case: href });
+  }
+});
+</script>
+<script>
+(function() {
+  var tracked = {};
+  var thresholds = [25, 50, 75, 100];
+  function getScrollPercent() {
+    var h = document.documentElement;
+    var b = document.body;
+    var st = h.scrollTop || b.scrollTop;
+    var sh = (h.scrollHeight || b.scrollHeight) - h.clientHeight;
+    return sh > 0 ? Math.round((st / sh) * 100) : 0;
+  }
+  window.addEventListener('scroll', function() {
+    var pct = getScrollPercent();
+    for (var i = 0; i < thresholds.length; i++) {
+      var t = thresholds[i];
+      if (pct >= t && !tracked[t]) {
+        tracked[t] = true;
+        if (typeof umami !== 'undefined') umami.track('scroll-depth', { depth: t + '%', page: location.pathname });
       }
-      window.addEventListener('scroll', function() {
-        var pct = getScrollPercent();
-        for (var i = 0; i < thresholds.length; i++) {
-          var t = thresholds[i];
-          if (pct >= t && !tracked[t]) {
-            tracked[t] = true;
-            if (typeof umami !== 'undefined') umami.track('scroll-depth', { depth: t + '%', page: location.pathname });
-          }
-        }
-      });
-    })();
-    </script>
+    }
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
