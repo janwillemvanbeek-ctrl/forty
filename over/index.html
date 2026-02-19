@@ -326,6 +326,13 @@
         .header__nav a:hover {
             color: var(--stone-900);
         }
+
+        .header__nav a[aria-current="page"] {
+            color: var(--stone-900);
+            font-weight: 500;
+            border-bottom: 1px solid var(--stone-900);
+            padding-bottom: 2px;
+        }
         
         .header__mobile-toggle {
             display: none;
@@ -1091,7 +1098,7 @@
                 <a href="/werkwijze/">Werkwijze</a>
                 <a href="/cases/">Cases</a>
                 <a href="/verhalen/">Verhalen</a>
-                <a href="/over/" class="header__nav-current">Over Forty</a>
+                <a href="/over/" aria-current="page">Over Forty</a>
             </nav>
             <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1105,7 +1112,7 @@
             <a href="/werkwijze/">Werkwijze</a>
             <a href="/cases/">Cases</a>
             <a href="/verhalen/">Verhalen</a>
-            <a href="/over/">Over Forty</a>
+            <a href="/over/" aria-current="page">Over Forty</a>
             <a href="/koffie/" class="header__mobile-cta">Plan een gesprek</a>
         </div>
     </header>

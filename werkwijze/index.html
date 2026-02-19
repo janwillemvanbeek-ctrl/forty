@@ -398,6 +398,13 @@
         .header__nav a:hover {
             color: var(--stone-900);
         }
+
+        .header__nav a[aria-current="page"] {
+            color: var(--stone-900);
+            font-weight: 500;
+            border-bottom: 1px solid var(--stone-900);
+            padding-bottom: 2px;
+        }
         
         .header__mobile-toggle {
             display: none;
@@ -1359,7 +1366,7 @@
                 <img src="/Forty_Zwart_Liggend_rgb.svg" alt="Forty" width="140" height="84" decoding="async">
             </a>
             <nav class="header__nav" aria-label="Hoofdnavigatie">
-                <a href="/werkwijze/" style="color: var(--stone-900);">Werkwijze</a>
+                <a href="/werkwijze/" aria-current="page">Werkwijze</a>
                 <a href="/cases/">Cases</a>
                 <a href="/verhalen/">Verhalen</a>
                 <a href="/over/">Over Forty</a>
@@ -1373,7 +1380,7 @@
             </button>
         </div>
         <div class="header__mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobiel menu">
-            <a href="/werkwijze/">Werkwijze</a>
+            <a href="/werkwijze/" aria-current="page">Werkwijze</a>
             <a href="/cases/">Cases</a>
             <a href="/verhalen/">Verhalen</a>
             <a href="/over/">Over Forty</a>
