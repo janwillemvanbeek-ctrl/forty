@@ -592,9 +592,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         var target = document.querySelector(a.getAttribute('href'));
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
-/* Form submission via Google Apps Script */
-var APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+});
 
+/* Umami tracking */
+function trackEvent(name) {
+    if (window.umami && typeof window.umami.track === 'function') {
+        window.umami.track(name);
+    }
+}
+trackEvent('vp_view');
+
+var vpSubmitBtn = document.querySelector('#vpForm button[type="submit"]');
+if (vpSubmitBtn) {
+    vpSubmitBtn.addEventListener('click', function() {
+        trackEvent('vp_cta_click');
+    });
+}
+
+var vpPdfLink = document.querySelector('a[href*="forty-voorbeeldrapport-mantelzorg.pdf"]');
+if (vpPdfLink) {
+    vpPdfLink.addEventListener('click', function() {
+        trackEvent('vp_pdf_download');
+    });
+}
+
+/* Form submission via Google Apps Script */
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwz2MqEWuYSNVO2hrbTkmBc_nUAPz23iBspWNIeQPhTYuCnOBPJYiOc2BalbvQH0ql2sg/exec';
 var vpForm = document.getElementById('vpForm');
 if (vpForm) {
     vpForm.addEventListener('submit', function(e) {
@@ -617,9 +640,11 @@ if (vpForm) {
             body: JSON.stringify(data)
         })
         .then(function() {
+            trackEvent('vp_form_submit_success');
             vpForm.innerHTML = '<div style="text-align:center;padding:48px 0;"><p style="font-family:Instrument Serif,Georgia,serif;font-size:28px;margin-bottom:16px;">Ontvangen!</p><p style="color:#78716C;font-size:15px;line-height:1.6;">Je krijgt het resultaat binnen 48 uur per mail.<br>Heb je vragen? Mail <a href="mailto:hallo@forty.nl" style="color:#78716C;">hallo@forty.nl</a></p></div>';
         })
         .catch(function() {
+            trackEvent('vp_form_submit_error');
             btn.textContent = 'Er ging iets mis — probeer opnieuw';
             btn.disabled = false;
         });
