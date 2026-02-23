@@ -398,7 +398,7 @@
         </div>
 
         <div class="vp-form-card reveal">
-        <form class="vp-form" onsubmit="return false;">
+        <form class="vp-form" id="virtueel-panel-form">
 
             <!-- Context: what + who -->
             <div class="vp-form__group">
@@ -407,7 +407,7 @@
             </div>
             <div class="vp-form__group">
                 <label class="vp-form__label" for="doelgroep">Doelgroep</label>
-                <input class="vp-form__input" id="doelgroep" type="text" placeholder="Bijv: Werkende mantelzorgers, 35-55">
+                <input class="vp-form__input" id="doelgroep" type="text" placeholder="Bijv: Werkende mantelzorgers, 35-55" required>
             </div>
 
             <!-- Core: assumptions -->
@@ -415,11 +415,11 @@
                 <label class="vp-form__label">Je aannames — het panel toetst deze vanuit het perspectief van je doelgroep</label>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">1</span>
-                    <input class="vp-form__assumption-input" id="aanname1" type="text" placeholder="Medewerkers willen hulp via hun werkgever">
+                    <input class="vp-form__assumption-input" id="aanname1" type="text" placeholder="Medewerkers willen hulp via hun werkgever" required>
                 </div>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">2</span>
-                    <input class="vp-form__assumption-input" id="aanname2" type="text" placeholder="Informatie is de grootste behoefte">
+                    <input class="vp-form__assumption-input" id="aanname2" type="text" placeholder="Informatie is de grootste behoefte" required>
                 </div>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">3</span>
@@ -431,9 +431,10 @@
             <div class="vp-form__divider"></div>
             <div class="vp-form__group">
                 <label class="vp-form__label" for="email">E-mailadres</label>
-                <input class="vp-form__input" id="email" type="email" placeholder="Voor het resultaat">
+                <input class="vp-form__input" id="email" type="email" placeholder="Voor het resultaat" required>
             </div>
-            <button class="btn-amber" type="submit" style="width: 100%;">Toets mijn aannames</button>
+            <button class="btn-amber" id="vp-submit-button" type="submit" style="width: 100%;">Toets mijn aannames</button>
+            <p class="vp-form__hint" id="vp-form-status" role="status" aria-live="polite"></p>
             <p class="vp-form__hint">Gratis. Geen account nodig.</p>
         </form>
         </div>
@@ -567,6 +568,56 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
 });
+
+var vpForm = document.getElementById('virtueel-panel-form');
+var vpSubmitButton = document.getElementById('vp-submit-button');
+var vpFormStatus = document.getElementById('vp-form-status');
+
+if (vpForm && vpSubmitButton && vpFormStatus) {
+    vpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var payload = {
+            propositie: (document.getElementById('propositie').value || '').trim(),
+            doelgroep: (document.getElementById('doelgroep').value || '').trim(),
+            aanname1: (document.getElementById('aanname1').value || '').trim(),
+            aanname2: (document.getElementById('aanname2').value || '').trim(),
+            aanname3: (document.getElementById('aanname3').value || '').trim(),
+            email: (document.getElementById('email').value || '').trim(),
+            page: location.pathname,
+            source: 'virtueel-panel'
+        };
+
+        if (!payload.doelgroep || !payload.aanname1 || !payload.aanname2 || !payload.email) {
+            vpFormStatus.textContent = 'Vul doelgroep, minimaal 2 aannames en je e-mailadres in.';
+            return;
+        }
+
+        vpSubmitButton.disabled = true;
+        vpSubmitButton.textContent = 'Bezig met versturen...';
+        vpFormStatus.textContent = '';
+
+        var body = new URLSearchParams(payload).toString();
+
+        fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: body
+        })
+        .then(function(response) {
+            if (!response.ok) throw new Error('Request failed');
+            vpForm.reset();
+            vpFormStatus.textContent = 'Bedankt! Je aanvraag is verzonden. Je ontvangt het resultaat per mail.';
+        })
+        .catch(function() {
+            vpFormStatus.textContent = 'Verzenden lukt nu niet. Probeer het over 1 minuut opnieuw.';
+        })
+        .finally(function() {
+            vpSubmitButton.disabled = false;
+            vpSubmitButton.textContent = 'Toets mijn aannames';
+        });
+    });
+}
 </script>
 </body>
 </html>
