@@ -527,6 +527,7 @@
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var APPS_SCRIPT_URL = "https://script.google.com/a/macros/forty.nl/s/AKfycbwz2MqEWuYSNVO2hrbTkmBc_nUAPz23iBspWNIeQPhTYuCnOBPJYiOc2BalbvQH0ql2sg/exec";
+var APPS_SCRIPT_PUBLIC_URL = APPS_SCRIPT_URL.replace("/a/macros/forty.nl", "/macros");
 
 var header = document.querySelector('.header');
 window.addEventListener('scroll', function() {
@@ -599,18 +600,25 @@ if (vpForm && vpSubmitButton && vpFormStatus) {
 
         var body = new URLSearchParams(payload).toString();
 
-        fetch(APPS_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-            body: body
+        function postTo(url) {
+            return fetch(url, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                body: body
+            });
+        }
+
+        postTo(APPS_SCRIPT_URL)
+        .catch(function() {
+            return postTo(APPS_SCRIPT_PUBLIC_URL);
         })
         .then(function() {
             vpForm.reset();
             vpFormStatus.textContent = 'Bedankt! Je aanvraag is verzonden. Je ontvangt het resultaat per mail.';
         })
         .catch(function() {
-            vpFormStatus.textContent = 'Verzenden lukt nu niet. Probeer het over 1 minuut opnieuw.';
+            vpFormStatus.textContent = 'Verzenden lukt nog niet. Mail je aanvraag naar hallo@forty.nl of probeer het later opnieuw.';
         })
         .finally(function() {
             vpSubmitButton.disabled = false;
