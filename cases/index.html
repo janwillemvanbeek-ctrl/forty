@@ -98,7 +98,7 @@
         .case-card:hover { box-shadow: 0 1px 1px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.04), 0 16px 36px rgba(0,0,0,0.07), 0 24px 52px -4px rgba(0,0,0,0.06); }
         .case-card__image { width: 100%; aspect-ratio: 4 / 3; background: linear-gradient(135deg, var(--stone-100) 0%, var(--stone-50) 100%); object-fit: cover; display: block; filter: saturate(0.92) contrast(1.05); }
         @media (min-width: 769px) {
-            .case-card__image { object-fit: contain; object-position: 50% 50%; }
+            .case-card__image { aspect-ratio: auto; height: auto; object-fit: initial; background: transparent; }
         }
         .case-card__image-placeholder { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--stone-400); font-style: italic; background: linear-gradient(135deg, var(--stone-100) 0%, var(--stone-50) 100%); }
         .case-card__content { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; }
