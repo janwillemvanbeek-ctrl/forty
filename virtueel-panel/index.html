@@ -601,11 +601,11 @@ if (vpForm && vpSubmitButton && vpFormStatus) {
 
         fetch(APPS_SCRIPT_URL, {
             method: 'POST',
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: body
         })
-        .then(function(response) {
-            if (!response.ok) throw new Error('Request failed');
+        .then(function() {
             vpForm.reset();
             vpFormStatus.textContent = 'Bedankt! Je aanvraag is verzonden. Je ontvangt het resultaat per mail.';
         })
