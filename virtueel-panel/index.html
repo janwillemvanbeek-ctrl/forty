@@ -398,16 +398,17 @@
         </div>
 
         <div class="vp-form-card reveal">
-        <form class="vp-form" id="virtueel-panel-form">
+        <form class="vp-form" id="vpForm">
+            <input type="hidden" name="_subject" value="Nieuwe aanname-check via virtueel-panel">
 
             <!-- Context: what + who -->
             <div class="vp-form__group">
                 <label class="vp-form__label" for="propositie">Je idee of propositie</label>
-                <textarea class="vp-form__input" id="propositie" rows="2" placeholder="Bijv: Een dienst waarmee mantelzorgers via hun werkgever professionele hulp kunnen inschakelen" style="resize: vertical; line-height: 1.5;"></textarea>
+                <textarea class="vp-form__input" id="propositie" name="propositie" rows="2" placeholder="Bijv: Een dienst waarmee mantelzorgers via hun werkgever professionele hulp kunnen inschakelen" style="resize: vertical; line-height: 1.5;"></textarea>
             </div>
             <div class="vp-form__group">
                 <label class="vp-form__label" for="doelgroep">Doelgroep</label>
-                <input class="vp-form__input" id="doelgroep" type="text" placeholder="Bijv: Werkende mantelzorgers, 35-55" required>
+                <input class="vp-form__input" id="doelgroep" name="doelgroep" type="text" placeholder="Bijv: Werkende mantelzorgers, 35-55">
             </div>
 
             <!-- Core: assumptions -->
@@ -415,15 +416,15 @@
                 <label class="vp-form__label">Je aannames — het panel toetst deze vanuit het perspectief van je doelgroep</label>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">1</span>
-                    <input class="vp-form__assumption-input" id="aanname1" type="text" placeholder="Medewerkers willen hulp via hun werkgever" required>
+                    <input class="vp-form__assumption-input" id="aanname1" name="aanname_1" type="text" placeholder="Medewerkers willen hulp via hun werkgever">
                 </div>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">2</span>
-                    <input class="vp-form__assumption-input" id="aanname2" type="text" placeholder="Informatie is de grootste behoefte" required>
+                    <input class="vp-form__assumption-input" id="aanname2" name="aanname_2" type="text" placeholder="Informatie is de grootste behoefte">
                 </div>
                 <div class="vp-form__assumption-row">
                     <span class="vp-form__assumption-num">3</span>
-                    <input class="vp-form__assumption-input" id="aanname3" type="text" placeholder="Derde aanname (optioneel)">
+                    <input class="vp-form__assumption-input" id="aanname3" name="aanname_3" type="text" placeholder="Derde aanname (optioneel)">
                 </div>
             </div>
 
@@ -431,10 +432,9 @@
             <div class="vp-form__divider"></div>
             <div class="vp-form__group">
                 <label class="vp-form__label" for="email">E-mailadres</label>
-                <input class="vp-form__input" id="email" type="email" placeholder="Voor het resultaat" required>
+                <input class="vp-form__input" id="email" name="email" type="email" placeholder="Voor het resultaat">
             </div>
-            <button class="btn-amber" id="vp-submit-button" type="submit" style="width: 100%;">Toets mijn aannames</button>
-            <p class="vp-form__hint" id="vp-form-status" role="status" aria-live="polite"></p>
+            <button class="btn-amber" type="submit" style="width: 100%;">Toets mijn aannames</button>
             <p class="vp-form__hint">Gratis. Geen account nodig.</p>
         </form>
         </div>
@@ -445,27 +445,52 @@
     </div>
 </section>
 
-<!-- VALIDATIE -->
-<section class="vp-section vp-section--podium" aria-label="Validatie tegen academisch onderzoek">
+<!-- ONDERBOUWING -->
+<section class="vp-section vp-section--podium" aria-label="Wetenschappelijke onderbouwing">
     <div class="page">
-        <h2 class="vp-statement reveal">Getest tegen meerdere academische studies</h2>
+        <h2 class="vp-statement reveal">Ontworpen rond de blinde vlekken van AI</h2>
         <div class="measure">
-            <p class="vp-body reveal">We testen het Virtueel Panel systematisch tegen gepubliceerde studies — van voedselonzekerheid tot mHealth, van kwetsbare doelgroepen tot technologie-adoptie. Niet om te bewijzen dat het perfect is, maar om te weten waar het sterk is en waar niet.</p>
+            <p class="vp-body reveal">De meeste AI-tools weten niet wat ze niet weten. Ze geven zelfverzekerde antwoorden zonder onderscheid te maken tussen wat betrouwbaar is en wat verzonnen. Het Virtueel Panel is niet gebouwd door een prompt te schrijven en te hopen dat het klopt. Het is ontworpen op basis van wat we weten over waar synthetische panels falen — en elke bekende fout heeft een concrete tegenmaatregel gekregen.</p>
         </div>
 
-        <dl class="vp-validation-numbers reveal">
+        <div class="vp-pillars reveal" style="margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px;">
             <div>
-                <dt>Overlap met onderzoekers</dt>
-                <dd>57 – 90%</dd>
+                <p class="vp-decision" style="margin-top: 0;">Contrarian bias</p>
+                <p class="vp-body">AI-panels ontkrachten systematisch wat mensen in het echt als barrière ervaren — prijs, toegang, taal. Het panel herkent wanneer het een oordeel niet kán vellen en zegt dan 'onbekend' in plaats van 'ontkracht'.</p>
             </div>
             <div>
-                <dt>Precisie</dt>
-                <dd>91 – 100%</dd>
+                <p class="vp-decision" style="margin-top: 0;">Schijnzekerheid</p>
+                <p class="vp-body">Taalmodellen presenteren hypotheses als feiten. Elke output krijgt daarom een betrouwbaarheidslabel: hoog vertrouwen, indicatief, of hypothese. Zodat je weet wat je kunt gebruiken en wat je moet verifiëren.</p>
             </div>
-        </dl>
+            <div>
+                <p class="vp-decision" style="margin-top: 0;">Blinde vlek voor functie</p>
+                <p class="vp-body">Het panel is sterk op motivatie, waarden en drijfveren. Zwakker op feature-reacties en usability. Die grens benoemen we, omdat het je helpt inschatten wanneer je wél echte mensen nodig hebt.</p>
+            </div>
+            <div>
+                <p class="vp-decision" style="margin-top: 0;">Sample-representativiteit</p>
+                <p class="vp-body">Een AI-panel kan niet namens iedereen spreken. Als de doelgroep buiten het bereik van het model valt — cultureel, sociaaleconomisch — zegt het panel dat. Geen geforceerd antwoord op een vraag die het niet kan beantwoorden.</p>
+            </div>
+        </div>
 
-        <div class="measure" style="margin-top: 48px;">
-            <p class="vp-body reveal">Het panel is het sterkst bij motivatie- en waardenonderzoek. Bij functioneel onderzoek — feature-reacties, usability — is het minder trefzeker. Die grens benoemen we, omdat het je helpt inschatten wanneer je wél echte mensen nodig hebt.</p>
+        <div class="measure" style="margin-top: 64px;">
+            <p class="vp-body reveal">Dit is geen garantie dat het panel altijd gelijk heeft. Het is een garantie dat het weet waar het kan falen — en dat het je dat vertelt.</p>
+        </div>
+
+        <div style="margin-top: 64px; padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p class="vp-decision reveal" style="margin-top: 0;">Gevalideerd tegen academisch onderzoek</p>
+            <div class="measure">
+                <p class="vp-body reveal">We testen het panel systematisch tegen gepubliceerde studies — van voedselonzekerheid tot mHealth, van kwetsbare doelgroepen tot technologie-adoptie.</p>
+            </div>
+            <dl class="vp-validation-numbers reveal">
+                <div>
+                    <dt>Overlap met onderzoekers</dt>
+                    <dd>57 – 90%</dd>
+                </div>
+                <div>
+                    <dt>Precisie</dt>
+                    <dd>91 – 100%</dd>
+                </div>
+            </dl>
         </div>
     </div>
 </section>
@@ -526,9 +551,6 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwz2MqEWuYSNVO2hrbTkmBc_nUAPz23iBspWNIeQPhTYuCnOBPJYiOc2BalbvQH0ql2sg/exec";
-var APPS_SCRIPT_PUBLIC_URL = APPS_SCRIPT_URL;
-
 var header = document.querySelector('.header');
 window.addEventListener('scroll', function() {
     header.classList.toggle('scrolled', window.pageYOffset > 30);
@@ -568,61 +590,36 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
         var target = document.querySelector(a.getAttribute('href'));
         if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
-});
+/* Form submission via Google Apps Script */
+var APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
 
-var vpForm = document.getElementById('virtueel-panel-form');
-var vpSubmitButton = document.getElementById('vp-submit-button');
-var vpFormStatus = document.getElementById('vp-form-status');
-
-if (vpForm && vpSubmitButton && vpFormStatus) {
+var vpForm = document.getElementById('vpForm');
+if (vpForm) {
     vpForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        var btn = vpForm.querySelector('button[type="submit"]');
+        btn.textContent = 'Verzenden...';
+        btn.disabled = true;
 
-        var payload = {
-            propositie: (document.getElementById('propositie').value || '').trim(),
-            doelgroep: (document.getElementById('doelgroep').value || '').trim(),
-            aanname1: (document.getElementById('aanname1').value || '').trim(),
-            aanname2: (document.getElementById('aanname2').value || '').trim(),
-            aanname3: (document.getElementById('aanname3').value || '').trim(),
-            email: (document.getElementById('email').value || '').trim(),
-            page: location.pathname,
-            source: 'virtueel-panel'
+        var data = {
+            propositie: document.getElementById('propositie').value,
+            doelgroep: document.getElementById('doelgroep').value,
+            aanname_1: document.getElementById('aanname1').value,
+            aanname_2: document.getElementById('aanname2').value,
+            aanname_3: document.getElementById('aanname3').value,
+            email: document.getElementById('email').value
         };
 
-        if (!payload.doelgroep || !payload.aanname1 || !payload.aanname2 || !payload.email) {
-            vpFormStatus.textContent = 'Vul doelgroep, minimaal 2 aannames en je e-mailadres in.';
-            return;
-        }
-
-        vpSubmitButton.disabled = true;
-        vpSubmitButton.textContent = 'Bezig met versturen...';
-        vpFormStatus.textContent = '';
-
-        var body = new URLSearchParams(payload).toString();
-
-        function postTo(url) {
-            return fetch(url, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-                body: body
-            });
-        }
-
-        postTo(APPS_SCRIPT_URL)
-        .catch(function() {
-            return postTo(APPS_SCRIPT_PUBLIC_URL);
+        fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(data)
         })
         .then(function() {
-            vpForm.reset();
-            vpFormStatus.textContent = 'Bedankt! Je aanvraag is verzonden. Je ontvangt het resultaat per mail.';
+            vpForm.innerHTML = '<div style="text-align:center;padding:48px 0;"><p style="font-family:Instrument Serif,Georgia,serif;font-size:28px;margin-bottom:16px;">Ontvangen!</p><p style="color:#78716C;font-size:15px;line-height:1.6;">Je krijgt het resultaat binnen 48 uur per mail.<br>Heb je vragen? Mail <a href="mailto:hallo@forty.nl" style="color:#78716C;">hallo@forty.nl</a></p></div>';
         })
         .catch(function() {
-            vpFormStatus.textContent = 'Verzenden lukt nog niet. Mail je aanvraag naar hallo@forty.nl of probeer het later opnieuw.';
-        })
-        .finally(function() {
-            vpSubmitButton.disabled = false;
-            vpSubmitButton.textContent = 'Toets mijn aannames';
+            btn.textContent = 'Er ging iets mis — probeer opnieuw';
+            btn.disabled = false;
         });
     });
 }
