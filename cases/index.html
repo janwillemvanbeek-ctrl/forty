@@ -69,6 +69,7 @@
             .case-card__image {
                 aspect-ratio: 16 / 10;
                 max-height: 220px;
+                object-fit: cover;
             }
             .case-card__image--aveq { object-position: 50% 34%; }
             .case-card__image--sportup-boost { object-position: 50% 32%; }
@@ -96,10 +97,7 @@
         @media (max-width: 900px) { .cases__grid { grid-template-columns: 1fr; } }
         .case-card { position: relative; background: #ffffff; border: none; border-radius: 8px; box-shadow: 0 1px 1px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.03), 0 12px 28px rgba(0,0,0,0.05), 0 20px 44px -4px rgba(0,0,0,0.04); overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; transition: box-shadow 300ms ease; cursor: pointer; }
         .case-card:hover { box-shadow: 0 1px 1px rgba(0,0,0,0.02), 0 4px 8px rgba(0,0,0,0.04), 0 16px 36px rgba(0,0,0,0.07), 0 24px 52px -4px rgba(0,0,0,0.06); }
-        .case-card__image { width: 100%; aspect-ratio: 4 / 3; background: linear-gradient(135deg, var(--stone-100) 0%, var(--stone-50) 100%); object-fit: cover; display: block; filter: saturate(0.92) contrast(1.05); }
-        @media (min-width: 769px) {
-            .case-card__image { aspect-ratio: auto; height: auto; object-fit: initial; background: transparent; }
-        }
+        .case-card__image { width: 100%; height: auto; aspect-ratio: auto; object-fit: unset; display: block; background: transparent; filter: saturate(0.92) contrast(1.05); }
         .case-card__image-placeholder { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--stone-400); font-style: italic; background: linear-gradient(135deg, var(--stone-100) 0%, var(--stone-50) 100%); }
         .case-card__content { padding: 40px; display: flex; flex-direction: column; flex-grow: 1; }
         .case-card__header { margin-bottom: 24px; padding-bottom: 16px; }
