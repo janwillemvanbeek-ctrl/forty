@@ -635,11 +635,21 @@ if (vpForm) {
             email: document.getElementById('email').value
         };
 
+        var payload = new URLSearchParams(data);
         fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            body: JSON.stringify(data)
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                'Accept': 'application/json'
+            },
+            body: payload.toString()
         })
-        .then(function() {
+        .then(function(res) {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        })
+        .then(function(json) {
+            if (!json || json.result !== 'ok') throw new Error('Invalid response');
             trackEvent('vp_form_submit_success');
             vpForm.innerHTML = '<div style="text-align:center;padding:48px 0;"><p style="font-family:Instrument Serif,Georgia,serif;font-size:28px;margin-bottom:16px;">Ontvangen!</p><p style="color:#78716C;font-size:15px;line-height:1.6;">Je krijgt het resultaat binnen 48 uur per mail.<br>Heb je vragen? Mail <a href="mailto:hallo@forty.nl" style="color:#78716C;">hallo@forty.nl</a></p></div>';
         })
