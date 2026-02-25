@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Virtueel Panel — De focusgroep die je morgen al kunt draaien</title>
+<link rel="icon" type="image/png" href="/forty-beeldmerk-zwart.png">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/hero-animations.css">
 <style>
   :root {
     --ink: #1C1917;
@@ -74,10 +76,10 @@
     font-family: var(--serif); font-size: clamp(38px, 5vw, 56px); font-weight: 400;
     color: var(--ink); line-height: 1.12; margin-bottom: 36px; letter-spacing: -0.01em;
   }
-  .hero h1 em {
+  .hero__title em {
     font-style: italic;
-    background: linear-gradient(180deg, transparent 65%, rgba(245,158,11,0.18) 65%);
-    padding-bottom: 2px;
+    background-image: linear-gradient(to top, rgba(249,115,22,0.12) 0.3em, transparent 0.3em);
+    padding-bottom: 0.05em;
   }
   .hero p { font-size: 17px; color: var(--body); line-height: 1.75; max-width: 600px; }
   .hero p + p { margin-top: 20px; }
@@ -297,16 +299,35 @@
   .closing-section a:hover { background: #292524; }
 
   /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--rule); padding: 36px 0;
-    color: var(--faint); font-size: 13px; background: var(--white);
+  .footer { background: #1c1917; color: #a8a29e; padding: 64px 24px 32px; }
+  .footer__inner { max-width: 1120px; margin: 0 auto; }
+  .footer__top {
+    display: grid; grid-template-columns: 2fr 1.5fr 1fr; gap: 96px;
+    padding-bottom: 72px; border-bottom: 1px solid #292524;
+    margin-bottom: 48px; align-items: start;
   }
-  footer .footer-inner {
-    max-width: 960px; margin: 0 auto; padding: 0 24px;
+  .footer__brand-col { display: flex; flex-direction: column; gap: 24px; }
+  .footer__brand img { height: 40px; width: auto; }
+  .footer__brand-tagline { font-size: 14px; color: #78716c; max-width: 320px; }
+  .footer__social { display: flex; gap: 16px; }
+  .footer__social a { color: #78716c; transition: color 200ms ease; }
+  .footer__social a:hover { color: #d6d3d1; }
+  .footer__col { display: flex; flex-direction: column; gap: 10px; }
+  .footer__col-title {
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #78716c; margin-bottom: 8px;
+  }
+  .footer__col a, .footer__contact-item a {
+    color: #a8a29e; text-decoration: none; font-size: 14px; line-height: 1.6;
+  }
+  .footer__col a:hover, .footer__contact-item a:hover { color: #e7e5e4; }
+  .footer__bottom {
     display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: #78716c;
   }
-  footer a { color: var(--mid); text-decoration: none; }
-  footer a:hover { color: var(--ink); }
+  .footer__legal { display: flex; gap: 24px; }
+  .footer__legal a { color: #78716c; text-decoration: none; }
+  .footer__legal a:hover { color: #a8a29e; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
@@ -350,17 +371,18 @@
     .methodo-item { padding: 20px 22px; }
     .form-box { padding: 20px 16px; }
     .next-cta { padding: 20px 22px; }
-    footer .footer-inner { flex-wrap: wrap; gap: 10px; justify-content: center; text-align: center; }
+    .footer__inner { padding: 0 4px; }
   }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .hero { animation: fadeUp 0.6s ease-out both; }
+  @media (max-width: 900px) {
+    .footer__top { grid-template-columns: 1fr; gap: 32px; }
+    .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<div class="nav-bar">
+<div class="nav-bar site-nav">
   <nav>
     <a href="/" class="logo">
       <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#1C1917" stroke-width="2"/><text x="16" y="21" text-anchor="middle" font-family="DM Sans" font-weight="700" font-size="14" fill="#1C1917">40</text></svg>
@@ -379,9 +401,9 @@
 <!-- HERO -->
 <div class="hero-section">
   <div class="wrap hero">
-    <h1>De focusgroep die je <em>morgen al kunt draaien</em></h1>
-    <p>Je hebt een idee maar geen bewijs dat iemand ervoor betaalt. Je zit in een programma en moet onderbouwen waarom dit door mag. Je moet intern een businesscase verdedigen maar hebt geen tijd voor een onderzoekstraject. Je hebt een maatschappelijke missie maar moet aantonen dat er een houdbaar model onder zit. Of je voelt dat je vastloopt en weet niet precies waarop.</p>
-    <p class="hook">Het Virtueel Panel geeft je binnen een uur een eerste lezing op je aannames. Acht respondenten met eigen achtergronden reageren op jouw vraagstuk — met motivaties, barrières, twijfels en tegengeluiden die je zelf niet bedenkt.</p>
+    <h1 class="hero__title">De focusgroep die je <em>morgen al kunt draaien</em></h1>
+    <p class="hero__body">Je hebt een idee maar geen bewijs dat iemand ervoor betaalt. Je zit in een programma en moet onderbouwen waarom dit door mag. Je moet intern een businesscase verdedigen maar hebt geen tijd voor een onderzoekstraject. Je hebt een maatschappelijke missie maar moet aantonen dat er een houdbaar model onder zit. Of je voelt dat je vastloopt en weet niet precies waarop.</p>
+    <p class="hook hero__body">Het Virtueel Panel geeft je binnen een uur een eerste lezing op je aannames. Acht respondenten met eigen achtergronden reageren op jouw vraagstuk — met motivaties, barrières, twijfels en tegengeluiden die je zelf niet bedenkt.</p>
   </div>
 </div>
 
@@ -622,12 +644,56 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <span>© Forty 2026</span>
-    <span><a href="/privacy">Privacy</a> · <a href="/voorwaarden">Voorwaarden</a></span>
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div class="footer__brand-col">
+        <a href="/" class="footer__brand">
+          <img src="/Forty_Wit_Liggend_rgb.svg" alt="Forty" width="140" height="84" loading="lazy" decoding="async">
+        </a>
+        <p class="footer__brand-tagline">Helderheid over de volgende stap — vóór verdere investering.</p>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/company/fortyutrecht/" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/forty.nl/" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Navigatie</div>
+        <a href="/werkwijze/">Werkwijze</a>
+        <a href="/cases/">Cases</a>
+        <a href="/verhalen/">Verhalen</a>
+        <a href="/over/">Over Forty</a>
+        <a href="/virtueel-panel/">Virtueel Panel</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Contact</div>
+        <span class="footer__contact-item"><a href="tel:+31302737422">+31 (0)30 2737 422</a></span>
+        <span class="footer__contact-item"><a href="mailto:hallo@forty.nl">hallo@forty.nl</a></span>
+        <span class="footer__contact-item" style="margin-top: 8px; font-size: 12px; color: #78716c;">Utrecht, Nederland</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; Forty 2026</span>
+      <div class="footer__legal">
+        <a href="/privacy">Privacy</a>
+        <a href="/voorwaarden/">Voorwaarden</a>
+      </div>
+    </div>
   </div>
 </footer>
 
+<script src="/assets/js/hero-animations.js"></script>
 </body>
 </html>
