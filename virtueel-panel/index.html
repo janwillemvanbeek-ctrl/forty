@@ -695,5 +695,19 @@
 </footer>
 
 <script src="/assets/js/hero-animations.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () {
+      var em = document.querySelector('.hero .hero__title em');
+      if (!em) return;
+      var size = window.getComputedStyle(em).backgroundSize || '';
+      if (size.indexOf('0%') !== -1) {
+        em.style.backgroundSize = '100% 100%';
+        em.style.backgroundPosition = 'left bottom';
+        em.style.backgroundRepeat = 'no-repeat';
+      }
+    }, 1400);
+  });
+</script>
 </body>
 </html>
