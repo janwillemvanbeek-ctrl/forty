@@ -57,11 +57,10 @@
     padding: 18px 48px; max-width: 1120px; margin: 0 auto;
   }
   .logo {
-    font-family: var(--sans); font-weight: 700; font-size: 18px;
-    color: var(--ink); text-decoration: none; letter-spacing: -0.02em;
-    display: flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    display: inline-flex; align-items: center;
   }
-  .logo svg { width: 28px; height: 28px; }
+  .logo img { width: 140px; height: 84px; display: block; }
   .nav-links { display: flex; gap: 28px; }
   .nav-links a { font-size: 14px; color: var(--mid); text-decoration: none; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
@@ -385,8 +384,7 @@
 <div class="nav-bar site-nav">
   <nav>
     <a href="/" class="logo">
-      <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#1C1917" stroke-width="2"/><text x="16" y="21" text-anchor="middle" font-family="DM Sans" font-weight="700" font-size="14" fill="#1C1917">40</text></svg>
-      forty
+      <img src="/Forty_Zwart_Liggend_rgb.svg" alt="Forty" width="140" height="84" decoding="async">
     </a>
     <div class="nav-links">
       <a href="/werkwijze">Werkwijze</a>
@@ -401,7 +399,7 @@
 <!-- HERO -->
 <div class="hero-section">
   <div class="wrap hero">
-    <h1 class="hero__title">De focusgroep die je <em>morgen al kunt draaien</em></h1>
+    <h1 class="hero__title">De focusgroep die je <em style="font-style: italic; text-decoration: none !important; background-image: linear-gradient(to top, rgba(249,115,22,0.12) 0.34em, transparent 0.34em) !important; box-shadow: inset 0 -0.30em 0 rgba(249,115,22,0.12) !important; background-size: 100% 100% !important; background-position: left bottom !important; background-repeat: no-repeat !important; padding-bottom: 0.05em !important;">morgen al kunt draaien</em></h1>
     <p class="hero__body">Je hebt een idee maar geen bewijs dat iemand ervoor betaalt. Je zit in een programma en moet onderbouwen waarom dit door mag. Je moet intern een businesscase verdedigen maar hebt geen tijd voor een onderzoekstraject. Je hebt een maatschappelijke missie maar moet aantonen dat er een houdbaar model onder zit. Of je voelt dat je vastloopt en weet niet precies waarop.</p>
     <p class="hook hero__body">Het Virtueel Panel geeft je binnen een uur een eerste lezing op je aannames. Acht respondenten met eigen achtergronden reageren op jouw vraagstuk — met motivaties, barrières, twijfels en tegengeluiden die je zelf niet bedenkt.</p>
   </div>
