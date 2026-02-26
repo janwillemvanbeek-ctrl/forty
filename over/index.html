@@ -38,6 +38,34 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "@id": "https://www.forty.nl/over/#webpage",
+                "url": "https://www.forty.nl/over/",
+                "name": "Over Forty — helderheid vóór investering",
+                "description": "Forty helpt founders, directie en innovatieteams bepalen welke keuzes leiden tot iets dat werkt.",
+                "isPartOf": { "@id": "https://www.forty.nl/#organization" },
+                "breadcrumb": { "@id": "https://www.forty.nl/over/#breadcrumb" },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": [".hero__title", ".hero__body"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://www.forty.nl/over/#breadcrumb",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.forty.nl/" },
+                    { "@type": "ListItem", "position": 2, "name": "Over Forty", "item": "https://www.forty.nl/over/" }
+                ]
+            }
+        ]
+    }
+    </script>
 <style>
         :root {
             --stone-900: #1c1917;
@@ -1102,7 +1130,7 @@
                 <a href="/cases/">Cases</a>
                 <a href="/verhalen/">Verhalen</a>
                 <a href="/over/" aria-current="page">Over Forty</a>
-                <a href="/virtueel-panel">Virtueel Panel</a>
+                <a href="/virtueel-panel/">Virtueel Panel</a>
             </nav>
             <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1117,7 +1145,7 @@
             <a href="/cases/">Cases</a>
             <a href="/verhalen/">Verhalen</a>
             <a href="/over/" aria-current="page">Over Forty</a>
-            <a href="/virtueel-panel">Virtueel Panel</a>
+            <a href="/virtueel-panel/">Virtueel Panel</a>
             <a href="/koffie/" class="header__mobile-cta">Plan een gesprek</a>
         </div>
     </header>
@@ -1255,6 +1283,18 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section aria-label="Snel overzicht over Forty" style="padding:40px 24px 64px; background:#fafaf9; border-top:1px solid #e7e5e4;">
+        <div style="max-width:960px; margin:0 auto;">
+            <h2 style="font-family:'Instrument Serif', Georgia, serif; font-size:30px; line-height:1.2; color:#1c1917; margin:0 0 12px;">Waar Forty voor staat</h2>
+            <ul style="margin:0 0 16px 20px; color:#44403c; line-height:1.7;">
+                <li><strong>Rol:</strong> beslispartner voor keuzes met hoge onzekerheid.</li>
+                <li><strong>Methode:</strong> aannames expliciet maken, toetsen, dan besluiten.</li>
+                <li><strong>Grens:</strong> geen dikke rapporten, wel keuzes en uitvoering.</li>
+            </ul>
+            <p style="margin:0; color:#57534e;">Verdiepen: <a href="/werkwijze/" style="color:#44403c;">werkwijze</a>, <a href="/cases/" style="color:#44403c;">cases</a>, <a href="/verhalen/" style="color:#44403c;">verhalen</a>.</p>
         </div>
     </section>
 

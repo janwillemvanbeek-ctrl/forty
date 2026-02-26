@@ -16,6 +16,30 @@
     <meta name="twitter:description" content="Beslissingen vóór schaal. Bekijk hoe Forty organisaties helpt expliciet te besluiten of verder investeren verstandig is.">
     <meta name="twitter:image" content="https://www.forty.nl/assets/images/aveq.jpeg">
     <link rel="canonical" href="https://www.forty.nl/cases/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "@id": "https://www.forty.nl/cases/",
+          "url": "https://www.forty.nl/cases/",
+          "name": "Cases — Forty",
+          "description": "Beslissingen vóór schaal. Bekijk hoe Forty organisaties helpt expliciet te besluiten of verder investeren verstandig is.",
+          "isPartOf": { "@id": "https://www.forty.nl/#organization" },
+          "breadcrumb": { "@id": "https://www.forty.nl/cases/#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://www.forty.nl/cases/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.forty.nl/" },
+            { "@type": "ListItem", "position": 2, "name": "Cases", "item": "https://www.forty.nl/cases/" }
+          ]
+        }
+      ]
+    }
+    </script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -143,11 +167,11 @@
     <div class="header__inner">
         <a href="/" class="header__logo"><img src="/Forty_Zwart_Liggend_rgb.svg" alt="Forty" width="140" height="84" decoding="async"></a>
         <nav class="header__nav" aria-label="Hoofdnavigatie">
-            <a href="/werkwijze">Werkwijze</a>
-            <a href="/cases" aria-current="page">Cases</a>
-            <a href="/verhalen">Verhalen</a>
-            <a href="/over">Over Forty</a>
-            <a href="/virtueel-panel">Virtueel Panel</a>
+            <a href="/werkwijze/">Werkwijze</a>
+            <a href="/cases/" aria-current="page">Cases</a>
+            <a href="/verhalen/">Verhalen</a>
+            <a href="/over/">Over Forty</a>
+            <a href="/virtueel-panel/">Virtueel Panel</a>
         </nav>
         <button class="header__mobile-toggle" id="mobileMenuToggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mobileMenu">
             <span>Menu</span>
@@ -155,11 +179,11 @@
         </button>
     </div>
     <div class="header__mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobiele navigatie">
-        <a href="/werkwijze">Werkwijze</a>
-        <a href="/cases">Cases</a>
-        <a href="/verhalen">Verhalen</a>
-        <a href="/over">Over Forty</a>
-        <a href="/virtueel-panel">Virtueel Panel</a>
+        <a href="/werkwijze/">Werkwijze</a>
+        <a href="/cases/">Cases</a>
+        <a href="/verhalen/">Verhalen</a>
+        <a href="/over/">Over Forty</a>
+        <a href="/virtueel-panel/">Virtueel Panel</a>
         <a href="/cdn-cgi/l/email-protection#472f262b2b2807212835333e69292b" class="header__mobile-cta">Plan een gesprek</a>
     </div>
 </header>
@@ -188,7 +212,7 @@
 
             <!-- CASE 2: AVEQ -->
             <a href="/cases/aveq/" class="case-card">
-                <img src="/assets/images/aveq.jpeg" alt="AVEQ boarding in ADO Den Haag stadion" class="case-card__image case-card__image--aveq" loading="lazy" decoding="async" width="1600" height="1200">
+                <img src="/assets/images/aveq.jpeg" alt="AVEQ boarding in ADO Den Haag stadion" class="case-card__image case-card__image--aveq" loading="eager" fetchpriority="high" decoding="async" width="1600" height="1200">
                 <article class="case-card__content">
                     <div class="case-card__header"><div class="case-card__title">AVEQ — van sensortechnologie naar propositie voor voetbalclubs</div></div>
                     <div class="case-card__section">
@@ -370,6 +394,18 @@
     </div>
 </section>
 
+<section aria-label="Snel overzicht cases" style="padding:40px 24px 64px; background:#fafaf9; border-top:1px solid #e7e5e4;">
+    <div style="max-width:960px; margin:0 auto;">
+        <h2 style="font-family:'Instrument Serif', Georgia, serif; font-size:30px; line-height:1.2; color:#1c1917; margin:0 0 12px;">Wat je in deze cases ziet</h2>
+        <ul style="margin:0 0 16px 20px; color:#44403c; line-height:1.7;">
+            <li><strong>Vraag:</strong> welke aanname bepaalt of investeren zin heeft?</li>
+            <li><strong>Aanpak:</strong> compact toetsen met marktdata en gedragsinzichten.</li>
+            <li><strong>Uitkomst:</strong> expliciet besluit met vervolgstap of stopbesluit.</li>
+        </ul>
+        <p style="margin:0; color:#57534e;">Gerelateerd: <a href="/werkwijze/" style="color:#44403c;">zo werken we</a>, <a href="/verhalen/" style="color:#44403c;">achterliggende inzichten</a>, <a href="/virtueel-panel/" style="color:#44403c;">snelle aanname-check</a>.</p>
+    </div>
+</section>
+
     </main>
 
 <!-- FOOTER -->
@@ -384,10 +420,10 @@
             </div>
             <div class="footer__col">
                 <div class="footer__col-title">Navigatie</div>
-                <a href="/werkwijze">Werkwijze</a>
-                <a href="/cases">Cases</a>
-                <a href="/verhalen">Verhalen</a>
-                <a href="/over">Over Forty</a>
+                <a href="/werkwijze/">Werkwijze</a>
+                <a href="/cases/">Cases</a>
+                <a href="/verhalen/">Verhalen</a>
+                <a href="/over/">Over Forty</a>
             </div>
             <div class="footer__col">
                 <div class="footer__col-title">Contact</div>
