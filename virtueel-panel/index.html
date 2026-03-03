@@ -265,7 +265,14 @@
     font-weight: 600; cursor: pointer; transition: background 0.2s; margin-top: 4px;
   }
   .submit-btn:hover { background: var(--amber-hover); }
+  .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; }
   .form-note { font-size: 12px; color: var(--faint); margin-top: 10px; text-align: center; }
+  .form-status {
+    margin-top: 10px; padding: 10px 12px; border-radius: 6px;
+    font-size: 13px; line-height: 1.45; display: none;
+  }
+  .form-status.ok { display: block; background: #ecfdf3; color: #166534; border: 1px solid #bbf7d0; }
+  .form-status.err { display: block; background: #fff7ed; color: #9a3412; border: 1px solid #fdba74; }
 
   /* ── METHODOLOGIE — dark ── */
   .methodo-section { background: var(--dark); padding: 80px 0; }
@@ -599,28 +606,29 @@
           <p>Je ontvangt het rapport per mail — klaar om te bespreken of intern te delen.</p>
         </div>
       </div>
-      <div class="form-box">
+      <form class="form-box" id="virtueelPanelForm">
         <div class="form-group">
           <label>Je idee of propositie</label>
-          <textarea placeholder="Bijv: Een dienst waarmee mantelzorgers via hun werkgever professionele hulp kunnen inschakelen"></textarea>
+          <textarea name="propositie" required placeholder="Bijv: Een dienst waarmee mantelzorgers via hun werkgever professionele hulp kunnen inschakelen"></textarea>
         </div>
         <div class="form-group">
           <label>Doelgroep</label>
-          <input type="text" placeholder="Bijv: Werkende mantelzorgers, 35-55">
+          <input type="text" name="doelgroep" required placeholder="Bijv: Werkende mantelzorgers, 35-55">
         </div>
         <div class="form-group">
           <label>Aannames</label>
-          <div class="aanname-row"><span class="aanname-num">1</span><input type="text" placeholder="Medewerkers willen hulp via hun werkgever"></div>
-          <div class="aanname-row"><span class="aanname-num">2</span><input type="text" placeholder="Informatie is de grootste behoefte"></div>
-          <div class="aanname-row"><span class="aanname-num">3</span><input type="text" placeholder="Derde aanname (optioneel)"></div>
+          <div class="aanname-row"><span class="aanname-num">1</span><input type="text" name="aanname_1" required placeholder="Medewerkers willen hulp via hun werkgever"></div>
+          <div class="aanname-row"><span class="aanname-num">2</span><input type="text" name="aanname_2" required placeholder="Informatie is de grootste behoefte"></div>
+          <div class="aanname-row"><span class="aanname-num">3</span><input type="text" name="aanname_3" placeholder="Derde aanname (optioneel)"></div>
         </div>
         <div class="form-group">
           <label>E-mailadres</label>
-          <input type="email" placeholder="Voor het resultaat">
+          <input type="email" name="email" required placeholder="Voor het resultaat">
         </div>
-        <button class="submit-btn">Toets mijn aannames</button>
+        <button class="submit-btn" type="submit">Toets mijn aannames</button>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
         <div class="form-note">Eerste aanname-check zonder kosten. Geen account nodig.</div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
@@ -756,6 +764,54 @@
 
 <script src="/assets/js/hero-animations.js"></script>
 <script>
+  (function () {
+    var form = document.getElementById('virtueelPanelForm');
+    if (!form) return;
+    var button = form.querySelector('.submit-btn');
+    var statusEl = document.getElementById('formStatus');
+    var endpoint = 'https://script.google.com/macros/s/AKfycbwz2MqEWuYSNVO2hrbTkmBc_nUAPz23iBspWNIeQPhTYuCnOBPJYiOc2BalbvQH0ql2sg/exec';
+
+    function setStatus(type, message) {
+      statusEl.className = 'form-status ' + type;
+      statusEl.textContent = message;
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      button.disabled = true;
+      button.textContent = 'Bezig met verzenden...';
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+
+      try {
+        var fd = new FormData(form);
+        var payload = new URLSearchParams();
+        payload.set('propositie', (fd.get('propositie') || '').toString().trim());
+        payload.set('doelgroep', (fd.get('doelgroep') || '').toString().trim());
+        payload.set('aanname_1', (fd.get('aanname_1') || '').toString().trim());
+        payload.set('aanname_2', (fd.get('aanname_2') || '').toString().trim());
+        payload.set('aanname_3', (fd.get('aanname_3') || '').toString().trim());
+        payload.set('email', (fd.get('email') || '').toString().trim());
+
+        await fetch(endpoint, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: payload
+        });
+
+        setStatus('ok', 'Bedankt! Je aanvraag is verzonden. Je ontvangt het resultaat per mail.');
+        form.reset();
+      } catch (err) {
+        setStatus('err', 'Er ging iets mis. Probeer het over 1 minuut opnieuw.');
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Toets mijn aannames';
+      }
+    });
+  })();
+
   window.addEventListener('DOMContentLoaded', function () {
     setTimeout(function () {
       var em = document.querySelector('.hero .hero__title em');
