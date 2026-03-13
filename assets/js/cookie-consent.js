@@ -88,6 +88,13 @@
       });
     }
 
+    if (window.Snitcher && window.Snitcher._loaded && !window.Snitcher.initialized) {
+      // Recover from half-loaded state (e.g. blocked/failed first load)
+      window.Snitcher._loaded = false;
+      var stale = document.getElementById('__radar__');
+      if (stale && stale.parentNode) stale.parentNode.removeChild(stale);
+    }
+
     if (window.Snitcher && window.Snitcher._loaded) {
       scheduleActivation();
       return;
