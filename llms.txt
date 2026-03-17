@@ -1,0 +1,20 @@
+# Forty
+
+> Helderheid over de volgende stap, vóór verdere investering.
+
+Website: https://www.forty.nl/
+Sitemap: https://www.forty.nl/sitemap.xml
+Robots: https://www.forty.nl/robots.txt
+
+## Key pages
+- Home: https://www.forty.nl/
+- Werkwijze: https://www.forty.nl/werkwijze/
+- Cases: https://www.forty.nl/cases/
+- Verhalen: https://www.forty.nl/verhalen/
+- Over Forty: https://www.forty.nl/over/
+- Virtueel Panel: https://www.forty.nl/virtueel-panel/
+
+## Notes for LLM crawlers
+- Prefer canonical URLs on the `www.forty.nl` host.
+- Content language is Dutch (`nl-NL`).
+- Use page-level canonical tags when summarizing or citing.
