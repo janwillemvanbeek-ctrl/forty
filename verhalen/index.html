@@ -43,19 +43,20 @@
                 },
                 "mainEntity": {
                     "@type": "ItemList",
-                    "numberOfItems": 11,
+                    "numberOfItems": 12,
                     "itemListElement": [
-                    {"@type": "ListItem", "position": 1, "name": "Waar switcht je klant van weg?", "url": "/verhalen/waar-switcht-je-klant-van-weg/", "description": "Vier vragen die bepalen of iemand daadwerkelijk overstapt."},
-                    {"@type": "ListItem", "position": 2, "name": "Waarom klanten écht overstappen", "url": "/verhalen/waarom-klanten-echt-overstappen/", "description": "Het Customer Forces-model: welke krachten klantgedrag in beweging zetten."},
-                    {"@type": "ListItem", "position": 3, "name": "Waarom jouw klant niet kiest voor winst", "url": "/verhalen/waarom-jouw-klant-niet-kiest-voor-winst/", "description": "Hoe verliesaversie bepaalt of je propositie wordt gekozen."},
-                    {"@type": "ListItem", "position": 4, "name": "Hoe een impact investor samenwerkt met startups", "url": "/verhalen/impact-investor-shift-invest/", "description": "Thijs Gitmans van Shift Invest over investeringsbeslissingen."},
-                    {"@type": "ListItem", "position": 5, "name": "Groei zonder groeipijn", "url": "/verhalen/groei-zonder-groeipijn/", "description": "Waarom 74% van startups faalt door te vroeg opschalen."},
-                    {"@type": "ListItem", "position": 6, "name": "Fake Door Testing", "url": "/verhalen/fake-door-testing/", "description": "Koopintentie meten met een neppagina."},
-                    {"@type": "ListItem", "position": 7, "name": "Hoe Bamboi de markt wil veranderen", "url": "/verhalen/bamboi-zebra-show/", "description": "Over timing, positionering en de moed om klein te beginnen."},
-                    {"@type": "ListItem", "position": 8, "name": "Het opstellen van aannames", "url": "/verhalen/behavioral-design-principes/", "description": "Hoe je aannames expliciet en toetsbaar maakt."},
-                    {"@type": "ListItem", "position": 9, "name": "7 Behavioral Design Principes", "url": "/verhalen/behavioral-design-principes/", "description": "Gedragsprincipes die bepalen of je propositie wordt gebruikt."},
-                    {"@type": "ListItem", "position": 10, "name": "Kleinste probleem, grootste frustratie", "url": "/verhalen/kies-en-ontwerp-je-experiment/", "description": "Joost Pompe over onderschatte problemen met het grootste potentieel."},
-                    {"@type": "ListItem", "position": 11, "name": "Kies en ontwerp je experiment", "url": "/verhalen/kies-en-ontwerp-je-experiment/", "description": "Het juiste experiment kiezen voor de aanname die ertoe doet."}
+                    {"@type": "ListItem", "position": 1, "name": "Innovatie is geen ideeënprobleem, maar een selectieprobleem", "url": "/selectieprobleem/", "description": "Het Oekraïense leger runt een webshop, en dat legt bloot hoe organisaties beslissen."},
+                    {"@type": "ListItem", "position": 2, "name": "Waar switcht je klant van weg?", "url": "/verhalen/waar-switcht-je-klant-van-weg/", "description": "Vier vragen die bepalen of iemand daadwerkelijk overstapt."},
+                    {"@type": "ListItem", "position": 3, "name": "Waarom klanten écht overstappen", "url": "/verhalen/waarom-klanten-echt-overstappen/", "description": "Het Customer Forces-model: welke krachten klantgedrag in beweging zetten."},
+                    {"@type": "ListItem", "position": 4, "name": "Waarom jouw klant niet kiest voor winst", "url": "/verhalen/waarom-jouw-klant-niet-kiest-voor-winst/", "description": "Hoe verliesaversie bepaalt of je propositie wordt gekozen."},
+                    {"@type": "ListItem", "position": 5, "name": "Hoe een impact investor samenwerkt met startups", "url": "/verhalen/impact-investor-shift-invest/", "description": "Thijs Gitmans van Shift Invest over investeringsbeslissingen."},
+                    {"@type": "ListItem", "position": 6, "name": "Groei zonder groeipijn", "url": "/verhalen/groei-zonder-groeipijn/", "description": "Waarom 74% van startups faalt door te vroeg opschalen."},
+                    {"@type": "ListItem", "position": 7, "name": "Fake Door Testing", "url": "/verhalen/fake-door-testing/", "description": "Koopintentie meten met een neppagina."},
+                    {"@type": "ListItem", "position": 8, "name": "Hoe Bamboi de markt wil veranderen", "url": "/verhalen/bamboi-zebra-show/", "description": "Over timing, positionering en de moed om klein te beginnen."},
+                    {"@type": "ListItem", "position": 9, "name": "Het opstellen van aannames", "url": "/verhalen/behavioral-design-principes/", "description": "Hoe je aannames expliciet en toetsbaar maakt."},
+                    {"@type": "ListItem", "position": 10, "name": "7 Behavioral Design Principes", "url": "/verhalen/behavioral-design-principes/", "description": "Gedragsprincipes die bepalen of je propositie wordt gebruikt."},
+                    {"@type": "ListItem", "position": 11, "name": "Kleinste probleem, grootste frustratie", "url": "/verhalen/kies-en-ontwerp-je-experiment/", "description": "Joost Pompe over onderschatte problemen met het grootste potentieel."},
+                    {"@type": "ListItem", "position": 12, "name": "Kies en ontwerp je experiment", "url": "/verhalen/kies-en-ontwerp-je-experiment/", "description": "Het juiste experiment kiezen voor de aanname die ertoe doet."}
                     ]
                 }
             },
@@ -487,7 +488,23 @@
             max-width: 520px;
             height: auto;
         }
-        
+        /* Photo visual — screenshot fills the frame edge to edge */
+        .verhaal-card .verhaal-card__visual.verhaal-card__visual--photo {
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            background: #fff;
+        }
+        .verhaal-card__visual--photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
         /* No grain on visual cards — keeps SVGs crisp */
         
         /* Number — large, light, structural */
@@ -829,8 +846,21 @@
     <section class="verhalen" aria-label="Analyses en gesprekken">
         <div class="verhalen__inner">
             <div class="verhalen__grid">
-<!-- 01. Featured: Waar switcht je klant van weg? -->
-                <a href="/verhalen/waar-switcht-je-klant-van-weg/" class="verhaal-card verhaal-card--featured reveal reveal-card" data-type="analyse">
+<!-- 01. Featured: Innovatie is een selectieprobleem -->
+                <a href="/selectieprobleem/" class="verhaal-card verhaal-card--featured reveal reveal-card" data-type="analyse">
+                    <div class="verhaal-card__visual verhaal-card__visual--photo">
+                        <img src="/assets/images/brave1-market.jpg" alt="BRAVE1 Market: de Oekraïense marktplaats waar eenheden met punten drones bestellen" width="1600" height="1118" decoding="async">
+                    </div>
+                    <div class="verhaal-card__content">
+                        <span class="verhaal-card__number">01</span>
+                        <span class="verhaal-card__label">Analyse</span>
+                        <h2 class="verhaal-card__title">Innovatie is geen ideeënprobleem, maar een selectieprobleem</h2>
+                        <p class="verhaal-card__summary">Het Oekraïense leger runt een webshop — en dat systeem legt bloot hoe organisaties beslissen. Over wie kiest, op welk bewijs, met welke consequentie.</p>
+                        <span class="verhaal-card__link"><span>→</span></span>
+                    </div>
+                </a>
+<!-- 02. Waar switcht je klant van weg? -->
+                <a href="/verhalen/waar-switcht-je-klant-van-weg/" class="verhaal-card reveal reveal-card" data-type="analyse">
                     <div class="verhaal-card__visual">
                         <svg viewBox="0 0 360 180" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Four forces diagram -->
